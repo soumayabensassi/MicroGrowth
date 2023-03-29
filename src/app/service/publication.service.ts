@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Dislike } from '../Models/dislike';
 import { Like } from '../Models/like';
 import { Pubication } from '../Models/pubication';
 @Injectable({
@@ -24,9 +25,9 @@ export class PublicationService {
   {
     return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/"+id,like)
   }
-  DislikerPublication(like:Like,id:number)
+  DislikerPublication(dislike:Dislike,id:number)
   {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/"+id,like)
+    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/"+id,dislike)
   }
   GetNombreLike(id:number)
   {

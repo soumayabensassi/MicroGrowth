@@ -17,7 +17,7 @@ export class AddPublicationComponent implements OnInit {
   sendPublication() 
   {
     this.pubservice.addPublication(this.publication).subscribe(
-      ()=>this.route.navigateByUrl("/homepage")
+      ()=>this.route.navigateByUrl("/homePage")
     )
  
   }

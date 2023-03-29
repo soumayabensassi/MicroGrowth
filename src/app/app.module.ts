@@ -17,6 +17,7 @@ import { ChangemdpComponent } from './Component/changemdp/changemdp.component';
 import { UpdatepasswordComponent } from './Component/updatepassword/updatepassword.component';
 import { WritemsgComponent } from './Component/writemsg/writemsg.component';
 import { AddPublicationComponent } from './Component/add-publication/add-publication.component';
+import { ProfilComponent } from './Component/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AddPublicationComponent } from './Component/add-publication/add-publica
     ChangemdpComponent,
     UpdatepasswordComponent,
     WritemsgComponent,
-    AddPublicationComponent
+    AddPublicationComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

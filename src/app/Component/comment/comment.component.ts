@@ -4,6 +4,8 @@ import { Pubication } from 'src/app/Models/pubication';
 import { Comment } from 'src/app/Models/comment';
 import { CommentService } from 'src/app/service/comment.service';
 import { PublicationService } from 'src/app/service/publication.service';
+import { Like } from 'src/app/Models/like';
+import { Dislike } from 'src/app/Models/dislike';
 
 @Component({
   selector: 'app-comment',
@@ -16,6 +18,8 @@ id!:number
 idComment!:number
 list: Comment[] = [];
 comment:Comment=new Comment();
+like: Like = new Like();
+dislike: Dislike = new Dislike();
  constructor(private commentServive:CommentService,private active:ActivatedRoute,private publicationServive:PublicationService,private route:Router) { }
 
   ngOnInit(): void {
@@ -25,10 +29,18 @@ comment:Comment=new Comment();
       data => this.list = data
     );
   }
-  LikeFunction(id:number)
-  {}
-  DisLikeFunction(id:number)
-  {}
+  LikeFunction(idCome:number)
+  {
+    this.commentServive.getCommentById(idCome).subscribe((data) => this.like.comments = data);
+    this.commentServive.likerPublication(this.like, idCome).subscribe(
+      () => this.route.navigateByUrl('/homePage')
+    )
+  }
+  DisLikeFunction(idCome:number)
+  { this.commentServive.getCommentById(idCome).subscribe((data) => this.like.comments = data);
+    this.commentServive.DislikerPublication(this.dislike, idCome).subscribe(
+      () => this.route.navigateByUrl('/homePage')
+    )}
   sendComment()
   {
     this.commentServive.addComment(this.comment,this.id).subscribe(

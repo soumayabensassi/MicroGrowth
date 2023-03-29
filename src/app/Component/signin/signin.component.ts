@@ -18,8 +18,16 @@ export class SigninComponent implements OnInit {
   login(myForm:NgForm)
 {
   this.userService.login(this.user.email,this.user.password).subscribe(
-    data => console.log(data),
-      error => console.log(error)
-      )
+    (response: any) => {
+      console.log(response)
+      // Login successful, store access_token and refresh_token in localStorage
+      localStorage.setItem('access_token', response.access_token);
+      localStorage.setItem('refresh_token', response.refresh_token);
+      this.route.navigateByUrl('/profil')
+    },
+    (error) => {
+      // Login failed, display error message to user
+      console.error(error);
+    })
 }
 }

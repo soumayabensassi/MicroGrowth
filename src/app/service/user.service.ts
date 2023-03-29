@@ -15,6 +15,12 @@ export class UserService {
   );
   productURL="http://localhost:8082/MicroGrowth/";
   
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('access_token')}`
+    })
+  };
   constructor(private http:HttpClient) {
    
   }
@@ -50,6 +56,11 @@ export class UserService {
     changePAssword(email:string,token:string,password:string){
       return this.http.get(" http://localhost:8082/MicroGrowth/user/email/reset/"+token+"/"+email+"/"+password)}
   
-
+    
+      
+    
+      getUserInfo(): Observable<any> {
+        return this.http.get('http://localhost:8082/MicroGrowth/session', this.httpOptions);
+      }
    
 }
