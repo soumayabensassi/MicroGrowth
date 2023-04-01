@@ -1,25 +1,21 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  
-  requestHeader =new HttpHeaders(
-    {
-      "No-Auth":"True"
-    }
-  );
+
   productURL="http://localhost:8082/MicroGrowth/";
   
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('access_token')}`
+      Authorization: 'Bearer'+' '+localStorage.getItem('access_token')
     })
+    
   };
   constructor(private http:HttpClient) {
    
@@ -59,8 +55,11 @@ export class UserService {
     
       
     
-      getUserInfo(): Observable<any> {
-        return this.http.get('http://localhost:8082/MicroGrowth/session', this.httpOptions);
+      getUserInfo(): Observable<User> {
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
+        return this.http.get<User>('http://localhost:8082/MicroGrowth/session', { headers });
       }
+      
+     
    
 }

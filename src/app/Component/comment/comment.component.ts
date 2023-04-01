@@ -6,6 +6,8 @@ import { CommentService } from 'src/app/service/comment.service';
 import { PublicationService } from 'src/app/service/publication.service';
 import { Like } from 'src/app/Models/like';
 import { Dislike } from 'src/app/Models/dislike';
+import { User } from 'src/app/Models/user';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-comment',
@@ -20,9 +22,19 @@ list: Comment[] = [];
 comment:Comment=new Comment();
 like: Like = new Like();
 dislike: Dislike = new Dislike();
- constructor(private commentServive:CommentService,private active:ActivatedRoute,private publicationServive:PublicationService,private route:Router) { }
+userInfo: User=new User();
+
+ constructor(private commentServive:CommentService,private active:ActivatedRoute,private userservice:UserService,private publicationServive:PublicationService,private route:Router) { }
 
   ngOnInit(): void {
+    this.userservice.getUserInfo().subscribe(
+      (data) => {
+        this.userInfo = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     this.id=this.active.snapshot.params['idPUB'];
     this.publicationServive.getPublicationById(this.id).subscribe((data) => this.pub= data)
     this.commentServive.getCommentByIdPublication(this.id).subscribe(
@@ -32,18 +44,18 @@ dislike: Dislike = new Dislike();
   LikeFunction(idCome:number)
   {
     this.commentServive.getCommentById(idCome).subscribe((data) => this.like.comments = data);
-    this.commentServive.likerPublication(this.like, idCome).subscribe(
+    this.commentServive.LikerComment(this.like, idCome,this.userInfo.email).subscribe(
       () => this.route.navigateByUrl('/homePage')
     )
   }
   DisLikeFunction(idCome:number)
   { this.commentServive.getCommentById(idCome).subscribe((data) => this.like.comments = data);
-    this.commentServive.DislikerPublication(this.dislike, idCome).subscribe(
+    this.commentServive.DislikerComment(this.dislike, idCome,this.userInfo.email).subscribe(
       () => this.route.navigateByUrl('/homePage')
     )}
   sendComment()
   {
-    this.commentServive.addComment(this.comment,this.id).subscribe(
+    this.commentServive.addComment(this.comment,this.id,this.userInfo.email).subscribe(
       ()=>this.list.push(this.comment)
     )
     

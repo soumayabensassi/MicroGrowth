@@ -24,10 +24,10 @@
                     <form #myForm="ngForm" (ngSubmit)="sendPublication()">
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <input type="text" class="form-control border-0 bg-light px-4" value="Your Name" disabled style="height: 55px;">
+                                <input type="text" class="form-control border-0 bg-light px-4" value={{userInfo.firstName}} disabled style="height: 55px;">
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control border-0 bg-light px-4" value="Your Email" disabled style="height: 55px;">
+                                <input type="email" class="form-control border-0 bg-light px-4" value={{userInfo.email}} disabled style="height: 55px;">
                             </div>
                             <div class="col-12">
                                 <input type="text" class="form-control border-0 bg-light px-4" value="User Story"  disabled style="height: 55px;">

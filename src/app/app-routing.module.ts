@@ -15,7 +15,7 @@ import { WritemsgComponent } from './Component/writemsg/writemsg.component';
 const routes: Routes = [
 {path:'publication',component:PublicationComponent},
 {path:'msg',component:WritemsgComponent},
-{path:'profil',component:ProfilComponent},
+{path:'user/profil',component:ProfilComponent},
 {path:'comment/:idPUB',component:CommentComponent},
 {path:'updatepPassword/:token/:email',component:UpdatepasswordComponent},
 {path:'confirmeCompte/:email',component:ConfirmeCompteComponent},

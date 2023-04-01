@@ -11,23 +11,36 @@ import { NgForm } from '@angular/forms/forms';
 })
 export class SigninComponent implements OnInit {
   user:User=new User();
+  userInfo: User=new User();
   constructor(private userService:UserService,private route:Router) { }
 
   ngOnInit(): void {
+    this.userService.getUserInfo().subscribe(
+      (data) => {
+      this.userInfo = data;
+     
+      
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
   }
   login(myForm:NgForm)
-{
+{ 
   this.userService.login(this.user.email,this.user.password).subscribe(
     (response: any) => {
       console.log(response)
       // Login successful, store access_token and refresh_token in localStorage
       localStorage.setItem('access_token', response.access_token);
       localStorage.setItem('refresh_token', response.refresh_token);
-      this.route.navigateByUrl('/profil')
+      this.route.navigateByUrl('user/profil')
     },
     (error) => {
       // Login failed, display error message to user
       console.error(error);
     })
+    
+    
 }
 }

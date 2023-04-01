@@ -36,19 +36,21 @@
                                             <small class="me-3"><i
                                                     class="far fa-user text-primary me-2"></i>{{x.users.email}}</small>
                                             <br>
-                                            <small><i class="far fa-calendar-alt text-primary me-2"></i>01
+                                            <small class="me-3"><i class="far fa-calendar-alt text-primary me-2"></i>01
                                                 Jan,
                                                 2045</small>
+                                                <small class="me-3"> <div *ngIf="x.users.email==userInfo.email">   <i class="bi bi-pencil-square"></i></div></small>
 
                                         </div>
-                                        <small>{{x.likes}} <a (click)="LikeFunction(x.idPublication)"><i
-                                                    class="fas fa-thumbs-up"> </i> </a>
-                                            <br>
-                                            {{x.dislikes}} <a (click)="DisLikeFunction(x.idPublication)"><i
-                                                    class="fas fa-thumbs-down"> </i> </a> </small>
+                                        
+                                    <small class="me-3"> <a (click)="LikeFunction(x.idPublication)"><i class="fas fa-thumbs-up">    </i> Like</a>   </small>
+                                    <small class="me-3">  <a (click)="DisLikeFunction(x.idPublication)"><i class="fas fa-thumbs-down">    </i> Dislike</a>    </small>
+                                
+                                        
                                         <p>{{x.text}}</p>
                                         <a class="text-uppercase" routerLink="/comment/{{x.idPublication}}">Read More <i
                                                 class="bi bi-arrow-right"></i></a>
+                                             
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +103,7 @@
                             <div class="d-flex rounded overflow-hidden mb-3">
                                 <img class="img-fluid" src="../../../assets/img/blog-2.jpg"
                                     style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                                <a href="" class="h5 fw-semi-bold bg-light rounded py-8 px-3 mb-6" wi>User story
+                                <a routerLink="/comment/{{x.idPublication}}" class="h5 fw-semi-bold bg-light rounded py-8 px-3 mb-6" wi>User story
                                     <br>
                                     {{x.users.firstName}} {{x.users.lasttName}}
                                 </a>

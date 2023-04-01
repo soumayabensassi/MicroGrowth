@@ -17,17 +17,17 @@ export class PublicationService {
    getPublicationById(id:number):Observable<Pubication>{
     return this.http.get<Pubication>("http://localhost:8082/MicroGrowth/afficherPublicationbyID/"+id);
    }
-   addPublication(pub:Pubication){
-    return this.http.post("http://localhost:8082/MicroGrowth/user/ajouterPublication",pub)
+   addPublication(pub:Pubication,email:string){
+    return this.http.post("http://localhost:8082/MicroGrowth/user/ajouterPublication/"+email,pub)
 
    }
-  likerPublication(like:Like,id:number)
+  likerPublication(like:Like,id:number,email:string)
   {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/"+id,like)
+    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/"+id+"/"+email,like)
   }
-  DislikerPublication(dislike:Dislike,id:number)
+  DislikerPublication(dislike:Dislike,id:number,email:string)
   {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/"+id,dislike)
+    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/"+id+"/"+email,dislike)
   }
   GetNombreLike(id:number)
   {
