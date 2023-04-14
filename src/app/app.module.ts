@@ -21,6 +21,8 @@ import { AddPublicationComponent } from './Component/add-publication/add-publica
 import { ProfilComponent } from './Component/profil/profil.component';
 import { DashboardBACKComponent } from './Component/dashboard-back/dashboard-back.component';
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
+import { ListUserBACKComponent } from './Component/list-user-back/list-user-back.component';
+import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.c
     AddPublicationComponent,
     ProfilComponent,
     DashboardBACKComponent,
-    HomepageBACKComponent
+    HomepageBACKComponent,
+    ListUserBACKComponent,
+    ListPublictaionBACKComponent
   ],
   imports: [
     BrowserModule,

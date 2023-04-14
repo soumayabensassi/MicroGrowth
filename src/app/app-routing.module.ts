@@ -12,6 +12,8 @@ import { SignupComponent } from './Component/signup/signup.component';
 import { UpdatepasswordComponent } from './Component/updatepassword/updatepassword.component';
 import { WritemsgComponent } from './Component/writemsg/writemsg.component';
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
+import { ListUserBACKComponent } from './Component/list-user-back/list-user-back.component';
+import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 
 const routes: Routes = [
 {path:'publication',component:PublicationComponent},
@@ -26,6 +28,8 @@ const routes: Routes = [
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
 {path:'homepageBack',component:HomepageBACKComponent},
+{path:'listuser',component:ListUserBACKComponent},
+{path:'listpublicationback',component:ListPublictaionBACKComponent},
 //{path:'',redirectTo:'homePage',pathMatch:'full'}
 ];
 

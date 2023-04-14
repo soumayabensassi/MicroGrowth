@@ -21,6 +21,10 @@ export class PublicationService {
     return this.http.post("http://localhost:8082/MicroGrowth/user/ajouterPublication/"+email,pub)
 
    }
+   aprouverPublication(pub:number){
+    return this.http.post("http://localhost:8082/MicroGrowth/admin/aprouvePublication/"+ pub,pub)
+
+   }
   likerPublication(like:Like,id:number,email:string)
   {
     return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/"+id+"/"+email,like)
