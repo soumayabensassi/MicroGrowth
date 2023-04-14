@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'MicroGrowth';
   userIsAdmin!:any
   constructor() {
-    this.userIsAdmin='[ROLE_ADMIN]'
+    this.userIsAdmin='[ROLE_USER]'
   }
 }
