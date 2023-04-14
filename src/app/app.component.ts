@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MicroGrowth';
+  userIsAdmin!:any
+  constructor() {
+    this.userIsAdmin='[ROLE_ADMIN]'
+  }
 }

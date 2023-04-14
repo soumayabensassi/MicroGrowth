@@ -19,6 +19,8 @@ import { UpdatepasswordComponent } from './Component/updatepassword/updatepasswo
 import { WritemsgComponent } from './Component/writemsg/writemsg.component';
 import { AddPublicationComponent } from './Component/add-publication/add-publication.component';
 import { ProfilComponent } from './Component/profil/profil.component';
+import { DashboardBACKComponent } from './Component/dashboard-back/dashboard-back.component';
+import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ProfilComponent } from './Component/profil/profil.component';
     UpdatepasswordComponent,
     WritemsgComponent,
     AddPublicationComponent,
-    ProfilComponent
+    ProfilComponent,
+    DashboardBACKComponent,
+    HomepageBACKComponent
   ],
   imports: [
     BrowserModule,
