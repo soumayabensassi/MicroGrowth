@@ -22,7 +22,7 @@ export class AppComponent {
   {this.userIsAdmin="null"}
   console.log("aaaaaaaaaaaaaaaa")
   console.log(this.userInfo.roles.name)*/
-  this.userIsAdmin="[ROLE_ADMIN]"
+  this.userIsAdmin="[ROLE_USER]"
   }
   ngOnInit(): void {
     this.userService.getUserInfo().subscribe(

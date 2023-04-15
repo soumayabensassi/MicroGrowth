@@ -23,10 +23,14 @@ comment:Comment=new Comment();
 like: Like = new Like();
 dislike: Dislike = new Dislike();
 userInfo: User=new User();
+listpublication: Pubication[] = [];
 
  constructor(private commentServive:CommentService,private active:ActivatedRoute,private userservice:UserService,private publicationServive:PublicationService,private route:Router) { }
 
   ngOnInit(): void {
+    this.publicationServive.getPublication().subscribe(
+      data => this.listpublication = data
+    );
     this.userservice.getUserInfo().subscribe(
       (data) => {
         this.userInfo = data;

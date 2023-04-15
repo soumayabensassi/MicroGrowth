@@ -16,7 +16,8 @@
                       <th>User Email</th>
                       <th>User Name</th>
                     
-                      <th>approuver</th>
+                      <th>Approve</th>
+                      <th>Delete</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -25,8 +26,8 @@
                       <td>{{x.text}}</td>
                       <td>{{x.users.email}}</td>
                       <td>{{x.users.firstName}} {{x.users.lasttName}}</td>
-                      <td> <button  class="btn btn-primary" (click)="aprouverpublication(x.idPublication)"> approuver</button></td>
-                      
+                      <td> <button  class="btn btn-primary" (click)="aprouverpublication(x.idPublication)"> Approve</button></td>
+                      <td> <button  class="btn btn-primary" (click)="delete(x.idPublication)"> Delete</button></td>
                     </tr>
                 </ng-container>
                   </tbody>

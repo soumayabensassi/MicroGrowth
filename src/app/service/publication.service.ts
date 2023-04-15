@@ -21,8 +21,8 @@ export class PublicationService {
     return this.http.post("http://localhost:8082/MicroGrowth/user/ajouterPublication/"+email,pub)
 
    }
-   aprouverPublication(pub:number){
-    return this.http.post("http://localhost:8082/MicroGrowth/admin/aprouvePublication/"+ pub,pub)
+   aprouverPublication(pub:number,pubication:Pubication){
+    return this.http.post("http://localhost:8082/MicroGrowth/admin/aprouvePublication/"+ pub,pubication)
 
    }
   likerPublication(like:Like,id:number,email:string)
@@ -40,5 +40,9 @@ export class PublicationService {
   GetNombreDisLike(id:number)
   {
     return this.http.get<number>("http://localhost:8082/MicroGrowth/totalDisLike/"+id);
+  }
+  delete(id:number)
+  {
+    return this.http.delete<number>("http://localhost:8082/MicroGrowth/admin/deletePublication/"+id);
   }
 }
