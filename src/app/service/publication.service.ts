@@ -9,32 +9,28 @@ import { Pubication } from '../Models/pubication';
   providedIn: 'root'
 })
 export class PublicationService {
-  PublicationURL:string=environment.apiURL+"/afficherPublication"
-  constructor(private http:HttpClient) { }
-  getPublication():Observable<Pubication[]>{
+  PublicationURL: string = environment.apiURL + "/afficherPublication"
+  constructor(private http: HttpClient) { }
+  getPublication(): Observable<Pubication[]> {
     return this.http.get<Pubication[]>("http://localhost:8082/MicroGrowth/afficherPublication");
-   }
-   getPublicationById(id:number):Observable<Pubication>{
-    return this.http.get<Pubication>("http://localhost:8082/MicroGrowth/afficherPublicationbyID/"+id);
-   }
-   addPublication(pub:Pubication,email:string){
-    return this.http.post("http://localhost:8082/MicroGrowth/user/ajouterPublication/"+email,pub)
+  }
+  getPublicationById(id: number): Observable<Pubication> {
+    return this.http.get<Pubication>("http://localhost:8082/MicroGrowth/afficherPublicationbyID/" + id);
+  }
+  addPublication(pub: Pubication, email: string) {
+    return this.http.post("http://localhost:8082/MicroGrowth/user/ajouterPublication/" + email, pub)
 
-   }
-  likerPublication(like:Like,id:number,email:string)
-  {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/"+id+"/"+email,like)
   }
-  DislikerPublication(dislike:Dislike,id:number,email:string)
-  {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/"+id+"/"+email,dislike)
+  likerPublication(like: Like, id: number, email: string) {
+    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/" + id + "/" + email, like)
   }
-  GetNombreLike(id:number)
-  {
-    return this.http.get<number>("http://localhost:8082/MicroGrowth/totalLike/"+id);
+  DislikerPublication(dislike: Dislike, id: number, email: string) {
+    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/" + id + "/" + email, dislike)
   }
-  GetNombreDisLike(id:number)
-  {
-    return this.http.get<number>("http://localhost:8082/MicroGrowth/totalDisLike/"+id);
+  GetNombreLike(id: number) {
+    return this.http.get<number>("http://localhost:8082/MicroGrowth/totalLike/" + id);
+  }
+  GetNombreDisLike(id: number) {
+    return this.http.get<number>("http://localhost:8082/MicroGrowth/totalDisLike/" + id);
   }
 }

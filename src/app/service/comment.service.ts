@@ -15,18 +15,16 @@ export class CommentService {
   getCommentByIdPublication(id: number): Observable<Comment[]> {
     return this.http.get<Comment[]>("http://localhost:8082/MicroGrowth/AfficherCommentbyPUBID/" + id);
   }
-  addComment(pub: Comment,idpub:number,email:string) {
-    return this.http.post<Comment>("http://localhost:8082/MicroGrowth/user/ajouterComment/"+idpub+"/"+email, pub)
+  addComment(pub: Comment, idpub: number, email: string) {
+    return this.http.post<Comment>("http://localhost:8082/MicroGrowth/user/ajouterComment/" + idpub + "/" + email, pub)
   }
-  LikerComment(like:Like,id:number,email:string)
-  {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerComment/"+id+"/"+email,like)
+  LikerComment(like: Like, id: number, email: string) {
+    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerComment/" + id + "/" + email, like)
   }
-  DislikerComment(dislike:Dislike,id:number,email:string)
-  {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerComment/"+id+"/"+email,dislike)
+  DislikerComment(dislike: Dislike, id: number, email: string) {
+    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerComment/" + id + "/" + email, dislike)
   }
-  getCommentById(id:number):Observable<Comment>{
-    return this.http.get<Comment>("http://localhost:8082/MicroGrowth/AfficherCommentbyID/"+id);
-   }
+  getCommentById(id: number): Observable<Comment> {
+    return this.http.get<Comment>("http://localhost:8082/MicroGrowth/AfficherCommentbyID/" + id);
+  }
 }

@@ -11,10 +11,10 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./add-publication.component.css']
 })
 export class AddPublicationComponent implements OnInit {
-  publication:Pubication=new Pubication();
-  userInfo: User=new User();
+  publication: Pubication = new Pubication();
+  userInfo: User = new User();
 
-  constructor(private pubservice:PublicationService,private userservice:UserService,private route:Router) { }
+  constructor(private pubservice: PublicationService, private userservice: UserService, private route: Router) { }
 
   ngOnInit(): void {
     this.userservice.getUserInfo().subscribe(
@@ -26,11 +26,10 @@ export class AddPublicationComponent implements OnInit {
       }
     );
   }
-  sendPublication() 
-  {
-    this.pubservice.addPublication(this.publication,this.userInfo.email).subscribe(
-      ()=>this.route.navigateByUrl("/publication")
+  sendPublication() {
+    this.pubservice.addPublication(this.publication, this.userInfo.email).subscribe(
+      () => this.route.navigateByUrl("/publication")
     )
- 
+
   }
 }

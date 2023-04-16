@@ -12,6 +12,7 @@ import { SignupComponent } from './Component/signup/signup.component';
 import { UpdatepasswordComponent } from './Component/updatepassword/updatepassword.component';
 import { WritemsgComponent } from './Component/writemsg/writemsg.component';
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
+import { InsuranceComponent } from './Component/insurance/insurance.component';
 
 const routes: Routes = [
 {path:'publication',component:PublicationComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
 {path:'homepageBack',component:HomepageBACKComponent},
+{path:'Insurance',component:InsuranceComponent},
 //{path:'',redirectTo:'homePage',pathMatch:'full'}
 ];
 
