@@ -14,7 +14,6 @@ export class AppComponent {
   userInfo: User=new User();
   token!:any
   constructor(private userService:UserService) {
-    console.log(this.userInfo.roles.name)
     /*if(this.userInfo.roles.name === '[ROLE_ADMIN]')
   {this.userIsAdmin="[ROLE_ADMIN]"}
   else if( this.userInfo.roles.name === '[ROLE_USER]')
