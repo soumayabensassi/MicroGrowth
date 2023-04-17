@@ -46,7 +46,7 @@
                                 <small><i class="bi bi-card-text"></i> Comments:</small>
                                 <div *ngFor="let x of list">
                                   <div class="form-control border-2 bg-light px-4 py-3"> <small class="me-3"><i class="far fa-user text-primary me-3"></i>{{x.users.firstName}} :</small> 
-                                    <br>
+                                    
                                     {{x.text}} </div>  
                                     
                                     <small class="me-3"> <a (click)="LikeFunction(x.idComment)"><i class="fas fa-thumbs-up">    </i> Like</a>   </small>

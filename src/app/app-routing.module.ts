@@ -30,7 +30,7 @@ const routes: Routes = [
 {path:'homepageBack',component:HomepageBACKComponent},
 {path:'listuser',component:ListUserBACKComponent},
 {path:'listpublicationback',component:ListPublictaionBACKComponent},
-//{path:'',redirectTo:'homePage',pathMatch:'full'}
+{path:'',redirectTo:'homePage',pathMatch:'full'}
 ];
 
 @NgModule({

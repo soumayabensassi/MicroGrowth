@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from './service/user.service';
 import { User } from './Models/user';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent {
   userInfo: User=new User();
   token!:any
   constructor(private userService:UserService) {
-    
+    console.log(this.userInfo.roles.name)
     /*if(this.userInfo.roles.name === '[ROLE_ADMIN]')
   {this.userIsAdmin="[ROLE_ADMIN]"}
   else if( this.userInfo.roles.name === '[ROLE_USER]')
