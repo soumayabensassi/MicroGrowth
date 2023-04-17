@@ -1,3 +1,5 @@
+import { Role } from "./role";
+
 export class User {
     id_user!:number;
     firstName!:string;
@@ -6,6 +8,7 @@ export class User {
     verifPassword!:string;
     phone!:number;
     email!:string;
+    roles!:Role;
     profession!:string;
     cin!:number
 }

@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">USER Table</h4>
+            <p class="card-description">
+                userAcount <code>.tables</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>User</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Profession</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let x of list" class="table table-striped">
+                      <td>
+                        <img src="../../../assets/Back/images/faces/face1.jpg" alt="image" />
+                      </td>
+                      <td>{{x.lasttName}} {{x.firstName}}</td>
+                      <td>{{x.phone}}</td>
+                      <td>{{x.email}}</td>
+                      <td>{{x.profession}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+        </div>
+    </div>
+</div>
