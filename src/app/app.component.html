@@ -5,7 +5,7 @@
   <app-footer></app-footer>
 </div>
 <!-- Parent component's template -->
-<div *ngIf="userIsAdmin=='[ROLE_ADMIN]'">
+<div>
   <!-- Display the admin component -->
   <div class="container-scroller">
   <div class="row justify-content-center">
@@ -19,7 +19,7 @@
 </div>
 </div>
 
-<div *ngIf="userIsAdmin=='[ROLE_USER]'">
+<div *ngIf="false">
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
