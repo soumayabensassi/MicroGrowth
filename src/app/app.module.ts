@@ -23,6 +23,8 @@ import { DashboardBACKComponent } from './Component/dashboard-back/dashboard-bac
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
 import { ListUserBACKComponent } from './Component/list-user-back/list-user-back.component';
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
+import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
+import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/
     DashboardBACKComponent,
     HomepageBACKComponent,
     ListUserBACKComponent,
-    ListPublictaionBACKComponent
+    ListPublictaionBACKComponent,
+    AllTemplateUserComponentComponent,
+    AllTemplateAdminComponentComponent
   ],
   imports: [
     BrowserModule,
