@@ -12,7 +12,7 @@ import { SigninComponent } from './Component/signin/signin.component';
 import { PublicationComponent } from './Component/publication/publication.component';
 import {HttpClientModule} from  '@angular/common/http';
 import { CommentComponent } from './Component/comment/comment.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmeCompteComponent } from './Component/confirme-compte/confirme-compte.component';
 import { ChangemdpComponent } from './Component/changemdp/changemdp.component';
 import { UpdatepasswordComponent } from './Component/updatepassword/updatepassword.component';
@@ -49,7 +49,7 @@ import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

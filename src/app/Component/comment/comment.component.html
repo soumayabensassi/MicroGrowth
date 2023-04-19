@@ -34,7 +34,8 @@
                                     <small class="me-3"><i class="far fa-user text-primary me-2"></i>{{pub.users.email}}</small>
                                     
                                     <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
-                                    
+                                    <small class="me-3"> <div *ngIf="pub.users.email==userInfo.email">   <i class="bi bi-pencil-square"></i></div></small>
+
                                     </div>
 
                                 <p>{{pub.text}}</p>
@@ -63,7 +64,14 @@
                                                 <textarea class="form-control border-2 bg-light px-4 py-3" rows="4" placeholder="text" name="text"name="text" #text="ngModel" [(ngModel)]="comment.text"></textarea>
                                             </div>
                                             <div class="col-12">
-                                                <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="myForm.invalid">Send </button>
+                                                <div *ngIf="isLoggedIn()">
+                                                    <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="myForm.invalid">Send </button>
+                                                </div>
+                                                <div *ngIf="!isLoggedIn()">
+                                                    <button class="btn btn-primary w-100 py-3" type="submit" routerLink="/signin">Send </button>
+                                                  
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </form>
@@ -84,7 +92,12 @@
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h4 class="mb-0">write your own story</h4>
 
-                            <button class="btn btn-primary px-4" routerLink="/addPublication">Click here</button>
+                            <div *ngIf="isLoggedIn()">
+                                <button class="btn btn-primary px-4" routerLink="/addPublication">Click here</button>
+                            </div>
+                            <div *ngIf="!isLoggedIn()">
+                                <button class="btn btn-primary px-4" routerLink="/signin">Click here</button>
+                            </div>
                         </div>
                     </div>
                 </div>
