@@ -1,3 +1,4 @@
+import { ImageProfile } from "./image-profile";
 import { Role } from "./role";
 
 export class User {
@@ -11,4 +12,5 @@ export class User {
     roles!:Role;
     profession!:string;
     cin!:number
+    image!:ImageProfile
 }

@@ -24,10 +24,13 @@ like: Like = new Like();
 dislike: Dislike = new Dislike();
 userInfo: User=new User();
 listpublication: Pubication[] = [];
+token!:any
 
  constructor(private commentServive:CommentService,private active:ActivatedRoute,private userservice:UserService,private publicationServive:PublicationService,private route:Router) { }
 
   ngOnInit(): void {
+    this.token= localStorage.getItem('access_token');
+
     this.publicationServive.getPublication().subscribe(
       data => this.listpublication = data
     );
@@ -60,8 +63,15 @@ listpublication: Pubication[] = [];
   sendComment()
   {
     this.commentServive.addComment(this.comment,this.id,this.userInfo.email).subscribe(
-      ()=>this.list.push(this.comment)
+      ()=>{
+        this.publicationServive.getPublicationById(this.id).subscribe((data)=>this.comment.publication=data)
+        this.userservice.getUserbyemail(this.userInfo.email).subscribe((data)=>this.comment.users=data)
+        this.list.push(this.comment)
+      }
     )
     
+  }
+  isLoggedIn(): boolean {
+    return this.token;
   }
 }

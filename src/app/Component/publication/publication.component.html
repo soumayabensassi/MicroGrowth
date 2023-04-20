@@ -33,15 +33,16 @@
                                         <small class="me-3"><i class="far fa-calendar-alt text-primary me-2"></i>01
                                             Jan,
                                             2045</small>
+                                            
                                         <small class="me-3">
                                             <div *ngIf="x.users.email==userInfo.email"> <i
                                                     class="bi bi-pencil-square"></i></div>
                                         </small>
 
                                     </div>
-
-                                    <small class="me-3"> <a (click)="LikeFunction(x.idPublication)"><i
-                                                class="fas fa-thumbs-up"> </i> Like</a> </small>
+                                    
+                                    <small class="me-3"> {{listlike[1]}} {{test()}} <a  (click)="LikeFunction(x.idPublication)" ><i
+                                                class="fas fa-thumbs-up"> </i> Like</a>  </small>
                                     <small class="me-3"> <a (click)="DisLikeFunction(x.idPublication)"><i
                                                 class="fas fa-thumbs-down"> </i> Dislike</a> </small>
 
@@ -64,8 +65,14 @@
                     <div class="input-group">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h4 class="mb-0">write your own story</h4>
-
-                            <button class="btn btn-primary px-4" routerLink="/addPublication">Click here</button>
+                            <br>
+                            <div *ngIf="isLoggedIn()">
+                                <button class="btn btn-primary px-4" routerLink="/addPublication">Click here</button>
+                            </div>
+                            <div *ngIf="!isLoggedIn()">
+                                <button class="btn btn-primary px-4" routerLink="/signin">Click here</button>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

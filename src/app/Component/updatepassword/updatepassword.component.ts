@@ -20,7 +20,8 @@ token!:string
   }
   changePassword(){
     this.u.changePAssword(this.email,this.token,this.mdp).subscribe(
-      ()=>this.route.navigateByUrl("signin")
+      
     )
+    this.route.navigateByUrl("/signin")
   }
 }
