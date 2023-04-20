@@ -24,6 +24,7 @@ const routes: Routes = [  {
     {path:'',component:HomepageBACKComponent},
     {path:'listuser',component:ListUserBACKComponent},
     {path:'listpublicationback',component:ListPublictaionBACKComponent},
+    
   ]
 
 },
@@ -41,8 +42,11 @@ const routes: Routes = [  {
 {path:'signin',component:SigninComponent},
 {path:'homePage',component:HomePageComponent},
 {path:'addPublication',component:AddPublicationComponent},
+{path:'updatePublication/:id',component:AddPublicationComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
+
+
   ]
 }
 ];

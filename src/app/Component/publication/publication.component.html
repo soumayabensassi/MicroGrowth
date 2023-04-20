@@ -35,16 +35,16 @@
                                             2045</small>
                                             
                                         <small class="me-3">
-                                            <div *ngIf="x.users.email==userInfo.email"> <i
-                                                    class="bi bi-pencil-square"></i></div>
+                                            <div *ngIf="x.users.email==userInfo.email"> <a routerLink="/updatePublication/{{x.idPublication}}"><i
+                                                    class="bi bi-pencil-square"></i></a></div>
                                         </small>
 
                                     </div>
                                     
-                                    <small class="me-3"> {{listlike[1]}} {{test()}} <a  (click)="LikeFunction(x.idPublication)" ><i
-                                                class="fas fa-thumbs-up"> </i> Like</a>  </small>
+                                    <small class="me-3"> <a  (click)="LikeFunction(x.idPublication)" ><i
+                                                class="fas fa-thumbs-up"> </i>  Like</a>  </small>
                                     <small class="me-3"> <a (click)="DisLikeFunction(x.idPublication)"><i
-                                                class="fas fa-thumbs-down"> </i> Dislike</a> </small>
+                                                class="fas fa-thumbs-down"> </i>  Dislike</a> </small>
 
 
                                     <p>{{x.text}}</p>

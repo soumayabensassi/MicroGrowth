@@ -18,7 +18,6 @@ export class ProfilComponent implements OnInit {
   u:User=new User();
   constructor(private sanitizer: DomSanitizer, private userservice: UserService, private route: Router) { }
   ngOnInit(): void {
-
     this.userservice.getUserInfo().subscribe(
       (data) => {
         this.userInfo = data;
@@ -63,6 +62,7 @@ export class ProfilComponent implements OnInit {
 
   update()
   { console.log(this.userInfo)
+  
     this.userservice.updateUser(this.userInfo.email,this.userInfo).subscribe(()=>this.route.navigateByUrl("/user/profil"))
   }
 }
