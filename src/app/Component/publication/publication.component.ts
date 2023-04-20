@@ -18,11 +18,12 @@ export class PublicationComponent implements OnInit {
   dislike: Dislike = new Dislike();
   userInfo: User = new User();
   listlike: number[] = []
-  token!:any
+  token!: any
+  a!: number
   constructor(private pubService: PublicationService, private userservice: UserService, private route: Router) { }
 
   ngOnInit(): void {
-    this.token= localStorage.getItem('access_token');
+    this.token = localStorage.getItem('access_token');
     this.userservice.getUserInfo().subscribe(
       (data) => {
         this.userInfo = data;
@@ -39,7 +40,7 @@ export class PublicationComponent implements OnInit {
           this.pubService.GetNombreLike(this.list[i].idPublication).subscribe(
             (data1) => {
               this.listlike[i] = data1
-           
+
             })
 
         }
@@ -48,12 +49,16 @@ export class PublicationComponent implements OnInit {
       }
     );
 
-    for (var j = 0; j < this.list.length; j++) {
-      this.list[j].likes= this.listlike[j];
 
   }
-  }
-
+ /* getNombreLikes(id: number): number {
+    this.pubService.GetNombreLike(id).subscribe(
+      (data1) => {
+        this.a = data1
+    })
+      console.log(this.a)
+      return this.a;
+  }*/
   LikeFunction(id: number) {
     this.pubService.getPublicationById(id).subscribe((data) => this.like.publications = data);
     this.pubService.likerPublication(this.like, id, this.userInfo.email).subscribe(
@@ -67,9 +72,9 @@ export class PublicationComponent implements OnInit {
     )
   }
   test() {
-
-}
-isLoggedIn(): boolean {
-  return this.token;
-}
+    this.a = this.listlike[1]
+  }
+  isLoggedIn(): boolean {
+    return this.token;
+  }
 }

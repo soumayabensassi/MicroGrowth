@@ -45,4 +45,8 @@ export class PublicationService {
   {
     return this.http.delete<number>("http://localhost:8082/MicroGrowth/admin/deletePublication/"+id);
   }
+  update(id:number,pub:Pubication)
+  {
+    return this.http.put("http://localhost:8082/MicroGrowth/user/updatePublication/"+id, pub)
+  }
 }

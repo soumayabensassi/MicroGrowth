@@ -41,12 +41,8 @@
             <div class="navbar-nav ms-auto py-0">
                 <a routerLink="homePage" class="nav-item nav-link active">Home</a>
                 <a href="" class="nav-item nav-link">About</a>
-                <a href="" class="nav-item nav-link">Services</a>
-                <a routerLink="publication" class="nav-item nav-link">Blog</a>
-
-
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Credit</a>
                     <div class="dropdown-menu m-0">
                         <a href="" class="dropdown-item">Pricing Plan</a>
                         <a href="" class="dropdown-item">Our features</a>
@@ -55,12 +51,46 @@
                         <a href="" class="dropdown-item">Free Quote</a>
                     </div>
                 </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="" class="dropdown-item">Pricing Plan</a>
+                        <a href="" class="dropdown-item">Our features</a>
+                        <a href="" class="dropdown-item">Team Members</a>
+                        <a href="" class="dropdown-item">Testimonial</a>
+                        <a href="" class="dropdown-item">Free Quote</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Transaction</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="" class="dropdown-item">Pricing Plan</a>
+                        <a href="" class="dropdown-item">Our features</a>
+                        <a href="" class="dropdown-item">Team Members</a>
+                        <a href="" class="dropdown-item">Testimonial</a>
+                        <a href="" class="dropdown-item">Free Quote</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Investment</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="" class="dropdown-item">Pricing Plan</a>
+                        <a href="" class="dropdown-item">Our features</a>
+                        <a href="" class="dropdown-item">Team Members</a>
+                        <a href="" class="dropdown-item">Testimonial</a>
+                        <a href="" class="dropdown-item">Free Quote</a>
+                    </div>
+                </div>
+                <a routerLink="publication" class="nav-item nav-link">Blog</a>
+                <a routerLink="publication" class="nav-item nav-link">Event</a>
+
+                
                 <div *ngIf="isLoggedIn()">
                     <a (click)="logout()" class="nav-item nav-link">logout</a>
                     
                 </div>
                 <div *ngIf="isLoggedIn()">
-                    <a href="" class="nav-item nav-link" routerLink="user/profil" > <i class="bi bi-people" ></i></a>
+                    <a class="nav-item nav-link" routerLink="user/profil" > <i class="bi bi-people" ></i></a>
                     
                 </div>
                 <div *ngIf="!isLoggedIn()">
