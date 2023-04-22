@@ -16,7 +16,8 @@ export class SignupComponent implements OnInit {
   }
   saveUser(){
     this.userService.addUser(this.user).subscribe(
-      () => this.route.navigateByUrl('/homePage')
+    
     )
+    this.route.navigateByUrl('/signin')
   }
 }

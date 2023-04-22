@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
+import { UserService } from './service/user.service';
+import { User } from './Models/user';
+import { Console } from 'console';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'body',
+  template: '<router-outlet></router-outlet>',
 })
 export class AppComponent {
-  title = 'MicroGrowth';
-  userIsAdmin!:any
-  constructor() {
-    this.userIsAdmin='[ROLE_USER]'
+
   }
-}

@@ -13,9 +13,28 @@ import { UpdatepasswordComponent } from './Component/updatepassword/updatepasswo
 import { WritemsgComponent } from './Component/writemsg/writemsg.component';
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
 import { InsuranceComponent } from './Component/insurance/insurance.component';
+import { ListUserBACKComponent } from './Component/list-user-back/list-user-back.component';
+import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
+import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
+import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
 
-const routes: Routes = [
-{path:'publication',component:PublicationComponent},
+const routes: Routes = [  {
+  path:'admin',
+  component:AllTemplateAdminComponentComponent,
+  children:[
+    {path:'',component:HomepageBACKComponent},
+    {path:'listuser',component:ListUserBACKComponent},
+    {path:'listpublicationback',component:ListPublictaionBACKComponent},
+    
+  ]
+
+},
+{
+  path:'',
+  component: AllTemplateUserComponentComponent,
+  children:[
+    {path:'',component:HomePageComponent},
+    {path:'publication',component:PublicationComponent},
 {path:'msg',component:WritemsgComponent},
 {path:'user/profil',component:ProfilComponent},
 {path:'comment/:idPUB',component:CommentComponent},
@@ -24,12 +43,20 @@ const routes: Routes = [
 {path:'signin',component:SigninComponent},
 {path:'homePage',component:HomePageComponent},
 {path:'addPublication',component:AddPublicationComponent},
+{path:'updatePublication/:id',component:AddPublicationComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
 {path:'homepageBack',component:HomepageBACKComponent},
 {path:'Insurance',component:InsuranceComponent},
 //{path:'',redirectTo:'homePage',pathMatch:'full'}
+]
+},
 ];
+
+
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

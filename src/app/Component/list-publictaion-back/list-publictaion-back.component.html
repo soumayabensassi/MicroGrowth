@@ -1,0 +1,39 @@
+<br>
+<br>
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Publication Table</h4>
+            <p class="card-description">
+                Publication <code>.tables</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Publication</th>
+                      <th>User Email</th>
+                      <th>User Name</th>
+                    
+                      <th>Approve</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        <ng-container *ngFor="let x of list">
+                            <tr *ngIf="x.state === false" class="table table-striped">
+                      <td>{{x.text}}</td>
+                      <td>{{x.users.email}}</td>
+                      <td>{{x.users.firstName}} {{x.users.lasttName}}</td>
+                      <td> <button  class="btn btn-primary" (click)="aprouverpublication(x.idPublication)"> Approve</button></td>
+                      <td> <button  class="btn btn-primary" (click)="delete(x.idPublication)"> Delete</button></td>
+                    </tr>
+                </ng-container>
+                  </tbody>
+                </table>
+              </div>
+              
+        </div>
+    </div>
+</div>
