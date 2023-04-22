@@ -34,7 +34,8 @@
                                     <small class="me-3"><i class="far fa-user text-primary me-2"></i>{{pub.users.email}}</small>
                                     
                                     <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
-                                    
+                                    <small class="me-3"> <div *ngIf="pub.users.email==userInfo.email">   <i class="bi bi-pencil-square"></i></div></small>
+
                                     </div>
 
                                 <p>{{pub.text}}</p>
@@ -46,7 +47,7 @@
                                 <small><i class="bi bi-card-text"></i> Comments:</small>
                                 <div *ngFor="let x of list">
                                   <div class="form-control border-2 bg-light px-4 py-3"> <small class="me-3"><i class="far fa-user text-primary me-3"></i>{{x.users.firstName}} :</small> 
-                                    <br>
+                                    
                                     {{x.text}} </div>  
                                     
                                     <small class="me-3"> <a (click)="LikeFunction(x.idComment)"><i class="fas fa-thumbs-up">    </i> Like</a>   </small>
@@ -63,7 +64,14 @@
                                                 <textarea class="form-control border-2 bg-light px-4 py-3" rows="4" placeholder="text" name="text"name="text" #text="ngModel" [(ngModel)]="comment.text"></textarea>
                                             </div>
                                             <div class="col-12">
-                                                <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="myForm.invalid">Send </button>
+                                                <div *ngIf="isLoggedIn()">
+                                                    <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="myForm.invalid">Send </button>
+                                                </div>
+                                                <div *ngIf="!isLoggedIn()">
+                                                    <button class="btn btn-primary w-100 py-3" type="submit" routerLink="/signin">Send </button>
+                                                  
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </form>
@@ -72,6 +80,52 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+    <!-- Blog list End -->
+    
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                <!-- Search Form Start -->
+                <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                    <div class="input-group">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h4 class="mb-0">write your own story</h4>
+
+                            <div *ngIf="isLoggedIn()">
+                                <button class="btn btn-primary px-4" routerLink="/addPublication">Click here</button>
+                            </div>
+                            <div *ngIf="!isLoggedIn()">
+                                <button class="btn btn-primary px-4" routerLink="/signin">Click here</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Search Form End -->
+
+                <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                    <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                        <h3 class="mb-0">Recent Post</h3>
+                    </div>
+                    <div *ngFor="let x of listpublication">
+                        <div *ngIf="x.state">
+                            <div class="d-flex rounded overflow-hidden mb-3">
+                                <img class="img-fluid" src="../../../assets/img/blog-2.jpg"
+                                    style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                                <a routerLink="/comment/{{x.idPublication}}" class="h5 fw-semi-bold bg-light rounded py-8 px-3 mb-6" wi>User story
+                                    <br>
+                                    {{x.users.firstName}} {{x.users.lasttName}}
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
             </div>
             <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
                 <nav aria-label="Page navigation">
@@ -91,7 +145,8 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+        
+            <!-- Sidebar End -->
         </div>
     </div>
-    <!-- Blog list End -->
+</div>

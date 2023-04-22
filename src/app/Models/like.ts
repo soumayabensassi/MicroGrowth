@@ -6,6 +6,7 @@ export class Like {
     publications!:Pubication
     users!:User;
     comments!:Comment;
+    nbr:number=0
 
 }
  

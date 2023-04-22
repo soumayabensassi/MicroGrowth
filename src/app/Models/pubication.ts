@@ -7,7 +7,7 @@ export class Pubication {
     state!:boolean;
     text!:string;
     users!:User;
-    likes!:number;
+    likes!:Like;
     dislikes!:Dislike
 }
 

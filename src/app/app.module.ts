@@ -10,7 +10,7 @@ import { SigninComponent } from './Component/signin/signin.component';
 import { PublicationComponent } from './Component/publication/publication.component';
 import {HttpClientModule} from  '@angular/common/http';
 import { CommentComponent } from './Component/comment/comment.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmeCompteComponent } from './Component/confirme-compte/confirme-compte.component';
 import { ChangemdpComponent } from './Component/changemdp/changemdp.component';
 import { UpdatepasswordComponent } from './Component/updatepassword/updatepassword.component';
@@ -19,7 +19,10 @@ import { AddPublicationComponent } from './Component/add-publication/add-publica
 import { ProfilComponent } from './Component/profil/profil.component';
 import { DashboardBACKComponent } from './Component/dashboard-back/dashboard-back.component';
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
-import { TrainingComponent } from './Component/training/training.component';
+import { ListUserBACKComponent } from './Component/list-user-back/list-user-back.component';
+import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
+import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
+import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +42,16 @@ import { TrainingComponent } from './Component/training/training.component';
     ProfilComponent,
     DashboardBACKComponent,
     HomepageBACKComponent,
-    TrainingComponent
+    ListUserBACKComponent,
+    ListPublictaionBACKComponent,
+    AllTemplateUserComponentComponent,
+    AllTemplateAdminComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
