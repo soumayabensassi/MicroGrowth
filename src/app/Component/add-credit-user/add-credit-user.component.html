@@ -1,0 +1,51 @@
+
+
+<div class="container-fluid position-relative p-0">
+    
+    <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+        <div class="row py-5">
+            <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-4 text-white animated zoomIn">Credits</h1>
+               
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Add Credit</h5>
+                <h1 class="mb-0">Fill the following fields </h1>
+            </div>
+        </div>
+            <div style="margin-left: 350px;">
+                <div class="col-lg-8 wow slideInUp " data-wow-delay="0.3s">
+                    <form #myForm="ngForm" (ngSubmit)="sendCreditUser()">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control border-0 bg-light px-4"  disabled style="height: 55px;">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control border-0 bg-light px-4" value={{userInfo.email}} disabled style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control border-0 bg-light px-4" value="User Story"  disabled style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="text" name="text" ></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <!-- Contact End -->
+
+
+    
+
+  

@@ -23,6 +23,9 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
+import { ListCreditBackComponent } from './Component/list-credit-back/list-credit-back.component';
+import { AddCreditUserComponent } from './Component/add-credit-user/add-credit-user.component';
+import { ListPacksCreditsComponent } from './Component/list-packs-credits/list-packs-credits.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
     ListUserBACKComponent,
     ListPublictaionBACKComponent,
     AllTemplateUserComponentComponent,
-    AllTemplateAdminComponentComponent
+    AllTemplateAdminComponentComponent,
+    ListCreditBackComponent,
+    AddCreditUserComponent,
+    ListPacksCreditsComponent
   ],
   imports: [
     BrowserModule,
