@@ -20,6 +20,7 @@ import { ProfilComponent } from './Component/profil/profil.component';
 import { DashboardBACKComponent } from './Component/dashboard-back/dashboard-back.component';
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
 import { InsuranceComponent } from './Component/insurance/insurance.component';
+import { InsuranceKpisComponent } from './Component/insurance-kpis/insurance-kpis.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { InsuranceComponent } from './Component/insurance/insurance.component';
     ProfilComponent,
     DashboardBACKComponent,
     HomepageBACKComponent,
-    InsuranceComponent
+    InsuranceComponent,
+    InsuranceKpisComponent
   ],
   imports: [
     BrowserModule,

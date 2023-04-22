@@ -34,4 +34,7 @@ export class InsuranceServiceService {
     const url = `${this.apiUrl}/admin/deleteInsurance/${id}`;
     return this.http.delete(url);
   }
+
+  monthlypaiment()
+
 }
