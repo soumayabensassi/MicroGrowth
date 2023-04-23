@@ -1,0 +1,60 @@
+<br>
+<br>
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">PROJECT Table</h4>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>NAME</th>
+                      <th>DESCRIPTION</th>
+                      <th>OBLIGATION</th>
+                      <th>OptionValue</th>
+                      <th>QUANTITY</th>
+                      <th>DURATION</th>
+                      <th>INTRESTRATE</th>
+                      <th>STATUE</th>
+                      <th>SECTOR</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let x of list" class="table table-striped">
+
+                      <td>{{x.idprojet}} </td>
+                      <td>{{x.nom}}</td>
+                      <td>{{x.description}}</td>
+                      <td>{{x.obligation}}</td>
+                      <td>{{x.OptionValue}}</td>
+                      <td>{{x.quantity}}</td>
+                      <td>{{x.duree}}</td>
+                      <td>{{x.tauxRendement}}</td>
+                      <td>{{x.statutProjet}}</td>
+                      <td>{{x.secteurActivite}}</td>
+                      <td>
+                        <!-- Call to action buttons -->
+                        <ul class="list-inline m-0">
+                            <li class="list-inline-item">
+                                <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                            </li>
+                        </ul>
+                    </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+        </div>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+import { InvestorComponent } from './Component/investor/investor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddPublicationComponent } from './Component/add-publication/add-publication.component';
@@ -16,6 +17,9 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
+import { ListProjetsBackComponent } from './Component/list-projets-back/list-projets-back.component';
+import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
+import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
 
 const routes: Routes = [  {
   path:'admin',
@@ -24,7 +28,8 @@ const routes: Routes = [  {
     {path:'',component:HomepageBACKComponent},
     {path:'listuser',component:ListUserBACKComponent},
     {path:'listpublicationback',component:ListPublictaionBACKComponent},
-    
+    {path:'listproject',component:ListProjetsBackComponent},
+    {path:'listinvestissement',component:ListInvestmentBackComponent}
   ]
 
 },
@@ -34,6 +39,9 @@ const routes: Routes = [  {
   children:[
     {path:'',component:HomePageComponent},
     {path:'publication',component:PublicationComponent},
+    {path:'project',component:StartupAddUserComponent},
+    {path:'investor',component:InvestorComponent},
+
 {path:'msg',component:WritemsgComponent},
 {path:'user/profil',component:ProfilComponent},
 {path:'comment/:idPUB',component:CommentComponent},

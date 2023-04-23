@@ -23,6 +23,10 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
+import { ListProjetsBackComponent } from './Component/list-projets-back/list-projets-back.component';
+import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
+import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
+import { InvestorComponent } from './Component/investor/investor.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +49,18 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
     ListUserBACKComponent,
     ListPublictaionBACKComponent,
     AllTemplateUserComponentComponent,
-    AllTemplateAdminComponentComponent
+    AllTemplateAdminComponentComponent,
+    ListProjetsBackComponent,
+    StartupAddUserComponent,
+    ListInvestmentBackComponent,
+    InvestorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
