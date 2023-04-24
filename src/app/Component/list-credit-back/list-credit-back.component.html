@@ -21,6 +21,7 @@
                       <th>pack</th>
                       <th>state</th>
                       <th>Duration(years)</th>
+                      <th>delete</th>
 
                     
                     
@@ -37,7 +38,7 @@
                       <td>{{c.pack}}</td>
                       <td>{{c.state}}</td>
                       <td>{{c.duree}}</td>
-                      
+                      <td> <button  class="btn btn-primary" (click)="deleteCreditByAdmin(c.idCredit)"> delete</button></td>
 
 
                       

@@ -19,5 +19,13 @@ credits:any[]=[];
       console.log(data)
     })
   }
+  deleteCreditByAdmin(i:number)
+  {
+    this.cs.deleteCreditByAdmin(i).subscribe(
+      ()=>this.credits=this.credits.filter((c)=>c.id != i))
+      this.cs.AfficherCredit().subscribe(data=>{
+        this.credits=data;}
+      )
+  }
 
 }

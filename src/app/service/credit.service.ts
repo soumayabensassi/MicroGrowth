@@ -26,6 +26,10 @@ export class CreditService {
 GetCreditById(id:number) :Observable<any>{
   return this.http.get<Credit[]>("http://localhost:8082/MicroGrowth/user/afficherCreditbyID/"+id);
 }
+deleteCreditByAdmin(id:number) :Observable<any>
+  {
+    return this.http.delete<number>("http://localhost:8082/MicroGrowth/admin/deleteCreditAdmin/"+id);
+  }
   
   
 }
