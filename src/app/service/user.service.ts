@@ -52,7 +52,7 @@ export class UserService {
   }
 
   changePAssword(email: string, token: string, password: string) {
-    return this.http.get(" http://localhost:8082/MicroGrowth/user/email/reset/" + token + "/" + email + "/" + password)
+    return this.http.get(" http://localhost:8082/MicroGrowth/email/reset/" + token + "/" + email + "/" + password)
   }
 
 

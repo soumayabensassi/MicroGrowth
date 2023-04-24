@@ -39,7 +39,8 @@ export class PublicationComponent implements OnInit {
         for (var i = 0; i < this.list.length; i++) {
           this.pubService.GetNombreLike(this.list[i].idPublication).subscribe(
             (data1) => {
-              this.listlike[i] = data1
+              this.list[i].likes.nbr = data1
+              console.log(data1)
 
             })
 
