@@ -26,6 +26,7 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
 import { ListCreditBackComponent } from './Component/list-credit-back/list-credit-back.component';
 import { AddCreditUserComponent } from './Component/add-credit-user/add-credit-user.component';
 import { ListPacksCreditsComponent } from './Component/list-packs-credits/list-packs-credits.component';
+import { CreditDetailsFrontComponent } from './Component/credit-details-front/credit-details-front.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ListPacksCreditsComponent } from './Component/list-packs-credits/list-p
     AllTemplateAdminComponentComponent,
     ListCreditBackComponent,
     AddCreditUserComponent,
-    ListPacksCreditsComponent
+    ListPacksCreditsComponent,
+    CreditDetailsFrontComponent
   ],
   imports: [
     BrowserModule,

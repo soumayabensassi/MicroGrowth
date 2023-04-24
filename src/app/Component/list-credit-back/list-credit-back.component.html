@@ -13,13 +13,14 @@
                   <thead>
                     <tr>
                       <th>Id Credit</th>
+                      <th>User</th>
+
                       <th>Amount Credit</th>
                       <th>Intrest Rate</th>
                       <th>Monthly Amount</th>
                       <th>pack</th>
                       <th>state</th>
                       <th>Duration(years)</th>
-                      <th>User</th>
 
                     
                     
@@ -29,13 +30,14 @@
                         <ng-container *ngFor="let c of credits">
                             <tr  class="table table-striped">
                       <td>{{c.idCredit}}</td>
+                      <td>{{c.users.lasttName}} {{c.users.firstName}}</td>
                       <td>{{c.amount_credit}}</td>
                       <td>{{c.intrestRaiting}}</td>
                       <td>{{c.monthlyAmount}}</td>
                       <td>{{c.pack}}</td>
                       <td>{{c.state}}</td>
                       <td>{{c.duree}}</td>
-                      <td>{{c.users_id_user}}</td>
+                      
 
 
                       

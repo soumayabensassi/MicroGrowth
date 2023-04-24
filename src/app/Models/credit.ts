@@ -1,3 +1,4 @@
+import { ActivitySector } from "./activity-sector";
 import { User } from "./user";
 
 export class Credit {
@@ -18,6 +19,7 @@ export class Credit {
     state!:number;
     type_credit!:string;
     users!:User;
+    activity!:ActivitySector;
 
 
 

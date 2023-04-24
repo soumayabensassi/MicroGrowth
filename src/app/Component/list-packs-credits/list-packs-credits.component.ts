@@ -14,6 +14,7 @@ export class ListPacksCreditsComponent implements OnInit {
   ngOnInit(): void {
     this.cs.AfficherCreditPack().subscribe(data=>{
       this.credits=data;
+      console.log(data)
     })
   }
 

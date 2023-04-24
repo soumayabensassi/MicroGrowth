@@ -19,6 +19,7 @@ import { AllTemplateUserComponentComponent } from './Component/all-template-user
 import{ListCreditBackComponent} from './Component/list-credit-back/list-credit-back.component';
 import{AddCreditUserComponent} from './Component/add-credit-user/add-credit-user.component';
 import{ListPacksCreditsComponent} from './Component/list-packs-credits/list-packs-credits.component';
+import { CreditDetailsFrontComponent } from './Component/credit-details-front/credit-details-front.component';
 
 
 
@@ -43,6 +44,7 @@ const routes: Routes = [  {
 {path:'msg',component:WritemsgComponent},
 {path:'user/profil',component:ProfilComponent},
 {path:'comment/:idPUB',component:CommentComponent},
+{path:'creditpack/:idpack',component:CreditDetailsFrontComponent},
 {path:'updatepPassword/:token/:email',component:UpdatepasswordComponent},
 {path:'confirmeCompte/:email',component:ConfirmeCompteComponent},
 {path:'signin',component:SigninComponent},

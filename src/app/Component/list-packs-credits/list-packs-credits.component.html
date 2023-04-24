@@ -15,58 +15,22 @@
             <!-- Blog list Start -->
             <div class="col-lg-9">
                 <div class="row g-1">
-                    <ng-container *ngFor="let c of credits">
-                        <div  class="col-md-6 wow slideInUp" data-wow-delay="0.1s">
-                            <td>{{c.idCredit}}</td>
-                            <td>{{c.amount_credit}}</td>
-                            <td>{{c.intrestRaiting}}</td>
-                            <td>{{c.monthlyAmount}}</td>
-                            <td>{{c.pack}}</td>
-                            <td>{{c.state}}</td>
-                            <td>{{c.duree}}</td>
-                            <td>{{c.activiteSecteurs}}</td>
-
-                            <div class="blog-item bg-light rounded overflow-hidden">
-                                <div class="blog-img position-relative overflow-hidden">
-                                    <img class="img-fluid" src="../../assets/img/blog-1.jpg" alt="">
-                                    
-                                </div>
-
-                                <div class="p-4">
-                                    <div class="d-flex mb-3">
-                                        <small class="me-3"><i
-                                                class="far fa-user text-primary me-2"></i>{{c.idCredit}}</small>
-                                        <br>
-                                        <small class="me-3"><i class="far fa-calendar-alt text-primary me-2"></i>01
-                                            Jan,
-                                            2045</small>
-                                            
-                                        <small class="me-3">
-                                            <div > <a routerLink="/updatePublication/{{c.idPublication}}"><i
-                                                    class="bi bi-pencil-square"></i></a></div>
-                                        </small>
-
-                                    </div>
-                                    
-                                    <small class="me-3"> <a   ><i
-                                                class="fas fa-thumbs-up"> </i>  Like</a>  </small>
-                                    <small class="me-3"> <a ><i
-                                                class="fas fa-thumbs-down"> </i>  Dislike</a> </small>
-                                                <td>{{c.idCredit}}</td>
-                                                <td>{{c.amount_credit}}</td>
-                                                <td>{{c.intrestRaiting}}</td>
-                                                <td>{{c.monthlyAmount}}</td>
-                                                <td>{{c.pack}}</td>
-                                                <td>{{c.state}}</td>
-                                                <td>{{c.duree}}</td>
-
-                                    <p>{{c.idCredit}}</p>
-                                    <a class="text-uppercase" routerLink="/comment/{{c.idCredit}}">Read More <i
-                                            class="bi bi-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-container>
+                    <div class="col-md-6 wow slideInUp" data-wow-delay="0.1s" *ngFor="let c of credits">
+  <div class="blog-item bg-light rounded overflow-hidden">
+    <div class="blog-img position-relative overflow-hidden">
+      <img class="img-fluid" src="../../assets/img/blog-1.jpg" alt="">
+    </div>
+    <div class="p-4">
+      <h3>{{c.pack}}</h3>
+      <p><strong>Amount:</strong> {{c.amount_credit}} USD</p>
+      <p><strong>Duration:</strong> {{c.duree}} months</p>
+      <p><strong>Interest rate:</strong> {{c.intrestRaiting}}%</p>
+      <p><strong>Monthly amount:</strong> {{c.monthlyAmount}} USD</p>
+      <p>{{c.activiteSecteurs.name}}</p>
+      <a class="text-uppercase" routerLink="/creditpack/{{c.idCredit}}">Read More <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
                 </div>
 
             </div>

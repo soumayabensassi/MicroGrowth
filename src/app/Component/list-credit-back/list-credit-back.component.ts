@@ -16,6 +16,7 @@ credits:any[]=[];
   ngOnInit(): void {
     this.cs.AfficherCredit().subscribe(data=>{
       this.credits=data;
+      console.log(data)
     })
   }
 
