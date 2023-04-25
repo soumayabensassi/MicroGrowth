@@ -37,6 +37,7 @@ export class PublicationService {
   {
     return this.http.get<number>("http://localhost:8082/MicroGrowth/totalLike/"+id);
   }
+  
   GetNombreDisLike(id:number)
   {
     return this.http.get<number>("http://localhost:8082/MicroGrowth/totalDisLike/"+id);
@@ -48,5 +49,8 @@ export class PublicationService {
   update(id:number,pub:Pubication)
   {
     return this.http.put("http://localhost:8082/MicroGrowth/user/updatePublication/"+id, pub)
+  }
+  getPublicationAprouvé():Observable<Pubication[]>{
+    return this.http.get<Pubication[]>("http://localhost:8082/MicroGrowth/AfficheraprouvePublication")
   }
 }

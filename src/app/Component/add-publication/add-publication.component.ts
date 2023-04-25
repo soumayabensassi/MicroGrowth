@@ -32,8 +32,8 @@ export class AddPublicationComponent implements OnInit {
   ?
   this.pubservice.update(this.active.snapshot.params['id'],this.publication).subscribe(()=>this.route.navigateByUrl("/publication"))
   :
-  this.pubservice.addPublication(this.publication,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/publication"))
+  this.pubservice.addPublication(this.publication,this.userInfo.email).subscribe()
 
-    
+  this.route.navigateByUrl("/publication")
   }
 }

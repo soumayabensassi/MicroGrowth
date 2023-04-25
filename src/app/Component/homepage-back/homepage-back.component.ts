@@ -75,12 +75,12 @@ export class HomepageBACKComponent implements OnInit {
 
     forkJoin([credit, invi]).subscribe((results: any) => {
       const chartData = {
-        labels: ['Credit'],
+        labels: ['Credit of this year','Credit of this year'],
         datasets: [
           {
-            data: [results[0]],
-            backgroundColor: ['#FF6384'],
-            hoverBackgroundColor: ['#FF6384']
+            data: [50000,results[0]],
+            backgroundColor: ['#4747a1','#7978e9'],
+            hoverBackgroundColor: ['#4747a1','#7978e9']
           }
         ]
       };
@@ -99,8 +99,8 @@ export class HomepageBACKComponent implements OnInit {
         datasets: [
           {
             data: [results[1]],
-            backgroundColor: ['#36A2EB'],
-            hoverBackgroundColor: ['#36A2EB']
+            backgroundColor: ['#f3797e'],
+            hoverBackgroundColor: ['#f3797e']
           }
         ]
       };

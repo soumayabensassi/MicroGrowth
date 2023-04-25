@@ -19,24 +19,34 @@ export class PublicationComponent implements OnInit {
   userInfo: User = new User();
   listlike: number[] = []
   token!: any
-  a!: number
+  p:number=1
+  itemsPerPage:number=2
+  isLiked = false;
+  totalpublication:any
   constructor(private pubService: PublicationService, private userservice: UserService, private route: Router) { }
 
   ngOnInit(): void {
+    console.log(this.p)
     this.token = localStorage.getItem('access_token');
     this.userservice.getUserInfo().subscribe(
       (data) => {
         this.userInfo = data;
-
+        
       },
       (error) => {
         console.log(error);
       }
     );
-    this.pubService.getPublication().subscribe(
+    this.pubService.getPublicationAprouvé().subscribe(
       data => {
         this.list = data
-        for (var i = 0; i < this.list.length; i++) {
+        console.log(data)
+        this.totalpublication=data.length
+         }
+    );
+
+  }
+ /*for (var i = 0; i < this.list.length; i++) {
           this.pubService.GetNombreLike(this.list[i].idPublication).subscribe(
             (data1) => {
               this.list[i].likes.nbr = data1
@@ -44,15 +54,8 @@ export class PublicationComponent implements OnInit {
 
             })
 
-        }
-
-
-      }
-    );
-
-
-  }
- /* getNombreLikes(id: number): number {
+        } 
+ getNombreLikes(id: number): number {
     this.pubService.GetNombreLike(id).subscribe(
       (data1) => {
         this.a = data1
@@ -60,22 +63,31 @@ export class PublicationComponent implements OnInit {
       console.log(this.a)
       return this.a;
   }*/
+  pub!:Pubication;
   LikeFunction(id: number) {
-    this.pubService.getPublicationById(id).subscribe((data) => this.like.publications = data);
+    
     this.pubService.likerPublication(this.like, id, this.userInfo.email).subscribe(
+      ()=>{this.pubService.getPublicationById(id).subscribe((data) => {
+        const pubIndex = this.list.findIndex((pub) => pub.idPublication === id);
+        this.list[pubIndex] = data;
+    });
+    }
     )
-
   }
   DisLikeFunction(id: number) {
-    this.pubService.getPublicationById(id).subscribe((data) => this.dislike.publications = data);
     this.pubService.DislikerPublication(this.dislike, id, this.userInfo.email).subscribe(
-      () => this.route.navigateByUrl('/homePage')
+      ()=>{this.pubService.getPublicationById(id).subscribe((data) => {
+        const pubIndex = this.list.findIndex((pub) => pub.idPublication === id);
+        this.list[pubIndex] = data;
+    });
+    }
     )
   }
-  test() {
-    this.a = this.listlike[1]
-  }
+ 
   isLoggedIn(): boolean {
     return this.token;
   }
+
+
+  
 }

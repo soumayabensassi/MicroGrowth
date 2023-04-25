@@ -25,7 +25,7 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
-
+import {NgxPaginationModule} from 'ngx-pagination'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +53,9 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
