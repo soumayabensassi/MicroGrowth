@@ -1,0 +1,54 @@
+<h2 class="card-title">Insurance Form</h2>
+<form (ngSubmit)="onSubmit(insuranceForm)" #insuranceForm="ngForm">
+    <p class="card-description">
+        Personal info
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="amount">Amount</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="amount" name="amount"
+                        [(ngModel)]="newInsurance.amount" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="startDate">Start Date</label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" id="startDate" name="startDate"
+                        [(ngModel)]="newInsurance.startDate" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="activitySector">Activity Sector</label>
+                <div class="col-sm-9">
+                    <select class="form-control">
+                        <option>Category1</option>
+                        <option>Category2</option>
+                        <option>Category3</option>
+                        <option>Category4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="endDate">End Date</label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" id="endDate" name="endDate"
+                        [(ngModel)]="newInsurance.endDate" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+    </div>
+</form>

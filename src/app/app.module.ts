@@ -19,12 +19,18 @@ import { AddPublicationComponent } from './Component/add-publication/add-publica
 import { ProfilComponent } from './Component/profil/profil.component';
 import { DashboardBACKComponent } from './Component/dashboard-back/dashboard-back.component';
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
-import { InsuranceComponent } from './Component/insurance/insurance.component';
-import { InsuranceKpisComponent } from './Component/insurance-kpis/insurance-kpis.component';
+import { InsuranceComponent } from './Component/Insurance-add-back/insurance.component';
+import { InsuranceKpisComponent } from './Component/insurance-kpi-front/insurance-kpis.component';
 import { ListUserBACKComponent } from './Component/list-user-back/list-user-back.component';
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
+import { InsuranceKpiBackComponent } from './Component/insurance-kpi-back/insurance-kpi-back.component';
+import { AgentComponent } from './Component/agent/agent.component';
+import { InsuranceShowBackComponent } from './Component/insurance-show-back/insurance-show-back.component';
+import { InsuranceModifyBackComponent } from './Component/insurance-modify-back/insurance-modify-back.component';
+import { CheckInsuranceComponent } from './Component/check-insurance/check-insurance.component';
+import { SimulateInsuranceComponent } from './Component/simulate-insurance/simulate-insurance.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +51,17 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
     DashboardBACKComponent,
     HomepageBACKComponent,
     InsuranceComponent,
-    InsuranceKpisComponent
+    InsuranceKpisComponent,
     ListUserBACKComponent,
     ListPublictaionBACKComponent,
     AllTemplateUserComponentComponent,
-    AllTemplateAdminComponentComponent
+    AllTemplateAdminComponentComponent,
+    InsuranceKpiBackComponent,
+    AgentComponent,
+    InsuranceShowBackComponent,
+    InsuranceModifyBackComponent,
+    CheckInsuranceComponent,
+    SimulateInsuranceComponent
   ],
   imports: [
     BrowserModule,

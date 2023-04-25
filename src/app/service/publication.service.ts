@@ -28,9 +28,7 @@ export class PublicationService {
   likerPublication(like: Like, id: number, email: string) {
     return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/" + id + "/" + email, like)
   }
-  likerPublication(like: Like, id: number, email: string) {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/" + id + "/" + email, like)
-  }
+  
   DislikerPublication(dislike: Dislike, id: number, email: string) {
     return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/" + id + "/" + email, dislike)
   }

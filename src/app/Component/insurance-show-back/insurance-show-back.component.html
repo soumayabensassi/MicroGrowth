@@ -1,0 +1,133 @@
+<div class="container-scroller mt-5">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">
+                    Add class <code>.table-striped</code>
+                </p>
+                <div class="table-responsive text-center">
+                    <h2>Insured Users</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    User
+                                </th>
+                                <th>
+                                    Insurance
+                                </th>
+                                <th>
+                                    Amount
+                                </th>
+                                <th>
+                                    Start Date
+                                </th>
+                                <th>
+                                    End Date
+                                </th>
+                                <th>
+                                    Activity Sector
+                                </th>
+                                <th>
+                                    Interest Rate
+                                </th>
+                                <th>
+                                    Actions
+                                </th>
+                                <th>
+                                    Monthly Amount
+                                </th>
+                                <th>
+                                    Total Amount
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let insurance of insurances">
+                                <td class="py-1">
+                                    {{ insurance.users.firstName + ' ' + insurance.users.lasttName }}
+                                </td>
+                                <td class="py-1">
+                                    {{ insurance.idInsurance}}
+                                </td>
+                                <td class="py-1">
+                                    {{ insurance.amount }}
+                                </td>
+                                <td class="py-1">
+                                    {{ insurance.startDate }}
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
+                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="py-1">
+                                    {{ insurance.endDate }}
+                                </td>
+                                <td>
+                                    {{ insurance.activitysector.name }}
+                                </td>
+                                <td class="py-1">
+                                    <ng-container
+                                        *ngIf="insurance.activitysector.name === '' || insurance.activitysector.name === null; else displayInterestRate">
+                                        <input type="number" [(ngModel)]="insurance.activitysector.interestRate"
+                                            class="form-control" placeholder="Interest Rate">
+                                    </ng-container>
+                                    <ng-template #displayInterestRate>{{
+                                        insurance.activitysector.interestRate}}</ng-template>
+                                </td>
+                                <td class="py-1">
+                                    <button (click)="deleteInsurance(selectedInsurance)"
+                                        class="btn btn-danger">Delete</button>
+                                    <button (click)="goToModify(insurance)" class="btn btn-warning">Modify</button>
+                                </td>
+                                <td class="py-1">
+                                    {{ calculateMonthlyPayment(insurance.amount, insurance.activitysector.interestRate)
+                                    }}
+                                </td>
+                                <td class="py-1">
+                                    {{ calculateTotalAmount(insurance.idInsurance,
+                                    insurance.activitysector.interestRate) }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-5">
+                        <button class="btn btn-primary" onclick="window.location.href='/Insurance'">Add another
+                            user</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h4 class="card-title">Default form</h4>
+    <p class="card-description">
+        Basic form layout
+    </p>
+    <form class="forms-sample">
+        <div class="form-group">
+            <label for="exampleInputUsername1">Username</label>
+            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+        </div>
+        <div class="form-check form-check-flat form-check-primary">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+    </form>

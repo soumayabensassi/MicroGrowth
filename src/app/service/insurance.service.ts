@@ -35,6 +35,31 @@ export class InsuranceServiceService {
     return this.http.delete(url);
   }
 
-  monthlypaiment()
+  calculateMonthlyPayment(loanAmount: number, interestRate: number): Observable<number> {
+    const url = `${this.apiUrl}/calculate-monthly-payment?loanAmount=${loanAmount}&interestRate=${interestRate}`;
+    return this.http.post<number>(url, {});
+  }
+
+  calculateMonthlyPaymentS(idS: number, TotalInsuredValue: number, Deductible: number): Observable<number> {
+    const url = `${this.apiUrl}/calculate-monthly-paymentS?idS=${idS}&TotalInsuredValue=${TotalInsuredValue}&Deductible=${Deductible}`;
+    return this.http.post<number>(url, {});
+  }
+
+  applyForInsuranceC(income: number, mail: string, Score: number): Observable<string> {
+    const url = `${this.apiUrl}/admin/insurancerequestC?income=${income}&mail=${mail}&Score=${Score}`;
+    return this.http.post<string>(url, {});
+  }
+
+  applyForInsurance(income: number, debt: number): Observable<string> {
+    const url = `${this.apiUrl}/insurancerequest-KPI?income=${income}&debt=${debt}`;
+    return this.http.post<string>(url, {});
+  }
+
+  calculateTotalAmount(id: number, interestRate: number): Observable<number> {
+    const url = `${this.apiUrl}/calculateTotalAmount?id=${id}&interestRate=${interestRate}`;
+    return this.http.post<number>(url, {});
+  }
+
+  
 
 }
