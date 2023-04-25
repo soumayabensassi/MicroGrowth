@@ -9,18 +9,18 @@ export class StartupService {
 
   constructor(private http: HttpClient) { }
   getProjects(){
-    return this.http.get<Project[]>(this.URL+"/afficherProjet");
+    return this.http.get<Project[]>(this.URL+"afficherProjet");
    }
   /* getProject(id:number){
     return this.http.get<Project>(this.URL+"/"+id);
    }*/
    addProject(Project:Project){
-    return this.http.post(this.URL+"/admin/ajouterProjet",Project)}
+    return this.http.post(this.URL+"ajouterProjet",Project)}
    updateProject(id:number,Project:Project){
-    return this.http.put(this.URL+"/admin/modifierProjet",Project)
+    return this.http.put(this.URL+"modifierProjet",Project)
    }
    deleteProject(id:number){
-    return this.http.delete(this.URL+"/admin/deleteProjetbyID"+id)
+    return this.http.delete(this.URL+"deleteProjetbyID/"+id)
    }
 
 }

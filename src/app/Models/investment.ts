@@ -5,6 +5,4 @@ export class Investment {
   methodInvestissement!:String;
   Date!:number;
   iduser!:number;
-projectid!: number;
-quantity!: number;
 }

@@ -16,5 +16,8 @@ export class ListProjetsBackComponent implements OnInit {
       data => this.list = data
     );
   }
+  deleteProject(id:number){
+    this.startupService.deleteProject(id).subscribe()
+  }
 
 }

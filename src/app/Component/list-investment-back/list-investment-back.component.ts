@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Investment } from 'src/app/Models/investment';
+import { InvestmentService } from 'src/app/service/investment.service';
 
 @Component({
   selector: 'app-list-investment-back',
@@ -8,9 +9,15 @@ import { Investment } from 'src/app/Models/investment';
 })
 export class ListInvestmentBackComponent implements OnInit {
   list: Investment[] = [];
-  constructor() { }
+  constructor(private invSErvice:InvestmentService) { }
 
   ngOnInit(): void {
+    this.invSErvice.getInvestments().subscribe(
+      data => this.list = data
+    );
+  }
+  deleteInvestment(id:number){
+    this.invSErvice.deleteInvestment(id).subscribe()
   }
 
 }
