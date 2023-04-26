@@ -20,6 +20,8 @@ import { AllTemplateUserComponentComponent } from './Component/all-template-user
 import { ListProjetsBackComponent } from './Component/list-projets-back/list-projets-back.component';
 import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
 import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
+import { BourseComponent } from './Component/bourse/bourse.component';
+import { ModalComponent } from './Component/modal/modal.component';
 
 const routes: Routes = [  {
   path:'admin',
@@ -41,6 +43,9 @@ const routes: Routes = [  {
     {path:'publication',component:PublicationComponent},
     {path:'project',component:StartupAddUserComponent},
     {path:'investor',component:InvestorComponent},
+    {path:'investinStock',component:BourseComponent},
+    {path:'modal',component:ModalComponent},
+
 
 {path:'msg',component:WritemsgComponent},
 {path:'user/profil',component:ProfilComponent},

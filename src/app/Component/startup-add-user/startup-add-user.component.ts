@@ -7,7 +7,7 @@ import { StartupService } from 'src/app/service/startup.service';
   selector: 'app-startup-add-user',
   templateUrl: './startup-add-user.component.html',
   styleUrls: ['./startup-add-user.component.css'],
-  
+
 })
 export class StartupAddUserComponent implements OnInit {
   project: Project = new Project();
@@ -16,7 +16,7 @@ export class StartupAddUserComponent implements OnInit {
   ngOnInit() {
   }
   saveProject() {
-    this.projectService.addProject(this.project);
+    this.projectService.addProject(this.project).subscribe();
   }
 
 }

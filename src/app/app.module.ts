@@ -27,6 +27,8 @@ import { ListProjetsBackComponent } from './Component/list-projets-back/list-pro
 import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
 import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
 import { InvestorComponent } from './Component/investor/investor.component';
+import { BourseComponent } from './Component/bourse/bourse.component';
+import { ModalComponent } from './Component/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { InvestorComponent } from './Component/investor/investor.component';
     StartupAddUserComponent,
     ListInvestmentBackComponent,
     InvestorComponent,
+    BourseComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
