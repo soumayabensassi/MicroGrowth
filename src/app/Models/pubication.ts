@@ -8,6 +8,8 @@ export class Pubication {
     text!:string;
     users!:User;
     likes!:Like;
+    nombreLike!:any
+    nombreDislike!:any
     dislikes!:Dislike
 }
 

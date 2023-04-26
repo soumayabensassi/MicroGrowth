@@ -8,7 +8,7 @@ import { HomePageComponent } from './Component/home-page/home-page.component';
 import { SignupComponent } from './Component/signup/signup.component';
 import { SigninComponent } from './Component/signin/signin.component';
 import { PublicationComponent } from './Component/publication/publication.component';
-import {HttpClientModule} from  '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from  '@angular/common/http';
 import { CommentComponent } from './Component/comment/comment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmeCompteComponent } from './Component/confirme-compte/confirme-compte.component';
@@ -23,7 +23,11 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { UserService } from './service/user.service';
+import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
+import { AuthGuard } from './Auth/auth.guard';
+import { AuthInterceptor } from './Auth/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,15 +49,23 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
     ListUserBACKComponent,
     ListPublictaionBACKComponent,
     AllTemplateUserComponentComponent,
-    AllTemplateAdminComponentComponent
+    AllTemplateAdminComponentComponent,
+  
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
-  providers: [],
+  providers: [AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  },UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

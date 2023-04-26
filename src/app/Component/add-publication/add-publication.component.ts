@@ -34,6 +34,6 @@ export class AddPublicationComponent implements OnInit {
   :
   this.pubservice.addPublication(this.publication,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/publication"))
 
-    
+  
   }
 }

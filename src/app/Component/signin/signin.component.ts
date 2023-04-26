@@ -42,7 +42,7 @@ export class SigninComponent implements OnInit {
               this.route.navigateByUrl('/admin')
             }
             if (data.roles.name === '[ROLE_USER]') {
-              this.route.navigateByUrl('user/profil')
+              this.route.navigateByUrl('')
             }
           },
           (error) => {
