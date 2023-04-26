@@ -41,15 +41,6 @@ export class PublicationService {
   {
     return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/"+id+"/"+email,dislike,this.httpOptions)
   }
-  GetNombreLike(id:number)
-  {
-    return this.http.get<number>("http://localhost:8082/MicroGrowth/totalLike/"+id);
-  }
-  
-  GetNombreDisLike(id:number)
-  {
-    return this.http.get<number>("http://localhost:8082/MicroGrowth/totalDisLike/"+id);
-  }
   delete(id:number)
   {
     return this.http.delete<number>("http://localhost:8082/MicroGrowth/admin/deletePublication/"+id,this.httpOptions);

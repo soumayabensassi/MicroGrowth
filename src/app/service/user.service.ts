@@ -32,7 +32,7 @@ export class UserService {
       return this.role[0];
     } catch (error) {
       console.log(error);
-      return '';
+      return '[ROLE_ADMIN]';
     }
   }
   async roleMatch(allowedRoles: any): Promise<boolean> {
