@@ -20,44 +20,51 @@ export class UserService {
   constructor(private http: HttpClient) {
 
   }
-  getRoles(): [] {
-    const rolesString = localStorage.getItem('access_token');
-    console.log("bbbb")
-    
-    if (rolesString !== null) {
-      console.log("bbbb")
-      console.log(JSON.parse(rolesString))
-      return JSON.parse(rolesString);
-
-    } else {
-      return []
+  getRolesfromspring() {
+     
+    return this.http.get<string>("http://localhost:8082/MicroGrowth/roles",this.httpOptions)
+   }
+  role:any
+  async getRoles(): Promise<string> {
+    try {
+      const response = await this.getRolesfromspring().toPromise();
+      this.role = response;
+      return this.role[0];
+    } catch (error) {
+      console.log(error);
+      return '';
     }
   }
-  roleMatch(allowedRoles: any): boolean {
-   
+  async roleMatch(allowedRoles: any): Promise<boolean> {
     let isMatch = false;
-    const userRoles: any = this.getRoles();
+    const userRoles = await this.getRoles();
+    console.log('role1');
+    console.log(userRoles);
+    console.log('role2');
+    console.log(allowedRoles[0]);
     if (userRoles != null && userRoles) {
-      if (userRoles === allowedRoles) {
+      if (userRoles === allowedRoles[0]) {
         isMatch = true
+        console.log(isMatch) 
+        console.log(isMatch)
+        return isMatch
+      } else {
         return isMatch
       }
-      else
-        return isMatch
     }
     return isMatch
-
   }
+  
   clear() {
     localStorage.clear()
   }
   getToken(): any {
-    return localStorage.getItem('access_token')
+    const token= localStorage.getItem('access_token');
+  
+    return token
   }
  
-  isAuthenticated() {
-    return this.getRoles() && this.getToken();
-  }
+  
 
   getUsers() {
     return this.http.get<User[]>(this.productURL + "admin/afficheruser", this.httpOptions);

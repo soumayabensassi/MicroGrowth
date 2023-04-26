@@ -41,12 +41,17 @@
 
                                     </div>
                                     
-                                    <small class="me-3"> <a  (click)="LikeFunction(x.idPublication)" ><i
-                                                class="fas fa-thumbs-up"> </i> {{x.nombreLike}}  Like</a>  </small>
-                                    <small class="me-3"> <a (click)="DisLikeFunction(x.idPublication)"><i
-                                                class="fas fa-thumbs-down"> </i>  {{[(x.nombreDislike)]}} Dislike</a> </small>
-
-
+                                    <small class="me-3"> 
+                                        <div *ngIf="isLoggedIn()" class="me-3">
+                                          <a class="me-3" (click)="LikeFunction(x.idPublication)"><i class="fas fa-thumbs-up"></i> {{x.nombreLike}} Like</a>  
+                                          <a class="me-3" (click)="DisLikeFunction(x.idPublication)"><i class="fas fa-thumbs-down"></i> {{[(x.nombreDislike)]}} Dislike</a>
+                                        </div>
+                                        <div *ngIf="!isLoggedIn()" class="me-3" >
+                                          <a class="me-3" routerLink="/signin"><i class="fas fa-thumbs-up"></i> {{x.nombreLike}} Like</a>
+                                          <a class="me-3" routerLink="/signin"><i class="fas fa-thumbs-down"></i> {{[(x.nombreDislike)]}} Dislike</a> 
+                                        </div>
+                                      </small>
+                                      
                                     <p>{{x.text}}</p>
                                     <a class="text-uppercase" routerLink="/comment/{{x.idPublication}}">Read More <i
                                             class="bi bi-arrow-right"></i></a>
