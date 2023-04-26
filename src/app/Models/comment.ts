@@ -9,4 +9,6 @@ export class Comment {
     users!:User;
     likes!:number;
     dislikes!:Dislike
+    nombreLikeComment!:number
+    nombreDislikeComment!:number
 }

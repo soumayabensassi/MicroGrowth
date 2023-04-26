@@ -35,4 +35,8 @@ export class CommentService {
   getCommentById(id:number):Observable<Comment>{
     return this.http.get<Comment>("http://localhost:8082/MicroGrowth/AfficherCommentbyID/"+id);
    }
+   delete(id:number)
+   {
+     return this.http.delete<number>("http://localhost:8082/MicroGrowth/user/deleteComment/"+id,this.httpOptions);
+   }
 }
