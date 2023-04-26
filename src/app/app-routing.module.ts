@@ -16,6 +16,8 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
+import { AuthGuard } from './Auth/auth.guard';
+import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 
 const routes: Routes = [  {
   path:'admin',
@@ -25,7 +27,7 @@ const routes: Routes = [  {
     {path:'listuser',component:ListUserBACKComponent},
     {path:'listpublicationback',component:ListPublictaionBACKComponent},
     
-  ]
+  ],canActivate:[AuthGuard],data:{roles:['[ROLE_ADMIN]']}
 
 },
 {
@@ -45,6 +47,7 @@ const routes: Routes = [  {
 {path:'updatePublication/:id',component:AddPublicationComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
+{path:'notfound',component:PageNotFoundComponent},
 
 
   ]

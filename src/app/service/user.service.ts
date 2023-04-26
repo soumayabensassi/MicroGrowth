@@ -20,8 +20,47 @@ export class UserService {
   constructor(private http: HttpClient) {
 
   }
+  getRoles(): [] {
+    const rolesString = localStorage.getItem('access_token');
+    console.log("bbbb")
+    
+    if (rolesString !== null) {
+      console.log("bbbb")
+      console.log(JSON.parse(rolesString))
+      return JSON.parse(rolesString);
+
+    } else {
+      return []
+    }
+  }
+  roleMatch(allowedRoles: any): boolean {
+   
+    let isMatch = false;
+    const userRoles: any = this.getRoles();
+    if (userRoles != null && userRoles) {
+      if (userRoles === allowedRoles) {
+        isMatch = true
+        return isMatch
+      }
+      else
+        return isMatch
+    }
+    return isMatch
+
+  }
+  clear() {
+    localStorage.clear()
+  }
+  getToken(): any {
+    return localStorage.getItem('access_token')
+  }
+ 
+  isAuthenticated() {
+    return this.getRoles() && this.getToken();
+  }
+
   getUsers() {
-    return this.http.get<User[]>(this.productURL + "admin/afficheruser");
+    return this.http.get<User[]>(this.productURL + "admin/afficheruser", this.httpOptions);
   }
   getUser(id: number) {
     return this.http.get<User>(this.productURL + "/" + id);
@@ -30,10 +69,10 @@ export class UserService {
     return this.http.post("http://localhost:8082/MicroGrowth/ajouteruser", user)
   }
   updateUser(id: string, user: User) {
-    return this.http.put(this.productURL + "user/updateuser/"+id, user)
+    return this.http.put(this.productURL + "user/updateuser/" + id, user, this.httpOptions)
   }
   deleteUser(id: number) {
-    return this.http.delete(this.productURL + "admin/deleteUserbyID/" + id)
+    return this.http.delete(this.productURL + "admin/deleteUserbyID/" + id, this.httpOptions)
   }
   login(email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({
@@ -62,16 +101,14 @@ export class UserService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
     return this.http.get<User>('http://localhost:8082/MicroGrowth/session', { headers });
   }
-getUserbyemail(email:string)
-{
-  return this.http.get<User>('http://localhost:8082/MicroGrowth/AfficherUserByemail/'+email);
-}
+  getUserbyemail(email: string) {
+    return this.http.get<User>('http://localhost:8082/MicroGrowth/AfficherUserByemail/' + email);
+  }
 
-uploadimage(formData:FormData)
-{
-  
-  return this.http.post('http://localhost:8082/MicroGrowth/upload-image', formData);
-}
+  uploadimage(formData: FormData) {
+
+    return this.http.post('http://localhost:8082/MicroGrowth/upload-image', formData);
+  }
 
 
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -10,6 +10,14 @@ import { Pubication } from '../Models/pubication';
 })
 export class PublicationService {
   PublicationURL:string=environment.apiURL+"/afficherPublication"
+  
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer' + ' ' + localStorage.getItem('access_token')
+    })
+
+  };
   constructor(private http:HttpClient) { }
   getPublication():Observable<Pubication[]>{
     return this.http.get<Pubication[]>("http://localhost:8082/MicroGrowth/afficherPublication");
@@ -18,20 +26,20 @@ export class PublicationService {
     return this.http.get<Pubication>("http://localhost:8082/MicroGrowth/afficherPublicationbyID/"+id);
    }
    addPublication(pub:Pubication,email:string){
-    return this.http.post("http://localhost:8082/MicroGrowth/user/ajouterPublication/"+email,pub)
+    return this.http.post("http://localhost:8082/MicroGrowth/user/ajouterPublication/"+email,pub,this.httpOptions)
 
    }
    aprouverPublication(pub:number,pubication:Pubication){
-    return this.http.post("http://localhost:8082/MicroGrowth/admin/aprouvePublication/"+ pub,pubication)
+    return this.http.post("http://localhost:8082/MicroGrowth/admin/aprouvePublication/"+ pub,pubication,this.httpOptions)
 
    }
   likerPublication(like:Like,id:number,email:string)
   {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/"+id+"/"+email,like)
+    return this.http.post("http://localhost:8082/MicroGrowth/user/LikerPublication/"+id+"/"+email,like,this.httpOptions)
   }
   DislikerPublication(dislike:Dislike,id:number,email:string)
   {
-    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/"+id+"/"+email,dislike)
+    return this.http.post("http://localhost:8082/MicroGrowth/user/DislikerPublication/"+id+"/"+email,dislike,this.httpOptions)
   }
   GetNombreLike(id:number)
   {
@@ -44,11 +52,11 @@ export class PublicationService {
   }
   delete(id:number)
   {
-    return this.http.delete<number>("http://localhost:8082/MicroGrowth/admin/deletePublication/"+id);
+    return this.http.delete<number>("http://localhost:8082/MicroGrowth/admin/deletePublication/"+id,this.httpOptions);
   }
   update(id:number,pub:Pubication)
   {
-    return this.http.put("http://localhost:8082/MicroGrowth/user/updatePublication/"+id, pub)
+    return this.http.put("http://localhost:8082/MicroGrowth/user/updatePublication/"+id, pub,this.httpOptions)
   }
   getPublicationAprouvé():Observable<Pubication[]>{
     return this.http.get<Pubication[]>("http://localhost:8082/MicroGrowth/AfficheraprouvePublication")
