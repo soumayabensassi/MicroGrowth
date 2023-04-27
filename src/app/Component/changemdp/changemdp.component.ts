@@ -16,8 +16,9 @@ export class ChangemdpComponent implements OnInit {
   }
 change(){
   this.u.sendEmailpassword(this.mail,this.user).subscribe(
-    ()=>this.route.navigateByUrl("/homePage")
+   
 
   )
+this.route.navigateByUrl("/msg")
 }
 }
