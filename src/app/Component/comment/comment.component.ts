@@ -75,6 +75,7 @@ token!:any
         this.publicationServive.getPublicationById(this.id).subscribe((data)=>this.comment.publication=data)
         this.userservice.getUserbyemail(this.userInfo.email).subscribe((data)=>this.comment.users=data)
         this.list.push(this.comment)
+        window.location.reload()
       }
     )
     
