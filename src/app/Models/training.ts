@@ -10,5 +10,5 @@ export class Training {
     nbrOfPlace!:number;
     subject!:string;
     image!:string;
-    users!:User;
+    userList!:User[];
 }

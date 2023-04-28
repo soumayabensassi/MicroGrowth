@@ -63,12 +63,13 @@
                                             <div class="col-12">
                                                 <textarea class="form-control border-2 bg-light px-4 py-3" rows="4" placeholder="text" name="text"name="text" #text="ngModel" [(ngModel)]="comment.text"></textarea>
                                             </div>
+                                            
                                             <div class="col-12">
                                                 <div *ngIf="isLoggedIn()">
                                                     <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="myForm.invalid">Send </button>
                                                 </div>
                                                 <div *ngIf="!isLoggedIn()">
-                                                    <button class="btn btn-primary w-100 py-3" type="submit" routerLink="/signin">Send </button>
+                                                    <button class="btn btn-primary w-100 py-3" (click)="sendComment()" type="submit" routerLink="/signin">Send </button>
                                                   
                                                 </div>
                                                 

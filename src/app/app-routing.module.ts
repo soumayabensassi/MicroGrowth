@@ -19,6 +19,7 @@ import { AllTemplateUserComponentComponent } from './Component/all-template-user
 import { TrainingComponent } from './Component/training/training.component';
 import { ListTrainingBackComponent } from './Component/list-training-back/list-training-back.component';
 import { AddtrainingComponent } from './Component/addtraining/addtraining.component';
+import { ComplaintComponent } from './Component/complaint/complaint.component';
 
 
 const routes: Routes = [  {
@@ -52,7 +53,8 @@ const routes: Routes = [  {
 {path:'updatePublication/:id',component:AddPublicationComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
-{path:'training',component:TrainingComponent}
+{path:'training',component:TrainingComponent},
+{path:'complaint',component:ComplaintComponent}
 
 
   ]

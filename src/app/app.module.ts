@@ -26,6 +26,7 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
 import { TrainingComponent } from './Component/training/training.component';
 import { ListTrainingBackComponent } from './Component/list-training-back/list-training-back.component';
 import { AddtrainingComponent } from './Component/addtraining/addtraining.component';
+import { ComplaintComponent } from './Component/complaint/complaint.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { AddtrainingComponent } from './Component/addtraining/addtraining.compon
     TrainingComponent,
     ListTrainingBackComponent,
     AddtrainingComponent,
+    ComplaintComponent,
   
   ],
   imports: [
