@@ -24,14 +24,25 @@
                     <form #myForm="ngForm" (ngSubmit)="login(myForm)">                        <div class="row g-3">
                            
                             <div class="col-md-12">
-                                <input type="email" class="form-control border-0 bg-light px-4"  name="email" #email="ngModel" [(ngModel)]="user.email" placeholder="Your Email" style="height: 55px;">
+                                <input type="email" class="form-control border-0 bg-light px-4"  name="email" #email="ngModel" [(ngModel)]="user.email" placeholder="Your Email" style="height: 55px;" required pattern="[a-zA-Z][a-zA-Z0-9.-_]+@[a-zA-Z]+\.[a-zA-Z]{2,4}">
+                                <br>
+                                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                                    <div *ngIf="email.errors?.['required']">Email is required</div>
+                                    <div *ngIf="email.errors?.['pattern']">Email invalid </div>
+                                </div>
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control border-0 bg-light px-4" name="password" #password="ngModel" [(ngModel)]="user.password" placeholder="Password" style="height: 55px;">
+                                <input type="password" class="form-control border-0 bg-light px-4" name="password" #password="ngModel" [(ngModel)]="user.password" placeholder="Password" style="height: 55px;"required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+~`|}{\[\]\\:;'<>,.?/\-])[A-Za-z0-9!@#$%^&*()_+~`|}{\[\]\\:;'<>,.?/\-]{8,}$"
+                                >
+                                <br>
+                                <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                                    <div *ngIf="password.errors?.['required']">Password is required</div>
+                                    <div *ngIf="password.errors?.['pattern']">Password invalid </div>
+                                </div>
                             </div>
                             
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit" >Sign in</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="myForm.invalid" >Sign in</button>
                                
                                 
                             </div>
