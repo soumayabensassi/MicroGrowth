@@ -16,6 +16,10 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
+import { TrainingComponent } from './Component/training/training.component';
+import { ListTrainingBackComponent } from './Component/list-training-back/list-training-back.component';
+import { AddtrainingComponent } from './Component/addtraining/addtraining.component';
+
 
 const routes: Routes = [  {
   path:'admin',
@@ -24,7 +28,10 @@ const routes: Routes = [  {
     {path:'',component:HomepageBACKComponent},
     {path:'listuser',component:ListUserBACKComponent},
     {path:'listpublicationback',component:ListPublictaionBACKComponent},
-    
+    {path:'listtrainingback',component:ListTrainingBackComponent},
+    {path:'addTraining',component:AddtrainingComponent},
+    {path:'updateTraining/:id',component:AddtrainingComponent}
+    //{path:'addTraining/admin/listtrainingback',component:AddtrainingComponent} 
   ]
 
 },
@@ -45,6 +52,7 @@ const routes: Routes = [  {
 {path:'updatePublication/:id',component:AddPublicationComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
+{path:'training',component:TrainingComponent}
 
 
   ]

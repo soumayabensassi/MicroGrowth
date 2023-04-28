@@ -23,6 +23,10 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
+import { TrainingComponent } from './Component/training/training.component';
+import { ListTrainingBackComponent } from './Component/list-training-back/list-training-back.component';
+import { AddtrainingComponent } from './Component/addtraining/addtraining.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
     ListUserBACKComponent,
     ListPublictaionBACKComponent,
     AllTemplateUserComponentComponent,
-    AllTemplateAdminComponentComponent
+    AllTemplateAdminComponentComponent,
+    TrainingComponent,
+    ListTrainingBackComponent,
+    AddtrainingComponent,
+  
   ],
   imports: [
     BrowserModule,

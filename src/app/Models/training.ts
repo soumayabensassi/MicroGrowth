@@ -1,13 +1,14 @@
 import { User } from "./user";
 
 export class Training {
-    idtraining!:number;
+    idTraining!:number;
     title!:string;
-    startdate!:Date;
-    finshdate!:Date;
+    startDate!:Date;
+    finishdate!:Date;
     state!:boolean;
     price!:number;
-    numberofplace!:number;
+    nbrOfPlace!:number;
     subject!:string;
+    image!:string;
     users!:User;
 }

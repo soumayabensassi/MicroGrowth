@@ -13,20 +13,22 @@ export class TrainingService {
   getTraining():Observable<Training[]>{
     return this.http.get<Training[]>(this.TrainingURL+"/afficherT");
    }
+   
    getTrainingById(id:number):Observable<Training>{
-    return this.http.get<Training>(this.TrainingURL+"/afficherAvecIdT"+id);
+    return this.http.get<Training>(this.TrainingURL+"/afficherAvecIdT/"+id);
    }
-   addTraining(training:Training,email:string){
-    return this.http.post(this.TrainingURL+"/ajouterTraining/"+email,training)
-
+   
+   addTraining(training:Training){
+    return this.http.post(this.TrainingURL+"/admin/ajouterTraining",training)
    }
-   updateInsurance(id: number, training: Training): Observable<Training> {
-    //const url = `${this.apiUrl}/admin/update-Insurance/${id}`;
-    return this.http.put<Training>(this.TrainingURL+"/editTraining/", training);
-  }
+  
 
-  deleteInsurance(id: number): Observable<any> {
-   // const url = `${this.apiUrl}/admin/deleteInsurance/${id}`;
-    return this.http.delete(this.TrainingURL+"/deleteTraining/"+id);
+   delete(id:number) 
+   {
+     return this.http.delete(`${this.TrainingURL}/admin/deleteTraining/${id}`);
+   }
+  updateTraining(id:number,training:Training)
+  {
+    return this.http.put(`${this.TrainingURL}/admin/editTraining` , training);
   }
 }
