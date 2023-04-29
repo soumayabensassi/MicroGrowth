@@ -1,8 +1,7 @@
 import { InsuranceServiceService } from './../../service/insurance.service';
 import { Route, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Chart, registerables } from 'chart.js';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { InsuranceKpiService } from 'src/app/service/insurance-kpi.service';
 
 @Component({
@@ -11,6 +10,8 @@ import { InsuranceKpiService } from 'src/app/service/insurance-kpi.service';
   styleUrls: ['./insurance-kpi-back.component.css']
 })
 export class InsuranceKpiBackComponent implements OnInit {
+  @ViewChild('pieChart') pieChart !: ElementRef;
+  @ViewChild('doughnutChart') doughnutChart !: ElementRef;
 
   costOfSales!: number;
   cashIn!: number;
@@ -20,26 +21,15 @@ export class InsuranceKpiBackComponent implements OnInit {
   financialKPI2Result!: number;
   financialKPI3Result!: number;
   financialKPI4Result!: number;
-  doughnutChart!: Chart;
-  pieChart!: Chart;
   satisfactionKPI!: number;
   prrKPI!: number;
 
   constructor(private http: HttpClient, private route : Router, private insurancekpiservice : InsuranceKpiService) { }
 
-  ngOnInit() {
-    Chart.register(...registerables);
 
-    this.insurancekpiservice.getSatisfactionKPI().subscribe((data) => {
-      this.satisfactionKPI = data;
-      this.updatePieChart();
-    });
-
-    this.insurancekpiservice.getPRRKPI(10, 20).subscribe((data) => {
-      this.prrKPI = data;
-      this.updateDoughnutChart();
-    });
-  }
+    ngOnInit(): void {
+    }
+  
 
   onSubmit() {
     // Make GET requests to the four endpoints
@@ -60,23 +50,7 @@ export class InsuranceKpiBackComponent implements OnInit {
     });
   }
 
-  updateDoughnutChart() {
-    if (!this.doughnutChart) {
-      return;
-    }
-
-    this.doughnutChart.data.datasets[0].data = [this.prrKPI, 100 - this.prrKPI];
-    this.doughnutChart.update();
-  }
-
-  updatePieChart() {
-    if (!this.pieChart) {
-      return;
-    }
-    this.pieChart.data.datasets[0].data = [this.satisfactionKPI, 100 - this.satisfactionKPI];
-    this.pieChart.update();
-  }
-
+  
   
 
   onCancel() {
