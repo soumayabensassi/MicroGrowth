@@ -25,6 +25,9 @@ import { InsuranceKpisComponent } from './Component/insurance-kpi-front/insuranc
 import { CheckInsuranceComponent } from './Component/check-insurance/check-insurance.component';
 import { pathToFileURL } from 'url';
 import { SimulateInsuranceComponent } from './Component/simulate-insurance/simulate-insurance.component';
+import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
+import { AuthGuard } from './Auth/auth.guard';
+
 
 const routes: Routes = [{
   path: 'admin',
@@ -38,9 +41,13 @@ const routes: Routes = [{
     {path: 'Insurance-modify-back' , component : InsuranceModifyBackComponent },
 
 
-  ]
+  ],canActivate:[AuthGuard],data:{roles:['[ROLE_ADMIN]']}
+
+
 
 },
+
+
 {
   path: '',
   component: AllTemplateUserComponentComponent,
@@ -63,7 +70,11 @@ const routes: Routes = [{
     {path: 'Kpi-f' , component: InsuranceKpisComponent},
     { path: 'Insurance', component: InsuranceComponent },
     {path: 'check-insurance' , component: CheckInsuranceComponent},
-    {path: 'simulate-insurance' , component: SimulateInsuranceComponent},    
+    {path: 'simulate-insurance' , component: SimulateInsuranceComponent},   
+    {path:'notfound',component: PageNotFoundComponent}, 
+  
+
+
 
     //{path:'',redirectTo:'homePage',pathMatch:'full'}
   ]

@@ -19,48 +19,105 @@
         </div>
         <div style="margin-left: 350px;">
             <div class="col-lg-8 wow slideInUp " data-wow-delay="0.3s">
-                <form (ngSubmit)="saveUser()">
+                <form (ngSubmit)="saveUser()" #form="ngForm">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <input type="text" class="form-control border-0 bg-light px-4"  name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName" placeholder="Your FirstName"
-                                style="height: 55px;">
+                            <input type="text" class="form-control border-0 bg-light px-4" name="firstName"
+                                #firstName="ngModel" [(ngModel)]="user.firstName" placeholder="Your FirstName" required
+                                minlength="3" style="height: 55px;">
+                            <br>
+                            <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+                                <div *ngIf="firstName.errors?.['required']">FirstName is required</div>
+                                <div *ngIf="firstName.errors?.['minlength']">FirstName must have 3 caracters </div>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control border-0 bg-light px-4" 
-                            name="lasttName" #lasttName="ngModel" [(ngModel)]="user.lasttName"
-                            placeholder="Your LasttName"
-                                style="height: 55px;">
+                            <input type="text" class="form-control border-0 bg-light px-4" name="lasttName"
+                                #lasttName="ngModel" [(ngModel)]="user.lasttName" placeholder="Your LasttName" required
+                                minlength="3" style="height: 55px;"><br>
+                            <div class="alert alert-danger" *ngIf="lasttName.touched && lasttName.invalid">
+                                <div *ngIf="lasttName.errors?.['required']">LasttName is required</div>
+                                <div *ngIf="lasttName.errors?.['minlength']">LasttName must have 3 caracters </div>
+                            </div>
                         </div>
-                        
-                        <div class="col-6">
-                            <input type="password" class="form-control border-0 bg-light px-4" name="password" #password="ngModel" [(ngModel)]="user.password"
-                             placeholder="Your Password"
-                                style="height: 55px;">
-                        </div>
-                        <div class="col-6">
-                            <input type="password" class="form-control border-0 bg-light px-4" name="verifPassword" #verifPassword="ngModel" [(ngModel)]="user.verifPassword"
-                             placeholder="Confirm your Password"
-                                style="height: 55px;">
-                        </div>
+                        <form [formGroup]="passwordForm">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="password" formControlName="password" id="password"
+                                        class="form-control border-0 bg-light px-4" name="password"
+                                        [(ngModel)]="user.password" placeholder="Your Password" required>
+
+                                    <br>
+                                    <div class="alert alert-danger"
+                                        *ngIf="passwordForm.hasError('mismatch') && (passwordForm.dirty || passwordForm.touched)">
+                                        Passwords do not match.
+
+                                    </div>
+                                    <div *ngIf="passwordForm.hasError('required') && passwordForm.touched">
+                                        Passwords is required.
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <input type="password" class="form-control border-0 bg-light px-4"
+                                        name="verifpassword" formControlName="verifpassword" id="verifpassword"
+                                        [(ngModel)]="user.verifPassword" placeholder="Confirm Your Password" required>
+
+                                    <br>
+                                    <div class="alert alert-danger"
+                                        *ngIf="passwordForm.hasError('mismatch') && (passwordForm.dirty || passwordForm.touched)">
+                                        Passwords do not match.
+                                    </div>
+                                    <div class="alert alert-danger"
+                                        *ngIf="passwordForm.hasError('required') && passwordForm.touched">
+                                        Passwords is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
                         <div class="col-md-6">
-                            <input type="number" class="form-control border-0 bg-light px-4" name="phone" #phone="ngModel" [(ngModel)]="user.phone"
-                            placeholder="Your Phone"
-                                style="height: 55px;">
+                            <input type="number" class="form-control border-0 bg-light px-4" name="phone"
+                                #phone="ngModel" [(ngModel)]="user.phone" placeholder="Your Phone" required
+                                pattern="[0-9]{8}" style="height: 55px;">
+                            <br>
+                            <div class="alert alert-danger" *ngIf="phone.touched && phone.invalid">
+                                <div *ngIf="phone.errors?.['required']">Phone is required</div>
+                                <div *ngIf="phone.errors?.['pattern']">Phone must have 8 number </div>
+                            </div>
                         </div>
                         <div class="col-6">
-                            <input type="email" class="form-control border-0 bg-light px-4" name="email" #email="ngModel" [(ngModel)]="user.email"
-                            style="height: 55px;" placeholder="Your Email">
+                            <input type="email" class="form-control border-0 bg-light px-4" name="email"
+                                #email="ngModel" [(ngModel)]="user.email" style="height: 55px;" placeholder="Your Email"
+                                required pattern="[a-zA-Z][a-zA-Z0-9.-_]+@[a-zA-Z]+\.[a-zA-Z]{2,4}">
+                            <br>
+                            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                                <div *ngIf="email.errors?.['required']">Email is required</div>
+                                <div *ngIf="email.errors?.['pattern']">Email invalid </div>
+                            </div>
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control border-0 bg-light px-4" name="profession" #profession="ngModel" [(ngModel)]="user.profession"
-                            style="height: 55px;"  placeholder="your Profesion">
+                            <input type="text" class="form-control border-0 bg-light px-4" name="profession"
+                                #profession="ngModel" [(ngModel)]="user.profession" required minlength="3"
+                                placeholder="your Profesion" style="height: 55px;"><br>
+                            <div class="alert alert-danger" *ngIf="profession.touched && profession.invalid">
+                                <div *ngIf="profession.errors?.['required']">Profession is required</div>
+                                <div *ngIf="profession.errors?.['minlength']">Profession must have 3 caracters </div>
+                            </div>
                         </div>
                         <div class="col-6">
-                            <input type="number" class="form-control border-0 bg-light px-4" name="cin" #cin="ngModel" [(ngModel)]="user.cin"
-                            style="height: 55px;"  placeholder="your CIN">
+                            <input type="number" class="form-control border-0 bg-light px-4" name="cin" #cin="ngModel"
+                                [(ngModel)]="user.cin" style="height: 55px;" required pattern="[0-9]{8}"
+                                placeholder="your CIN">
+                            <br>
+                            <div class="alert alert-danger" *ngIf="cin.touched && cin.invalid">
+                                <div *ngIf="cin.errors?.['required']">CIN is required</div>
+                                <div *ngIf="cin.errors?.['pattern']">CIN must have 8 number </div>
+                            </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary w-100 py-3" type="submit">Sign up</button>
+                            <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="form.invalid">Sign
+                                up</button>
                         </div>
                         <div>
                             <h6>Already I have an account <a routerLink="/signin">Sign-in</a></h6>

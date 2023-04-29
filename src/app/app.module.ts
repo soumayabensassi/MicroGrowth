@@ -8,7 +8,7 @@ import { HomePageComponent } from './Component/home-page/home-page.component';
 import { SignupComponent } from './Component/signup/signup.component';
 import { SigninComponent } from './Component/signin/signin.component';
 import { PublicationComponent } from './Component/publication/publication.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from  '@angular/common/http';
 import { CommentComponent } from './Component/comment/comment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmeCompteComponent } from './Component/confirme-compte/confirme-compte.component';
@@ -32,6 +32,11 @@ import { InsuranceModifyBackComponent } from './Component/insurance-modify-back/
 import { CheckInsuranceComponent } from './Component/check-insurance/check-insurance.component';
 import { SimulateInsuranceComponent } from './Component/simulate-insurance/simulate-insurance.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+import { UserService } from './service/user.service';
+import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
+import { AuthGuard } from './Auth/auth.guard';
+import { AuthInterceptor } from './Auth/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,14 +67,22 @@ import { SimulateInsuranceComponent } from './Component/simulate-insurance/simul
     InsuranceModifyBackComponent,
     CheckInsuranceComponent,
     SimulateInsuranceComponent,
+  
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
-  providers: [],
+  providers: [AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  },UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
