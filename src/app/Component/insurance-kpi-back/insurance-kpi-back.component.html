@@ -1,1 +1,119 @@
-<p>insurance-kpi-back works!</p>
+<h4 class="card-title">Business Check-up</h4>
+<form class="forms-sample" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label for="costOfSales" class="col-sm-3 col-form-label">Cost of Sales and Marketing</label>
+        <div class="col-sm-9">
+            <input class="form-control" type="number" id="costOfSales" name="costOfSales" [(ngModel)]="costOfSales"
+                placeholder="please enter the Sales'Cost" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="cashIn" class="col-sm-3 col-form-label">Cash In</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="cashIn" name="cashIn" [(ngModel)]="cashIn"
+                placeholder="please enter the cash-in" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="cashOut" class="col-sm-3 col-form-label">Cash Out</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="cashOut" name="cashOut" [(ngModel)]="cashOut"
+                placeholder="please enter the cash-out" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="sales" class="col-sm-3 col-form-label">Sales</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="sales" name="sales" [(ngModel)]="sales"
+                placeholder="please enter the sales" required>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <div class="col-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mr-2 text-center">Test</button>
+            <button type="button" class="btn btn-light text-center" (click)="onCancel()">Cancel</button>
+        </div>
+    </div>
+</form>
+
+
+<div class="row" id="salem">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card tale-bg">
+            <div class="card-people mt-auto">
+                <img src="../../../assets/Back/images/dashboard/people.svg" alt="people">
+                <div class="weather-info">
+                    <div class="d-flex">
+                        <div>
+                            <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>25<sup>C</sup></h2>
+                        </div>
+                        <div class="ml-2">
+                            <h4 class="location font-weight-normal">Tunisia</h4>
+                            <h6 class="font-weight-normal">Tunis</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin transparent">
+        <div class="row">
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale">
+                    <div class="card-body">
+                        <p class="mb-4">Customer KPI Sales</p>
+                        <p *ngIf="financialKPI1Result" class="fs-30 mb-2"> {{financialKPI1Result}}</p>
+                        <p> (1year)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue">
+                    <div class="card-body">
+                        <p class="mb-4">Cash Flow</p>
+                        <p *ngIf="financialKPI2Result" class="fs-30 mb-2">{{financialKPI2Result}}</p>
+                        <p>22.00% (30 days)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card card-light-blue">
+                    <div class="card-body">
+                        <p class="mb-4">Earnings Per Share</p>
+                        <p *ngIf="financialKPI3Result" class="fs-30 mb-2">{{financialKPI3Result}}</p>
+                        <p>2.00% (30 days)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 stretch-card transparent">
+                <div class="card card-light-danger">
+                    <div class="card-body">
+                        <p class="mb-4">Profit Margin</p>
+                        <p *ngIf="financialKPI4Result" class="fs-30 mb-2">{{financialKPI4Result}}</p>
+                        <p>0.22% (30 days)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Doughnut chart</h4>
+            <canvas id="doughnutChart"></canvas>
+        </div>
+    </div>
+</div>
+<div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Pie chart</h4>
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+</div>

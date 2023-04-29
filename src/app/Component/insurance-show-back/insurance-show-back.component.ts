@@ -1,8 +1,10 @@
+import { InsuranceComponent } from './../Insurance-add-back/insurance.component';
 import { ActivitysectorService } from './../../service/activitysector.service';
 import { Insurance } from './../../Models/insurance';
 import { InsuranceServiceService } from '../../service/insurance.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-insurance-show-back',
@@ -16,7 +18,10 @@ export class InsuranceShowBackComponent implements OnInit {
   result: any;
   monthlyPayment: any;
   monthlyPaymentS: any;
-  totalAmount: any;
+  totalAmount : any;
+  message : string = '';
+  debt!: number ;
+  income!: number ;
 
   constructor(private InsuranceServiceService: InsuranceServiceService, private ActivitysectorService :ActivitysectorService , private route: Router, private active: ActivatedRoute) { }
 
@@ -79,5 +84,18 @@ export class InsuranceShowBackComponent implements OnInit {
         console.log(totalAmount);
       });
   }
+
+  onCancel() {
+    this.route.navigate(['/']);
+  }
+
+  onSubmit() {
+    console.log(`debt: ${this.debt}, income: ${this.income}`);
+    if ((this.debt / this.income) >= 0.43) {
+      this.message = `The insurance request will be dismissed.` ;
+    } else {
+      this.message = `The insurance request will be approved.` ;
+    }
+}
 
 }

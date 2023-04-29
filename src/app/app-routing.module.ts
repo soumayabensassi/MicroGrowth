@@ -63,8 +63,8 @@ const routes: Routes = [{
     {path: 'Kpi-f' , component: InsuranceKpisComponent},
     { path: 'Insurance', component: InsuranceComponent },
     {path: 'check-insurance' , component: CheckInsuranceComponent},
-    {path: 'simulate-insurance' , component: SimulateInsuranceComponent}
-    
+    {path: 'simulate-insurance' , component: SimulateInsuranceComponent},    
+
     //{path:'',redirectTo:'homePage',pathMatch:'full'}
   ]
 },

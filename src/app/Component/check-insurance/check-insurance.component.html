@@ -1,1 +1,96 @@
-<p>check-insurance works!</p>
+<div class="container">
+    <h3>Enter Your Insurance ID</h3>
+    <form [formGroup]="insuranceForm">
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="number" class="form-control" id="id" formControlName="id" placeholder="Your ID">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="getInsuranceById()">Check my Insurance</button>
+    </form>
+
+
+
+    <div class="container-scroller mt-5">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-description">
+                        Add class <code>.table-striped</code>
+                    <div class="table-responsive text-center">
+                        <h2>Insurece Details</h2>
+                        <div *ngIf="insurance">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Insurance
+                                        </th>
+                                        <th>
+                                            Amount
+                                        </th>
+                                        <th>
+                                            Start Date
+                                        </th>
+                                        <th>
+                                            End Date
+                                        </th>
+                                        <th>
+                                            Activity Sector
+                                        </th>
+                                        <th>
+                                            Interest Rate
+                                        </th>
+                                        <th>
+                                            Monthly Amount
+                                        </th>
+                                        <th>
+                                            Total Amount
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-1">
+                                            {{ insurance.idInsurance}}
+                                        </td>
+                                        <td class="py-1">
+                                            {{ insurance.amount }}
+                                        </td>
+                                        <td class="py-1">
+                                            {{ insurance.startDate }}
+                                        </td>
+                                        <td class="py-1">
+                                            {{ insurance.endDate }}
+                                        </td>
+                                        <td>
+                                            {{ insurance.activitysector.name }}
+                                        </td>
+                                        <td class="py-1">
+                                            <ng-container
+                                                *ngIf="insurance.activitysector.name === '' || insurance.activitysector.name === null; else displayInterestRate">
+                                                <input type="number" [(ngModel)]="insurance.activitysector.interestRate"
+                                                    class="form-control" placeholder="Interest Rate">
+                                            </ng-container>
+                                            <ng-template #displayInterestRate>{{
+                                                insurance.activitysector.interestRate}}</ng-template>
+                                        </td>
+                                        <td class="py-1">
+                                            {{ calculateMonthlyPayment}}
+                                        </td>
+                                        <td class="py-1">
+                                            {{ calculateTotalAmount }}
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                    style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

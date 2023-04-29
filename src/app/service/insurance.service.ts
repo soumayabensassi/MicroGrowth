@@ -15,6 +15,9 @@ export class InsuranceServiceService {
   getAllInsurances(): Observable<Insurance[]> {
     return this.http.get<Insurance[]>(this.apiUrl + "/admin/afficher-insurance" );
   }
+  getInsuranceData(user: string): Observable<Insurance[]> {
+    return this.http.get<Insurance[]>(`${this.apiUrl}/insurance?user=${user}`);
+  }
 
   createInsurance(Insurance: Insurance): Observable<Insurance> {
     return this.http.post<Insurance>(this.apiUrl, Insurance);

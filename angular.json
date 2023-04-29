@@ -27,9 +27,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/chart.js/dist/Chart.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/chartjs-plugin-piechart-outlabels/dist/piechart.js"
+
+            ]
           },
           "configurations": {
             "production": {

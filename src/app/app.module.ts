@@ -61,7 +61,7 @@ import { SimulateInsuranceComponent } from './Component/simulate-insurance/simul
     InsuranceShowBackComponent,
     InsuranceModifyBackComponent,
     CheckInsuranceComponent,
-    SimulateInsuranceComponent
+    SimulateInsuranceComponent,
   ],
   imports: [
     BrowserModule,
