@@ -63,16 +63,16 @@
                                     {{ insurance.endDate }}
                                 </td>
                                 <td>
-                                    {{ insurance.activitysector.name }}
+                                    {{ insurance.activitySector.name }}
                                 </td>
                                 <td class="py-1">
                                     <ng-container
-                                        *ngIf="insurance.activitysector.name === '' || insurance.activitysector.name === null; else displayInterestRate">
-                                        <input type="number" [(ngModel)]="insurance.activitysector.interestRate"
+                                        *ngIf="insurance.activitySector.name === '' || insurance.activitySector.name === null; else displayInterestRate">
+                                        <input type="number" [(ngModel)]="insurance.activitySector.interestRate"
                                             class="form-control" placeholder="Interest Rate">
                                     </ng-container>
                                     <ng-template #displayInterestRate>{{
-                                        insurance.activitysector.interestRate}}</ng-template>
+                                        insurance.activitySector.interestRate}}</ng-template>
                                 </td>
                                 <td class="py-1">
                                     <button (click)="deleteInsurance(selectedInsurance)"
@@ -80,12 +80,12 @@
                                     <button (click)="goToModify(insurance)" class="btn btn-warning">Modify</button>
                                 </td>
                                 <td class="py-1">
-                                    {{ calculateMonthlyPayment(insurance.amount, insurance.activitysector.interestRate)
+                                    {{ calculateMonthlyPayment(insurance.amount, insurance.activitySector.interestRate)
                                     }}
                                 </td>
                                 <td class="py-1">
                                     {{ calculateTotalAmount(insurance.idInsurance,
-                                    insurance.activitysector.interestRate) }}
+                                    insurance.activitySector.interestRate) }}
                                 </td>
                             </tr>
                         </tbody>

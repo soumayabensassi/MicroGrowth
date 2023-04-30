@@ -23,22 +23,22 @@ export class InsuranceShowBackComponent implements OnInit {
   debt!: number ;
   income!: number ;
 
-  constructor(private InsuranceServiceService: InsuranceServiceService, private ActivitysectorService :ActivitysectorService , private route: Router, private active: ActivatedRoute) { }
+  constructor(private insuranceServiceService: InsuranceServiceService, private ActivitysectorService :ActivitysectorService , private route: Router, private active: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.InsuranceServiceService.getAllInsurances;
+    this.insuranceServiceService.getAllInsurances;
     this.ActivitysectorService.getActivitySectors;
   }
 
   getInsurances(): void {
-    this.InsuranceServiceService.getAllInsurances()
+    this.insuranceServiceService.getAllInsurances()
       .subscribe(insurances => {
         this.insurances = insurances;
       });
   }
 
   deleteInsurance(insurance: Insurance): void {
-    this.InsuranceServiceService.deleteInsurance(insurance.idInsurance)
+    this.insuranceServiceService.deleteInsurance(insurance.idInsurance)
       .subscribe(() => {
         this.insurances = this.insurances.filter(i => i.idInsurance !== insurance.idInsurance);
       });
@@ -49,7 +49,7 @@ export class InsuranceShowBackComponent implements OnInit {
   }
 
   calculateMonthlyPayment(loanAmount: number, interestRate: number): void {
-    this.InsuranceServiceService.calculateMonthlyPayment(loanAmount, interestRate)
+    this.insuranceServiceService.calculateMonthlyPayment(loanAmount, interestRate)
       .subscribe(monthlyPayment => {
         this.monthlyPayment = monthlyPayment;
         console.log(monthlyPayment);
@@ -57,7 +57,7 @@ export class InsuranceShowBackComponent implements OnInit {
   }
 
   calculateMonthlyPaymentS(idS: number, TotalInsuredValue: number, Deductible: number): void {
-    this.InsuranceServiceService.calculateMonthlyPaymentS(idS, TotalInsuredValue, Deductible)
+    this.insuranceServiceService.calculateMonthlyPaymentS(idS, TotalInsuredValue, Deductible)
       .subscribe(monthlyPaymentS => {
         this.monthlyPaymentS = monthlyPaymentS;
         console.log(monthlyPaymentS);
@@ -65,7 +65,7 @@ export class InsuranceShowBackComponent implements OnInit {
   }
 
   applyForInsuranceC(income: number, mail: string, Score: number): void {
-    this.InsuranceServiceService.applyForInsuranceC(income, mail, Score)
+    this.insuranceServiceService.applyForInsuranceC(income, mail, Score)
       .subscribe(result => {
         this.result = result;
         console.log(result);
@@ -73,12 +73,12 @@ export class InsuranceShowBackComponent implements OnInit {
   }
 
   applyForInsurance(income: number, debt: number): void {
-    this.InsuranceServiceService.applyForInsurance(income, debt)
+    this.insuranceServiceService.applyForInsurance(income, debt)
       .subscribe(result => console.log(result));
   }
 
   calculateTotalAmount(id: number, interestRate: number): void {
-    this.InsuranceServiceService.calculateTotalAmount(id, interestRate)
+    this.insuranceServiceService.calculateTotalAmount(id, interestRate)
       .subscribe(totalAmount => {
         this.totalAmount = totalAmount;
         console.log(totalAmount);

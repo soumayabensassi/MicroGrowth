@@ -41,7 +41,7 @@ const routes: Routes = [{
     {path: 'Insurance-modify-back' , component : InsuranceModifyBackComponent },
 
 
-  ],canActivate:[AuthGuard],data:{roles:['[ROLE_ADMIN]']}
+  ],
 
 
 

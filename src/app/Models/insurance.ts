@@ -6,5 +6,5 @@ export class Insurance {
     startDate!: Date;
     endDate!:Date;
     users!: User;
-    activitysector!:  ActivitySector;
+    activitySector!:  ActivitySector;
 }

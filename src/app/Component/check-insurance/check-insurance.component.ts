@@ -3,7 +3,7 @@ import { ActivitySector } from './../../Models/activity-sector';
 import { InsuranceServiceService } from 'src/app/service/insurance.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Insurance } from 'src/app/Models/insurance';
 
 @Component({
@@ -12,28 +12,41 @@ import { Insurance } from 'src/app/Models/insurance';
   styleUrls: ['./check-insurance.component.css']
 })
 export class CheckInsuranceComponent implements OnInit {
-  insuranceForm!: FormGroup;
   insurance!: Insurance;
   totalAmount!: number;
   monthlyPayment!: number;
+  id!: number;
+  interestRate!: number;
+  activitySectorName!: string;
 
-  constructor(private http: HttpClient , private InsuranceServiceService : InsuranceServiceService , private formBuilder: FormBuilder, private ActivitySector:  ActivitysectorService ) { 
-    this.insuranceForm = this.formBuilder.group({
-      id: ['', Validators.required]
-    });
+  constructor(private http: HttpClient, private insuranceService: InsuranceServiceService, private ActivitySector: ActivitysectorService) {
   }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { }
 
-  getInsuranceById() {
-    const id = this.insuranceForm.controls['id'].value;
-    this.InsuranceServiceService.getInsuranceById(id).subscribe(
-      (res) => {
-        this.insurance = res;
-        this.totalAmount = this.calculateTotalAmount(this.insurance.amount);
-        this.monthlyPayment = this.calculateMonthlyPayment(this.totalAmount);
-      },
-    );
+
+  onSubmit(form: NgForm) {
+    const id = form.value.id;
+    this.activitySectorName = '';
+    this.interestRate = 0;
+    this.insuranceService.getInsuranceById(id).subscribe((data ) => {
+      this.insurance = data;
+      this.totalAmount = this.calculateTotalAmount(this.insurance.amount);
+      this.monthlyPayment = this.calculateMonthlyPayment(this.totalAmount);
+      console.log('ghaith');
+      console.log(data);
+
+      // retrieve activity sector by id
+      //this.ActivitySector.getActivitySectorById(this.insurance.activitysector.idSecteur).subscribe((data: ActivitySector) => {
+        //this.activitySectorName = data.name;
+        //this.interestRate = data.interestRate;
+        //console.log(this.interestRate);
+      //}, error => {
+       // console.log(error);
+      //});
+    }, error => {
+      console.log(error);
+    });
   }
 
   calculateTotalAmount(amount: number): number {
@@ -43,7 +56,7 @@ export class CheckInsuranceComponent implements OnInit {
   calculateMonthlyPayment(totalAmount: number): number {
     return totalAmount / 12;
   }
-  
+
 
 
 

@@ -22,12 +22,34 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="sales" class="col-sm-3 col-form-label">Sales</label>
+        <label for="sales" class="col-sm-3 col-form-label">Number Of Shares</label>
         <div class="col-sm-9">
-            <input type="number" class="form-control" id="sales" name="sales" [(ngModel)]="sales"
-                placeholder="please enter the sales" required>
+            <input type="number" class="form-control" id="shares" name="shares" [(ngModel)]="shares"
+                placeholder="please enter the shares number" required>
         </div>
     </div>
+    <div class="form-group row">
+        <label for="sales" class="col-sm-3 col-form-label">Expanses</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="expanses" name="expanses" [(ngModel)]="expanses"
+                placeholder="please enter the expanses amount" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="sales" class="col-sm-3 col-form-label">Total Policies</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="opolicies" name="opolicies" [(ngModel)]="opolicies"
+                placeholder="please enter the o policies" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="sales" class="col-sm-3 col-form-label">New Policies</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="npolicies" name="npolicies" [(ngModel)]="npolicies"
+                placeholder="please enter the n policies" required>
+        </div>
+    </div>
+
     <div class="form-group row mt-3">
         <div class="col-12 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary mr-2 text-center">Test</button>
@@ -62,7 +84,7 @@
                 <div class="card card-tale">
                     <div class="card-body">
                         <p class="mb-4">Customer KPI Sales</p>
-                        <p *ngIf="financialKPI1Result" class="fs-30 mb-2"> {{financialKPI1Result}}</p>
+                        <p class="fs-30 mb-2"> {{customerkpi}}</p>
                         <p> (1year)</p>
                     </div>
                 </div>
@@ -71,7 +93,7 @@
                 <div class="card card-dark-blue">
                     <div class="card-body">
                         <p class="mb-4">Cash Flow</p>
-                        <p *ngIf="financialKPI2Result" class="fs-30 mb-2">{{financialKPI2Result}}</p>
+                        <p class="fs-30 mb-2">{{cashflow}}</p>
                         <p>22.00% (30 days)</p>
                     </div>
                 </div>
@@ -82,7 +104,7 @@
                 <div class="card card-light-blue">
                     <div class="card-body">
                         <p class="mb-4">Earnings Per Share</p>
-                        <p *ngIf="financialKPI3Result" class="fs-30 mb-2">{{financialKPI3Result}}</p>
+                        <p class="fs-30 mb-2">{{eps}}</p>
                         <p>2.00% (30 days)</p>
                     </div>
                 </div>
@@ -91,7 +113,7 @@
                 <div class="card card-light-danger">
                     <div class="card-body">
                         <p class="mb-4">Profit Margin</p>
-                        <p *ngIf="financialKPI4Result" class="fs-30 mb-2">{{financialKPI4Result}}</p>
+                        <p class="fs-30 mb-2">{{profitmargin}}</p>
                         <p>0.22% (30 days)</p>
                     </div>
                 </div>
@@ -101,19 +123,38 @@
 </div>
 
 
-<div class="col-lg-6 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Doughnut chart</h4>
-            <canvas #doughnutChart></canvas>
+
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <p class="card-title">Customers'KPI</p>
+                </div>
+                <p class="font-weight-500"> Satisfaction Rate </p>
+                <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
+                <div style="position: relative; height: 300px;">
+                    <canvas #pieChart style="position: absolute;  left: 500; width: 100%; height: 100%;"></canvas>
+
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Pie chart</h4>
-            <canvas #pieChart></canvas>
+
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <p class="card-title">Policy Retention Rate</p>
+                </div>
+                <p class="font-weight-500"> PPR KPI  </p>
+                <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
+                <div style="position: relative; height: 300px;">
+                    <canvas #doughnutChart style="position: absolute;  left: 500; width: 100%; height: 100%;"></canvas>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

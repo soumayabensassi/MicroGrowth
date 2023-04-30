@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class InsuranceServiceService {
 
-  private apiUrl = 'http://localhost:8082/api/insurances';
+  private apiUrl = 'http://localhost:8082/MicroGrowth/api/insurances';
 
   constructor(private http: HttpClient) { }
 

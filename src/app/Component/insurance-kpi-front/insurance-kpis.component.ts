@@ -10,8 +10,8 @@ import { Chart } from 'chart.js/auto';
   styleUrls: ['./insurance-kpis.component.css']
 })
 export class InsuranceKpisComponent implements OnInit {
-  @ViewChild('pieChart') pieChart !: ElementRef;
-  @ViewChild('doughnutChart') doughnutChart !: ElementRef;
+  @ViewChild('pieChart1') pieChart1 !: ElementRef;
+  @ViewChild('doughnutChart1') doughnutChart1 !: ElementRef;
 
 
 
@@ -69,14 +69,14 @@ export class InsuranceKpisComponent implements OnInit {
         };
 
         // create the pie chart using the pieChartRef
-        new Chart(this.pieChart.nativeElement, {
+        new Chart(this.pieChart1.nativeElement, {
           type: 'pie',
           data: satisfactionData,
           options: options
         });
 
         // create the doughnut chart using the doughnutChartRef
-        new Chart(this.doughnutChart.nativeElement, {
+        new Chart(this.doughnutChart1.nativeElement, {
           type: 'doughnut',
           data: prrData,
           options: options

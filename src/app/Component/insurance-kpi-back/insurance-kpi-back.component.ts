@@ -1,8 +1,11 @@
 import { InsuranceServiceService } from './../../service/insurance.service';
 import { Route, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, NgModule } from '@angular/core';
 import { InsuranceKpiService } from 'src/app/service/insurance-kpi.service';
+import { Chart } from 'chart.js';
+
+
 
 @Component({
   selector: 'app-insurance-kpi-back',
@@ -10,48 +13,107 @@ import { InsuranceKpiService } from 'src/app/service/insurance-kpi.service';
   styleUrls: ['./insurance-kpi-back.component.css']
 })
 export class InsuranceKpiBackComponent implements OnInit {
-  @ViewChild('pieChart') pieChart !: ElementRef;
-  @ViewChild('doughnutChart') doughnutChart !: ElementRef;
+  @ViewChild('pieChart', { static: true }) pieChart!: ElementRef;
+  @ViewChild('doughnutChart', { static: true }) doughnutChart!: ElementRef;
 
   costOfSales!: number;
   cashIn!: number;
   cashOut!: number;
   sales!: number;
-  financialKPI1Result!: number;
-  financialKPI2Result!: number;
-  financialKPI3Result!: number;
-  financialKPI4Result!: number;
-  satisfactionKPI!: number;
-  prrKPI!: number;
+  shares!: number;
+  expanses!: number;
+  npolicies!: number;
+  opolicies!: number;
 
-  constructor(private http: HttpClient, private route : Router, private insurancekpiservice : InsuranceKpiService) { }
+  customerkpi!: number;
+  cashflow!: number;
+  eps!: number;
+  profitmargin!: number;
+  prr!: number;
+  satisfactionR!: number;
 
 
-    ngOnInit(): void {
-    }
-  
+  constructor(private http: HttpClient, private route: Router, private insurancekpiservice: InsuranceKpiService) { }
+
+
+  ngOnInit(): void {
+  }
+
 
   onSubmit() {
-    // Make GET requests to the four endpoints
-    this.http.get<number>('/admin/financial/CustomerKPI/' + this.costOfSales).subscribe(result => {
-      this.financialKPI1Result = result;
+    this.insurancekpiservice.getCustomerKPI(this.costOfSales).subscribe(result => {
+      this.customerkpi = result;
     });
 
-    this.http.get<number>('/admin/financial/CashFlowKPI', { params: { j: this.cashIn.toString(), p: this.cashOut.toString() } }).subscribe(result => {
-      this.financialKPI2Result = result;
+    this.insurancekpiservice.getCashFlowKPI(this.cashOut, this.cashIn).subscribe(result => {
+      this.cashflow = result;
     });
 
-    this.http.get<number>('/admin/financial/EPS-KPI', { params: { s: this.sales.toString(), l: this.cashOut.toString() } }).subscribe(result => {
-      this.financialKPI3Result = result;
+    this.insurancekpiservice.getEPSKPI(this.shares, this.expanses).subscribe(result => {
+      this.eps = result;
     });
 
-    this.http.get<number>('/admin/financial/ProfitMarginKPI', { params: { l: this.cashOut.toString() } }).subscribe(result => {
-      this.financialKPI4Result = result;
+    this.insurancekpiservice.getProfitMarginKPI(this.expanses).subscribe(result => {
+      this.profitmargin = result;
+    });
+
+    this.insurancekpiservice.getPRRKPI(this.npolicies, this.opolicies).subscribe(result => {
+      this.prr = result;
+      this.generateDoughnutChart(this.prr);
+
+    });
+
+    this.insurancekpiservice.getSatisfactionKPI().subscribe(result => {
+      this.satisfactionR = result;
+      this.generatePieChart(this.satisfactionR);
+    });
+  }
+  generatePieChart(satisfactionR: number): void {
+    new Chart(this.pieChart.nativeElement, {
+      type: 'pie',
+      data: {
+        labels: ['Satisfaction', 'Unsatisfaction'],
+        datasets: [{
+          label: 'Insurance KPI',
+          data: [satisfactionR, 100 - satisfactionR],
+          backgroundColor: [
+            'rgb(54, 162, 235)',
+            'rgb(255, 99, 132)'
+          ],
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
     });
   }
 
-  
-  
+  generateDoughnutChart(prr: number): void {
+    new Chart(this.doughnutChart.nativeElement, {
+      type: 'doughnut',
+      data: {
+        labels: ['PRR KPI', 'Other'],
+        datasets: [{
+          label: 'Insurance KPI',
+          data: [prr, 100 - prr],
+          backgroundColor: [
+            'rgb(75, 192, 192)',
+            'rgb(255, 205, 86)'
+          ],
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  }
+
+
+
+
+
 
   onCancel() {
     this.route.navigate(['/']);

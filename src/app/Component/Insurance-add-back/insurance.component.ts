@@ -75,7 +75,7 @@ export class InsuranceComponent implements OnInit {
     this.newInsurance.amount = form.value.amount;
     this.newInsurance.startDate = form.value.startDate;
     this.newInsurance.endDate = form.value.endDate;
-    this.newInsurance.activitysector = form.value.activitySector;
+    this.newInsurance.activitySector = form.value.activitySector;
     this.newInsurance.users = form.value.users;
     this.InsuranceServiceService.createInsurance(this.newInsurance).subscribe(
       (response) => {

@@ -25,7 +25,7 @@ export class InsuranceModifyBackComponent implements OnInit {
         amount: [data.amount, Validators.required],
         startDate: [data.startDate, Validators.required],
         endDate: [data.endDate, Validators.required],
-        activitySector: [data.activitysector.idSecteur, Validators.required],
+        activitySector: [data.activitySector.idSecteur, Validators.required],
         user: [data.users.id_user, Validators.required]
       });
     });

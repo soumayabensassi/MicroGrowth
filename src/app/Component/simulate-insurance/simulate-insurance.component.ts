@@ -19,6 +19,7 @@ export class SimulateInsuranceComponent implements OnInit {
   totalAmount!: number;
   monthlyPayment!: number;
   amount! : number;
+  amountt! : number;
   numberOfYears! : number;
 
 
@@ -30,8 +31,8 @@ export class SimulateInsuranceComponent implements OnInit {
 
 
   onSubmitForm1() {
-    const ratio = this.debt / this.income;
-    if (ratio < 0.43) {
+    this.displayMessage1=true;
+    if ((this.debt / this.income) < 0.43) {
       this.message = `Dear ${this.name} ${this.lastName}, Your insurance request will be approved.`;
     } else {
       this.message = `Dear ${this.name} ${this.lastName}, Your insurance request will be dismissed.`;
@@ -39,7 +40,7 @@ export class SimulateInsuranceComponent implements OnInit {
   }
 
   onSubmitForm2() {
-    this.totalAmount = this.amount * (1 + 0.12);
+    this.totalAmount = this.amountt * (1 + 0.12);
     this.monthlyPayment = this.totalAmount / (12 * this.numberOfYears);
     this.displayMessage2 = true;
 
