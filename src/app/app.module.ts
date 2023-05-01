@@ -64,8 +64,6 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
     InvestorComponent,
     BourseComponent,
     IntrestCalculatorComponent,
-
-  
     PageNotFoundComponent
   ],
   imports: [

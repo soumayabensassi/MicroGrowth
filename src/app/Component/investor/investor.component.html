@@ -32,7 +32,7 @@
                       <form (submit)="exportPDF()">
                         <label for="iduser">your id:</label>
                        
-                        <input type="number" class="form-control border-0 bg-light px-4" name="iduser" [(ngModel)]="iduser">
+                       <input type="number" class="form-control border-0 bg-light px-4" name="iduser" [(ngModel)]="iduser">
                         <br>
                         <button class="btn btn-primary w-100 py-3" type="submit">exportPDF</button>
                       </form>
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="col-6"><label for="MethodInvestissement">the method</label>
-                              <select class="form-control border-0 bg-light px-4" name="MethodInvestissement" placeholder="the method " #MethodInvestissement="ngModel" [(ngModel)]="Investment.MethodInvestissement" style="height: 55px">
+                              <select class="form-control border-0 bg-light px-4" name="MethodInvestissement" placeholder="the method " #MethodInvestissement="ngModel" [(ngModel)]="Investment.methodInvestissement" style="height: 55px">
                                 <option >PONZI_PYRAMID</option>
                                 <option >PLACEMENT_PRECOMPTE</option>
                                 <option >PLACEMENT_POSCOMPTE</option>

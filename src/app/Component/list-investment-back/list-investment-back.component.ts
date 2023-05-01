@@ -13,7 +13,8 @@ export class ListInvestmentBackComponent implements OnInit {
 
   ngOnInit(): void {
     this.invSErvice.getInvestments().subscribe(
-      data => this.list = data
+      data =>{ this.list = data
+      console.log(data)}
     );
   }
   deleteInvestment(id:number){
