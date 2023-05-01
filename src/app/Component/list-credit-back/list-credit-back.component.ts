@@ -9,6 +9,7 @@ import{Credit} from "../../Models/credit"
 })
 export class ListCreditBackComponent implements OnInit {
 credits:any[]=[];
+score:any;
   constructor(private cs:CreditService) { 
      
   }
@@ -26,6 +27,11 @@ credits:any[]=[];
       this.cs.AfficherCredit().subscribe(data=>{
         this.credits=data;}
       )
+  }
+  GetScoreCredit(i:number){
+    this.cs.GetScoreCredit(i).subscribe(()=>
+    {});
+      
   }
 
 }

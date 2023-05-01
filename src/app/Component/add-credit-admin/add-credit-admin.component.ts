@@ -6,16 +6,15 @@ import { CreditService } from 'src/app/service/credit.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-add-credit-user',
-  templateUrl: './add-credit-user.component.html',
-  styleUrls: ['./add-credit-user.component.css']
+  selector: 'app-add-credit-admin',
+  templateUrl: './add-credit-admin.component.html',
+  styleUrls: ['./add-credit-admin.component.css']
 })
-export class AddCreditUserComponent implements OnInit {
+export class AddCreditAdminComponent implements OnInit {
+
+  constructor(private creditservice:CreditService,private userservice:UserService,private route:Router,private active:ActivatedRoute) { }
   credit:Credit=new Credit();
   userInfo: User=new User();
-  
-  constructor(private creditservice:CreditService,private userservice:UserService,private route:Router,private active:ActivatedRoute) { }
-
   ngOnInit(): void {
     this.userservice.getUserInfo().subscribe(
       (data) => {
@@ -26,20 +25,17 @@ export class AddCreditUserComponent implements OnInit {
         
       }
     );
-    }
-
-    sendCreditUser() 
+    console.log(this.credit)
+    console.log(this.userInfo.email)
+  }
+  sendCreditAdminPack() 
     { this.active.snapshot.params['id']!= null 
     ?
-    this.creditservice.addCreditByUser(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/homepage"))
+    this.creditservice.addCreditByAdmin(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/homePage"))
     :
-    this.creditservice.addCreditByUser(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/homepage"))
+    this.creditservice.addCreditByAdmin(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/homePage"))
   console.log(this.credit)
-  console.log(this.userInfo)
       
     }
-  
 
 }
-
-

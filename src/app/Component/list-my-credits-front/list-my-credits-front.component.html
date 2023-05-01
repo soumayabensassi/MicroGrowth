@@ -4,25 +4,20 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Credit Table</h4>
-            <p class="card-description">
-                Credit <code>.tables</code>
-            </p>
+            <br>
+            <br>
             <div class="table-responsive" style="font-size: small; zoom: 0.8;">
                 <table class="table table-striped" >
                   <thead>
                     <tr>
-                      <th>User</th>
                       <th>Amount Credit</th>
                       <th>Intrest Rate</th>
                       <th>Monthly Amount</th>
                       <th>Duration(years)</th>
-                      <th>score</th>
                       
                       <th>montant penalité</th>
-                      <th>Interview</th>
-                      <th>Decision</th>
-                      <th>delete</th>
+                      <th>date d'accord</th>
+                      <th>tableau d'amortissement</th>
 
                     
                     
@@ -31,18 +26,14 @@
                   <tbody>
                         <ng-container *ngFor="let c of credits">
                             <tr  class="table table-striped">
-                      <td>{{c.users.lasttName}} {{c.users.firstName}}</td>
                       <td>{{c.amount_credit}}</td>
                       <td>{{c.intrestRaiting}}</td>
                       <td>{{c.monthlyAmount}}</td>
                       
                       <td>{{c.duree}}</td>
                       <td>{{c.montant_penalites}}</td>
-<td></td>
-                      <td> <button  class="btn btn-primary"  > Accordé</button></td>  
-                      <td><button class="btn btn-sm btn-success me-2 text-center" type="button" style="height:40px;width:100px;">Accepter</button>
-  <button class="btn btn-sm btn-danger me-2 text-center" type="button" style="height:40px;width:100px;" type="button">Refuser</button></td>
-                      <td> <button  class="btn btn-primary" (click)="deleteCreditByAdmin(c.idCredit)"> delete</button></td>
+                      <td>{{c.demandDate}}</td>
+                      <td><button  [routerLink]="['/afficherTableauCredit',c.idCredit]" type="button" class="btn btn-primary">amortissement</button></td>
 
 
                       

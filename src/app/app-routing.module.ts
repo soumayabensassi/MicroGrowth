@@ -20,6 +20,9 @@ import{ListCreditBackComponent} from './Component/list-credit-back/list-credit-b
 import{AddCreditUserComponent} from './Component/add-credit-user/add-credit-user.component';
 import{ListPacksCreditsComponent} from './Component/list-packs-credits/list-packs-credits.component';
 import { CreditDetailsFrontComponent } from './Component/credit-details-front/credit-details-front.component';
+import { ListMyCreditsFrontComponent } from './Component/list-my-credits-front/list-my-credits-front.component';
+import { TableauAmoCreditComponent } from './Component/tableau-amo-credit/tableau-amo-credit.component';
+import { AddCreditAdminComponent } from './Component/add-credit-admin/add-credit-admin.component';
 
 
 
@@ -31,6 +34,8 @@ const routes: Routes = [  {
     {path:'listuser',component:ListUserBACKComponent},
     {path:'listpublicationback',component:ListPublictaionBACKComponent},
     {path:'listcreditback',component:ListCreditBackComponent},
+    {path:'addCreditByAdmin',component:AddCreditAdminComponent},
+
     
   ]
 
@@ -55,6 +60,9 @@ const routes: Routes = [  {
 {path:'signup',component:SignupComponent},
 {path:'addCreditUser',component:AddCreditUserComponent},
 {path:'listPacksCredits',component:ListPacksCreditsComponent},
+{path:'ListMyCreditsFrontComponent',component:ListMyCreditsFrontComponent},
+{path:'afficherTableauCredit/:id',component:TableauAmoCreditComponent},
+
 
 
 

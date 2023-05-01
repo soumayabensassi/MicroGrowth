@@ -27,6 +27,9 @@ import { ListCreditBackComponent } from './Component/list-credit-back/list-credi
 import { AddCreditUserComponent } from './Component/add-credit-user/add-credit-user.component';
 import { ListPacksCreditsComponent } from './Component/list-packs-credits/list-packs-credits.component';
 import { CreditDetailsFrontComponent } from './Component/credit-details-front/credit-details-front.component';
+import { ListMyCreditsFrontComponent } from './Component/list-my-credits-front/list-my-credits-front.component';
+import { TableauAmoCreditComponent } from './Component/tableau-amo-credit/tableau-amo-credit.component';
+import { AddCreditAdminComponent } from './Component/add-credit-admin/add-credit-admin.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { CreditDetailsFrontComponent } from './Component/credit-details-front/cr
     ListCreditBackComponent,
     AddCreditUserComponent,
     ListPacksCreditsComponent,
-    CreditDetailsFrontComponent
+    CreditDetailsFrontComponent,
+    ListMyCreditsFrontComponent,
+    TableauAmoCreditComponent,
+    AddCreditAdminComponent
   ],
   imports: [
     BrowserModule,

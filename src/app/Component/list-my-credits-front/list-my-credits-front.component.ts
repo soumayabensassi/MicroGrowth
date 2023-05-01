@@ -6,17 +6,19 @@ import { CreditService } from 'src/app/service/credit.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-add-credit-user',
-  templateUrl: './add-credit-user.component.html',
-  styleUrls: ['./add-credit-user.component.css']
+  selector: 'app-list-my-credits-front',
+  templateUrl: './list-my-credits-front.component.html',
+  styleUrls: ['./list-my-credits-front.component.css']
 })
-export class AddCreditUserComponent implements OnInit {
+export class ListMyCreditsFrontComponent implements OnInit {
   credit:Credit=new Credit();
   userInfo: User=new User();
-  
+  credits:any[]=[];
+
   constructor(private creditservice:CreditService,private userservice:UserService,private route:Router,private active:ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     this.userservice.getUserInfo().subscribe(
       (data) => {
         this.userInfo = data;
@@ -25,21 +27,21 @@ export class AddCreditUserComponent implements OnInit {
         console.log(error);
         
       }
-    );
-    }
 
-    sendCreditUser() 
-    { this.active.snapshot.params['id']!= null 
-    ?
-    this.creditservice.addCreditByUser(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/homepage"))
-    :
-    this.creditservice.addCreditByUser(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/homepage"))
-  console.log(this.credit)
-  console.log(this.userInfo)
-      
-    }
-  
+    );
+    this.creditservice.AfficherMesCredits("aziz@espti.com").subscribe(data=>{
+      this.credits=data;
+      console.log(data)
+      console.log(this.credits)
+      console.log(this.userInfo.email)
+    })
+
+  }
+  AfficherMesCredit(){
+    this.creditservice.AfficherMesCredits(this.userInfo.email).subscribe(data=>{
+      this.credits=data;
+      console.log(data)
+    })
+  }
 
 }
-
-

@@ -23,6 +23,7 @@ export class AddPublicationComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        
       }
     );
     this.pubservice.getPublicationById(this.active.snapshot.params['id']).subscribe((data)=>this.publication=data)

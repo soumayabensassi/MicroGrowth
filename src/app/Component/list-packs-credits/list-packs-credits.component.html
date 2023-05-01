@@ -18,15 +18,14 @@
                     <div class="col-md-6 wow slideInUp" data-wow-delay="0.1s" *ngFor="let c of credits">
   <div class="blog-item bg-light rounded overflow-hidden">
     <div class="blog-img position-relative overflow-hidden">
-      <img class="img-fluid" src="../../assets/img/blog-1.jpg" alt="">
+      <img class="img-fluid" src="../../assets/img/agri.jfif" alt="">
     </div>
     <div class="p-4">
-      <h3>{{c.pack}}</h3>
-      <p><strong>Amount:</strong> {{c.amount_credit}} USD</p>
-      <p><strong>Duration:</strong> {{c.duree}} months</p>
+      <h3><strong>Credit : </strong>{{c.activiteSecteurs.name}}</h3>
+      <p><strong>Amount:</strong> {{c.amount_credit}} DT</p>
+      <p><strong>Duration:</strong> {{c.duree}} years</p>
       <p><strong>Interest rate:</strong> {{c.intrestRaiting}}%</p>
-      <p><strong>Monthly amount:</strong> {{c.monthlyAmount}} USD</p>
-      <p>{{c.activiteSecteurs.name}}</p>
+      <p><strong>Monthly amount:</strong> {{c.monthlyAmount}} DT</p>
       <a class="text-uppercase" routerLink="/creditpack/{{c.idCredit}}">Read More <i class="bi bi-arrow-right"></i></a>
     </div>
   </div>
