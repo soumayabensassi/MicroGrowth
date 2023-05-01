@@ -1,8 +1,13 @@
+
+
 export class Investment {
   idInvestment!:number;
   amountInves!:number;
   duree!:number;
-  methodInvestissement!:String;
+  MethodInvestissement!:String;
   Date!:number;
-  iduser!:number;
+  idUser!:number;
+
+ /* quantity!:number;
+  idProject!:number;*/
 }

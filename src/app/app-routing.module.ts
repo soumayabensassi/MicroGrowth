@@ -1,3 +1,4 @@
+import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
 import { InvestorComponent } from './Component/investor/investor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,7 +22,7 @@ import { ListProjetsBackComponent } from './Component/list-projets-back/list-pro
 import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
 import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
 import { BourseComponent } from './Component/bourse/bourse.component';
-import { ModalComponent } from './Component/modal/modal.component';
+
 
 const routes: Routes = [  {
   path:'admin',
@@ -31,7 +32,8 @@ const routes: Routes = [  {
     {path:'listuser',component:ListUserBACKComponent},
     {path:'listpublicationback',component:ListPublictaionBACKComponent},
     {path:'listproject',component:ListProjetsBackComponent},
-    {path:'listinvestissement',component:ListInvestmentBackComponent}
+    {path:'listinvestissement',component:ListInvestmentBackComponent},
+    {path:'calculator',component:IntrestCalculatorComponent},
   ]
 
 },
@@ -44,7 +46,7 @@ const routes: Routes = [  {
     {path:'project',component:StartupAddUserComponent},
     {path:'investor',component:InvestorComponent},
     {path:'investinStock',component:BourseComponent},
-    {path:'modal',component:ModalComponent},
+
 
 
 {path:'msg',component:WritemsgComponent},

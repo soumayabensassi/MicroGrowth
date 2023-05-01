@@ -19,44 +19,70 @@
                         <h5 class="fw-bold text-primary text-uppercase">Start Today</h5>
                         <h1 class="mb-0">take the first step today and see how it can change your life for the better</h1>
                     </div>
-                    
+
                     <p class="mb-4">Investing is a powerful way to build wealth over time and achieve financial security for yourself and your loved ones. By investing, you have the opportunity to grow your money through the power of compounding returns.</p>
                     <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
-                        <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
-                            <i class="fa fa-phone-alt text-white"></i>
-                        </div>
+                        
                         <div class="ps-4">
-                            <h5 class="mb-2">Call to ask any question</h5>
-                            <h4 class="text-primary mb-0">+216 56304445</h4>
+                            <h5 class="mb-2">update investment</h5>
+                            <button class="btn btn-primary w-100 py-3" type="submit">update</button>
                         </div>
                     </div>
+                    <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
+                      <form (submit)="exportPDF()">
+                        <label for="iduser">your id:</label>
+                       
+                        <input type="number" class="form-control border-0 bg-light px-4" name="iduser" [(ngModel)]="iduser">
+                        <br>
+                        <button class="btn btn-primary w-100 py-3" type="submit">exportPDF</button>
+                      </form>
+                      
+                  </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-xl-12">
-                                    <input type="number" class="form-control bg-light border-0" placeholder="Your id" name="iduser" #iduser="ngModel" [(ngModel)]="Investment.iduser"style="height: 55px;" >
-                                </div>
-                                <div class="col-12">
-                                    <input type="number" class="form-control bg-light border-0" placeholder="the amount you want to invest" name="amountInves" #amountInves="ngModel" [(ngModel)]="Investment.amountInves" style="height: 55px;">
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select bg-light border-0" name="methodInvestissement" #methodInvestissement="ngModel" [(ngModel)]="Investment.methodInvestissement"style="height: 55px;">
-                                        <option selected>Select A method</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
-                                </div>
+                      <form (ngSubmit)="saveInvestment()">
+                        <div class="row g-3">
+                            <div class="col-md-6"> <label for="amountInves">amount</label>
+                                <input type="number" class="form-control border-0 bg-light px-4"  name="amountInves" #amountInves="ngModel" [(ngModel)]="Investment.amountInves" placeholder="the amount you want to invest"
+                                    style="height: 55px;">
                             </div>
-                        </form>
+
+
+                            <div class="col-6"><label for="amountInves">duration</label>
+                                <input type="number" class="form-control border-0 bg-light px-4" name="duree" #duree="ngModel" [(ngModel)]="Investment.duree"
+                                placeholder="the duration" style="height: 55px;">
+                            </div>
+
+                            <div class="col-6"><label for="MethodInvestissement">the method</label>
+                              <select class="form-control border-0 bg-light px-4" name="MethodInvestissement" placeholder="the method " #MethodInvestissement="ngModel" [(ngModel)]="Investment.MethodInvestissement" style="height: 55px">
+                                <option >PONZI_PYRAMID</option>
+                                <option >PLACEMENT_PRECOMPTE</option>
+                                <option >PLACEMENT_POSCOMPTE</option>
+                                <option >OBLIGATION</option>
+                                <option >stocks</option>
+
+                              </select>
+                            </div>
+                           <!-- <div class="col-md-6">
+                                <input type="number" class="form-control border-0 bg-light px-4" name="quantity" #quantity="ngModel" [(ngModel)]="Investment.quantity"
+
+                                placeholder="quantity of option" style="height: 55px;">
+                            </div>
+                            <div class="col-md-6">
+                              <input type="number" class="form-control border-0 bg-light px-4" name="idProject" #idProject="ngModel" [(ngModel)]="Investment.idProject"
+
+                              placeholder="intrest rate "style="height: 55px;">
+                          </div>-->
+
+
+
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Add</button>
+                            </div>
+
+                        </div>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -65,4 +91,3 @@
     <!-- Quote End -->
 
 
-   

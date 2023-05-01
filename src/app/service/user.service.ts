@@ -69,7 +69,7 @@ getUserbyemail(email:string)
 
 uploadimage(formData:FormData)
 {
-  
+
   return this.http.post('http://localhost:8082/MicroGrowth/upload-image', formData);
 }
 

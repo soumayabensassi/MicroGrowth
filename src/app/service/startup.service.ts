@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import{Project}from '../Models/Project'
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,5 +23,11 @@ export class StartupService {
    deleteProject(id:number){
     return this.http.delete(this.URL+"deleteProjetbyID/"+id)
    }
+   stockInterest(purchasePrice: number, currentPrice: number, numShares: number, dividendYield: number, holdingPeriod: number): Observable<number> {
+    return this.http.post<number>(this.URL+"stockInterest?purchasePrice="+purchasePrice+"&currentPrice="+currentPrice+"&dividendYield="+dividendYield+"&numShares="+numShares+"&holdingPeriod="+holdingPeriod,null)
+}
+obligationIntrest(investissementId:number,projetId:number,investissementInitial:number,tauxRendement:number): Observable<number> {
+  return this.http.post<number>(this.URL+"calculerRendementAnnuel/"+investissementId+"/"+projetId+"?investissementInitial="+investissementInitial+"&tauxRendement="+tauxRendement,null)
+}
 
 }

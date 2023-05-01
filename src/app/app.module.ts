@@ -28,7 +28,8 @@ import { StartupAddUserComponent } from './Component/startup-add-user/startup-ad
 import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
 import { InvestorComponent } from './Component/investor/investor.component';
 import { BourseComponent } from './Component/bourse/bourse.component';
-import { ModalComponent } from './Component/modal/modal.component';
+
+
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ModalComponent } from './Component/modal/modal.component';
     ListInvestmentBackComponent,
     InvestorComponent,
     BourseComponent,
-    ModalComponent,
+    IntrestCalculatorComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -69,4 +71,5 @@ import { ModalComponent } from './Component/modal/modal.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { }import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
+
