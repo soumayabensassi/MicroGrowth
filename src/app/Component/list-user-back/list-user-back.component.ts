@@ -9,6 +9,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ListUserBACKComponent implements OnInit {
   list: User[] = [];
+  searchTerm: string = '';
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
@@ -16,5 +17,9 @@ export class ListUserBACKComponent implements OnInit {
       data => this.list = data
     );
   }
-
+  filterList() {
+    this.userService.getUsers().subscribe(data => {
+      this.list = data.filter(user => user.email.toLowerCase().includes(this.searchTerm.toLowerCase()));
+    });
+  }
 }

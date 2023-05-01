@@ -23,6 +23,8 @@ import { StartupAddUserComponent } from './Component/startup-add-user/startup-ad
 import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
 import { BourseComponent } from './Component/bourse/bourse.component';
 
+import { AuthGuard } from './Auth/auth.guard';
+import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 
 const routes: Routes = [  {
   path:'admin',
@@ -34,7 +36,7 @@ const routes: Routes = [  {
     {path:'listproject',component:ListProjetsBackComponent},
     {path:'listinvestissement',component:ListInvestmentBackComponent},
     {path:'calculator',component:IntrestCalculatorComponent},
-  ]
+  ],canActivate:[AuthGuard],data:{roles:['[ROLE_ADMIN]']}
 
 },
 {
@@ -60,6 +62,7 @@ const routes: Routes = [  {
 {path:'updatePublication/:id',component:AddPublicationComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
+{path:'notfound',component:PageNotFoundComponent},
 
 
   ]
