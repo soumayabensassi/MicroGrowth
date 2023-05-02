@@ -22,4 +22,10 @@ export class ListUserBACKComponent implements OnInit {
       this.list = data.filter(user => user.email.toLowerCase().includes(this.searchTerm.toLowerCase()));
     });
   }
+  delete(id:number)
+  {console.log(id)
+    this.userService.deleteUser(id).subscribe(
+      ()=>this.list=this.list.filter((p)=>p.idUser != id)
+      )
+  }
 }

@@ -61,7 +61,8 @@ const routes: Routes = [{
     { path: 'listtrainingback', component: ListTrainingBackComponent },
     { path: 'addTraining', component: AddtrainingComponent },
     { path: 'updateTraining/:id', component: AddtrainingComponent },
-    { path: 'listcomplaintback', component: ListComplaintBackComponent }
+    { path: 'listcomplaintback', component: ListComplaintBackComponent },
+    { path: 'homepageBack', component: HomepageBACKComponent }
   ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
 
 },
@@ -85,7 +86,6 @@ const routes: Routes = [{
     { path: 'updatePublication/:id', component: AddPublicationComponent },
     { path: 'forgetPAssword', component: ChangemdpComponent },
     { path: 'signup', component: SignupComponent },
-    { path: 'homepageBack', component: HomepageBACKComponent },
     { path: 'agent', component: AgentComponent },
     { path: 'Kpi-f', component: InsuranceKpisComponent },
     { path: 'Insurance', component: InsuranceComponent },
