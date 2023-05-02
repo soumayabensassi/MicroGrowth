@@ -23,6 +23,7 @@ import { CreditDetailsFrontComponent } from './Component/credit-details-front/cr
 import { ListMyCreditsFrontComponent } from './Component/list-my-credits-front/list-my-credits-front.component';
 import { TableauAmoCreditComponent } from './Component/tableau-amo-credit/tableau-amo-credit.component';
 import { AddCreditAdminComponent } from './Component/add-credit-admin/add-credit-admin.component';
+import { SimulationCreditFrontComponent } from './Component/simulation-credit-front/simulation-credit-front.component';
 
 
 
@@ -62,6 +63,8 @@ const routes: Routes = [  {
 {path:'listPacksCredits',component:ListPacksCreditsComponent},
 {path:'ListMyCreditsFrontComponent',component:ListMyCreditsFrontComponent},
 {path:'afficherTableauCredit/:id',component:TableauAmoCreditComponent},
+{path:'SimulationCreditFrontComponent',component:SimulationCreditFrontComponent},
+
 
 
 

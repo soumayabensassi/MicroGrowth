@@ -24,7 +24,7 @@ export class CreditService {
   }
   addCreditByAdmin(credit : Credit,email:string):Observable<any>
   {
-    return this.http.post<Credit>("http://localhost:8082/MicroGrowth/admin/ajouterCreditByadmin"+email,credit)
+    return this.http.post<Credit>("http://localhost:8082/MicroGrowth/admin/ajouterCreditByadmin/"+email,credit)
   }
   AfficherCreditPack() :Observable<any>{
     return this.http.get<Credit[]>("http://localhost:8082/MicroGrowth/user/afficherPacks");
@@ -45,8 +45,10 @@ deleteCreditByAdmin(id:number) :Observable<any>
   AfficherMesCredits(email:string) :Observable<any>{
     return this.http.get<Credit[]>("http://localhost:8082/MicroGrowth/user/afficherMesCredit/"+email);
   }
-  Calcul_tableau_amo(id:number){
+  Calcul_tableau_amo(id:number):Observable<any>{
     return this.http.get<number[][]>("http://localhost:8082/MicroGrowth/user/afficherTableauCredit/"+id)
-  
+  }
+  Simulation_credit(montant:any, nbmois:number):Observable<any>{
+    return this.http.get<number[]>("http://localhost:8082/MicroGrowth/user/SimulateurCredit/"+montant+"/"+nbmois)
   }
 }

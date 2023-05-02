@@ -31,9 +31,9 @@ export class AddCreditUserComponent implements OnInit {
     sendCreditUser() 
     { this.active.snapshot.params['id']!= null 
     ?
-    this.creditservice.addCreditByUser(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/homepage"))
+    this.creditservice.addCreditByUser(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("ListMyCreditsFrontComponent"))
     :
-    this.creditservice.addCreditByUser(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/homepage"))
+    this.creditservice.addCreditByUser(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("ListMyCreditsFrontComponent"))
   console.log(this.credit)
   console.log(this.userInfo)
       
