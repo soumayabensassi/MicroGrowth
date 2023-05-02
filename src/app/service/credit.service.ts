@@ -51,4 +51,13 @@ deleteCreditByAdmin(id:number) :Observable<any>
   Simulation_credit(montant:any, nbmois:number):Observable<any>{
     return this.http.get<number[]>("http://localhost:8082/MicroGrowth/user/SimulateurCredit/"+montant+"/"+nbmois)
   }
+  accorderInterview(idcredit : number,intreview:any):Observable<any> {
+    return this.http.post("http://localhost:8082/MicroGrowth/admin/AffecterIntreviewCredit/"+idcredit,intreview)
+  }
+  AccepterCredit(id:number) :Observable<any>{
+    return this.http.get<Credit[]>("http://localhost:8082/MicroGrowth/admin/AccepterCredit/"+id);
+  }
+    RefuserCredit(id:number) :Observable<any>{
+      return this.http.get<Credit[]>("http://localhost:8082/MicroGrowth/admin/refuserCredit/"+id);
+    } 
 }

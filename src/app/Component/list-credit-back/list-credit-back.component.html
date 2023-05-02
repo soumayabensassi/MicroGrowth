@@ -39,10 +39,20 @@
                       <td>{{c.duree}}</td>
                       <td>{{c.montant_penalites}}</td>
 <td></td>
-                      <td> <button  class="btn btn-primary"  > Accordé</button></td>  
-                      <td><button class="btn btn-sm btn-success me-2 text-center" type="button" style="height:40px;width:100px;">Accepter</button>
-  <button class="btn btn-sm btn-danger me-2 text-center" type="button" style="height:40px;width:100px;" type="button">Refuser</button></td>
-                      <td> <button  class="btn btn-primary" (click)="deleteCreditByAdmin(c.idCredit)"> delete</button></td>
+                        
+                          <td *ngIf="c.state==1"> <button  class="btn btn-primary"  > Accordé</button></td>  
+                        
+                        
+                          <td *ngIf="c.state==2"> Accordé</td>  
+                          <td *ngIf="c.state==0"> Refusé</td>  
+                       
+                        <td *ngIf="c.state==1"><button class="btn btn-sm btn-success me-2 text-center" type="button" style="height:40px;width:100px;">Accepter</button>
+                          <button class="btn btn-sm btn-danger me-2 text-center" type="button" style="height:40px;width:100px;" type="button">Refuser</button></td>
+                        <td *ngIf="c.state==2"> Accordé</td>  
+                        <td *ngIf="c.state==0"> Refusé</td>  
+                      
+  
+  <td> <button  class="btn btn-primary" (click)="deleteCreditByAdmin(c.idCredit)"> delete</button></td>
 
 
                       

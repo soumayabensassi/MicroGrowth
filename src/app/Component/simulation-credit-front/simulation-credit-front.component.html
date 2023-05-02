@@ -13,9 +13,12 @@
     </div>
     <button class="btn-calculate" type="submit" [disabled]="!creditForm.form.valid">Calculer</button>
   </form>
-
+  <label for="months">Nombre de mois :</label>
+  <input type="number" id="months" name="months" min="1" max="60" value="12">
   
-
+  <button type="button" onclick="test()">Estimer le montant maximum du crédit</button>
+  
+<br><br><br>
 
   <div class="table-responsive" style="font-size: small; zoom: 0.8;">
     <table class="table table-striped" >
