@@ -31,6 +31,13 @@ import { InsuranceShowBackComponent } from './Component/insurance-show-back/insu
 import { InsuranceModifyBackComponent } from './Component/insurance-modify-back/insurance-modify-back.component';
 import { CheckInsuranceComponent } from './Component/check-insurance/check-insurance.component';
 import { SimulateInsuranceComponent } from './Component/simulate-insurance/simulate-insurance.component';
+import { ListProjetsBackComponent } from './Component/list-projets-back/list-projets-back.component';
+import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
+import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
+import { InvestorComponent } from './Component/investor/investor.component';
+import { BourseComponent } from './Component/bourse/bourse.component';
+
+
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { UserService } from './service/user.service';
@@ -68,6 +75,12 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
     CheckInsuranceComponent,
     SimulateInsuranceComponent,
   
+    ListProjetsBackComponent,
+    StartupAddUserComponent,
+    ListInvestmentBackComponent,
+    InvestorComponent,
+    BourseComponent,
+    IntrestCalculatorComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -85,4 +98,5 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
   },UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { }import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
+

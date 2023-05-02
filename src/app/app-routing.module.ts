@@ -1,3 +1,5 @@
+import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
+import { InvestorComponent } from './Component/investor/investor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddPublicationComponent } from './Component/add-publication/add-publication.component';
@@ -25,8 +27,16 @@ import { InsuranceKpisComponent } from './Component/insurance-kpi-front/insuranc
 import { CheckInsuranceComponent } from './Component/check-insurance/check-insurance.component';
 import { pathToFileURL } from 'url';
 import { SimulateInsuranceComponent } from './Component/simulate-insurance/simulate-insurance.component';
+import { ListProjetsBackComponent } from './Component/list-projets-back/list-projets-back.component';
+import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
+import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
+import { BourseComponent } from './Component/bourse/bourse.component';
+
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
+
+
+
 
 
 const routes: Routes = [{
@@ -36,14 +46,13 @@ const routes: Routes = [{
     { path: '', component: HomepageBACKComponent },
     { path: 'listuser', component: ListUserBACKComponent },
     { path: 'listpublicationback', component: ListPublictaionBACKComponent },
-    {path: 'Insurance-kpi-back' , component: InsuranceKpiBackComponent},
-    {path: 'Insurance-show-back' , component : InsuranceShowBackComponent},
-    {path: 'Insurance-modify-back' , component : InsuranceModifyBackComponent },
-
-
-  ],
-
-
+    { path: 'listproject', component: ListProjetsBackComponent },
+    { path: 'Insurance-kpi-back', component: InsuranceKpiBackComponent },
+    { path: 'Insurance-show-back', component: InsuranceShowBackComponent },
+    { path: 'Insurance-modify-back', component: InsuranceModifyBackComponent },
+    { path: 'listinvestissement', component: ListInvestmentBackComponent },
+    { path: 'calculator', component: IntrestCalculatorComponent },
+  ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
 
 },
 
@@ -66,17 +75,15 @@ const routes: Routes = [{
     { path: 'forgetPAssword', component: ChangemdpComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'homepageBack', component: HomepageBACKComponent },
-    {path: 'agent' , component: AgentComponent},
-    {path: 'Kpi-f' , component: InsuranceKpisComponent},
+    { path: 'agent', component: AgentComponent },
+    { path: 'Kpi-f', component: InsuranceKpisComponent },
     { path: 'Insurance', component: InsuranceComponent },
-    {path: 'check-insurance' , component: CheckInsuranceComponent},
-    {path: 'simulate-insurance' , component: SimulateInsuranceComponent},   
-    {path:'notfound',component: PageNotFoundComponent}, 
-  
-
-
-
-    //{path:'',redirectTo:'homePage',pathMatch:'full'}
+    { path: 'check-insurance', component: CheckInsuranceComponent },
+    { path: 'simulate-insurance', component: SimulateInsuranceComponent },
+    { path: 'notfound', component: PageNotFoundComponent },
+    {path:'project',component:StartupAddUserComponent},
+    {path:'investor',component:InvestorComponent},
+    {path:'investinStock',component:BourseComponent},
   ]
 },
 ];
