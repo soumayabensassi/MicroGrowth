@@ -1,0 +1,58 @@
+<div class="container-fluid position-relative p-0">
+
+  <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+      <div class="row py-5">
+          <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+              <h1 class="display-4 text-white animated zoomIn">choose the project you want to invest in</h1>
+
+          </div>
+      </div>
+  </div>
+
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>NAME</th>
+                      <th>DESCRIPTION</th>
+                      <th>OBLIGATION</th>
+                      <th>OptionValue</th>
+                      <th>QUANTITY</th>
+                      <th>DURATION</th>
+                      <th>INTRESTRATE</th>
+                      <th>STATUE</th>
+                      <th>SECTOR</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let x of list" class="table table-striped">
+
+                      <td>{{x.idprojet}} </td>
+                      <td>{{x.nom}}</td>
+                      <td>{{x.description}}</td>
+                      <td>{{x.obligation}}</td>
+                      <td>{{x.OptionValue}}</td>
+                      <td>{{x.quantity}}</td>
+                      <td>{{x.duree}}</td>
+                      <td>{{x.tauxRendement}}</td>
+                      <td>{{x.statutProjet}}</td>
+                      <td>{{x.secteurActivite}}</td>
+                      <td>
+                        <!-- Call to action buttons -->
+                        <ul class="list-inline m-0">
+                            <li class="list-inline-item">
+                              <button type="button" (click)="navigate()" class="btn btn-outline-primary">invest</button>
+                            </li>
+                        </ul>
+                    </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+        </div>
+   
+     

@@ -11,8 +11,8 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./add-publication.component.css']
 })
 export class AddPublicationComponent implements OnInit {
-  publication:Pubication=new Pubication();
-  userInfo: User=new User();
+  publication: Pubication = new Pubication();
+  userInfo: User = new User();
 
   constructor(private pubservice:PublicationService,private userservice:UserService,private route:Router,private active:ActivatedRoute) { }
 

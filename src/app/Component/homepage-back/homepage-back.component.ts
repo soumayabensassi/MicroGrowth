@@ -14,6 +14,8 @@ export class HomepageBACKComponent implements OnInit {
 
   @ViewChild('pieChart') pieChart!: ElementRef;
   @ViewChild('pieChart2') pieChart2!: ElementRef;
+  @ViewChild('pieChart3') pieChart3!: ElementRef;
+
 
   ReturnOnEquity:number=0
   ReturnOnAssets:number=0
@@ -40,6 +42,26 @@ export class HomepageBACKComponent implements OnInit {
       this.kpi.TauxDeRemboursement().subscribe(
         (data) => {
           this.rembourssement=data
+          const chartData = {
+            labels: ['Default Rate','Repayment rate'],
+            datasets: [
+              {
+                data: [1-this.rembourssement,this.rembourssement],
+                backgroundColor: ['#358ac3','#77c1de'],
+                hoverBackgroundColor: ['#358ac3','#77c1de']
+              }
+            ]
+          };
+          const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false
+          };
+        
+          new Chart(this.pieChart3.nativeElement, {
+            type: 'pie',
+            data: chartData,
+            options: chartOptions
+          });
     
         },
         (error) => {
@@ -79,8 +101,8 @@ export class HomepageBACKComponent implements OnInit {
         datasets: [
           {
             data: [50000,results[0]],
-            backgroundColor: ['#4747a1','#7978e9'],
-            hoverBackgroundColor: ['#4747a1','#7978e9']
+            backgroundColor: ['#358ac3','#77c1de'],
+            hoverBackgroundColor: ['#358ac3','#77c1de']
           }
         ]
       };
@@ -99,8 +121,8 @@ export class HomepageBACKComponent implements OnInit {
         datasets: [
           {
             data: [results[1]],
-            backgroundColor: ['#f3797e'],
-            hoverBackgroundColor: ['#f3797e']
+            backgroundColor: ['#1e5e79'],
+            hoverBackgroundColor: ['#1e5e79']
           }
         ]
       };

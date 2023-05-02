@@ -19,6 +19,8 @@ import { AddPublicationComponent } from './Component/add-publication/add-publica
 import { ProfilComponent } from './Component/profil/profil.component';
 import { DashboardBACKComponent } from './Component/dashboard-back/dashboard-back.component';
 import { HomepageBACKComponent } from './Component/homepage-back/homepage-back.component';
+import { InsuranceComponent } from './Component/Insurance-add-back/insurance.component';
+import { InsuranceKpisComponent } from './Component/insurance-kpi-front/insurance-kpis.component';
 import { ListUserBACKComponent } from './Component/list-user-back/list-user-back.component';
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
@@ -32,6 +34,25 @@ import { SearchComponent } from './Component/search/search.component';
 import { TrainingdetailComponent } from './Component/trainingdetail/trainingdetail.component';
 
 
+import { InsuranceKpiBackComponent } from './Component/insurance-kpi-back/insurance-kpi-back.component';
+import { AgentComponent } from './Component/agent/agent.component';
+import { InsuranceShowBackComponent } from './Component/insurance-show-back/insurance-show-back.component';
+import { InsuranceModifyBackComponent } from './Component/insurance-modify-back/insurance-modify-back.component';
+import { CheckInsuranceComponent } from './Component/check-insurance/check-insurance.component';
+import { SimulateInsuranceComponent } from './Component/simulate-insurance/simulate-insurance.component';
+import { ListProjetsBackComponent } from './Component/list-projets-back/list-projets-back.component';
+import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
+import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
+import { InvestorComponent } from './Component/investor/investor.component';
+import { BourseComponent } from './Component/bourse/bourse.component';
+
+
+
+import {NgxPaginationModule} from 'ngx-pagination';
+import { UserService } from './service/user.service';
+import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
+import { AuthGuard } from './Auth/auth.guard';
+import { AuthInterceptor } from './Auth/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +71,8 @@ import { TrainingdetailComponent } from './Component/trainingdetail/trainingdeta
     ProfilComponent,
     DashboardBACKComponent,
     HomepageBACKComponent,
+    InsuranceComponent,
+    InsuranceKpisComponent,
     ListUserBACKComponent,
     ListPublictaionBACKComponent,
     AllTemplateUserComponentComponent,
@@ -60,8 +83,20 @@ import { TrainingdetailComponent } from './Component/trainingdetail/trainingdeta
     ComplaintComponent,
     ListComplaintBackComponent,
     SearchComponent,
-    TrainingdetailComponent
-  
+    TrainingdetailComponent,
+    InsuranceKpiBackComponent,
+    AgentComponent,
+    InsuranceShowBackComponent,
+    InsuranceModifyBackComponent,
+    CheckInsuranceComponent,
+    SimulateInsuranceComponent,
+    ListProjetsBackComponent,
+    StartupAddUserComponent,
+    ListInvestmentBackComponent,
+    InvestorComponent,
+    BourseComponent,
+    IntrestCalculatorComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -72,4 +107,5 @@ import { TrainingdetailComponent } from './Component/trainingdetail/trainingdeta
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { }import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
+

@@ -9,4 +9,3 @@ export class Like {
     nbr:number=0
 
 }
- 
