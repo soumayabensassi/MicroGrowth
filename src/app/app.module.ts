@@ -27,6 +27,9 @@ import { TrainingComponent } from './Component/training/training.component';
 import { ListTrainingBackComponent } from './Component/list-training-back/list-training-back.component';
 import { AddtrainingComponent } from './Component/addtraining/addtraining.component';
 import { ComplaintComponent } from './Component/complaint/complaint.component';
+import { ListComplaintBackComponent } from './Component/list-complaint-back/list-complaint-back.component';
+import { SearchComponent } from './Component/search/search.component';
+import { TrainingdetailComponent } from './Component/trainingdetail/trainingdetail.component';
 
 
 @NgModule({
@@ -55,6 +58,9 @@ import { ComplaintComponent } from './Component/complaint/complaint.component';
     ListTrainingBackComponent,
     AddtrainingComponent,
     ComplaintComponent,
+    ListComplaintBackComponent,
+    SearchComponent,
+    TrainingdetailComponent
   
   ],
   imports: [

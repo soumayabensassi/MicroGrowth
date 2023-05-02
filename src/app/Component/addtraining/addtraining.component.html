@@ -34,11 +34,12 @@
                             </div>
                             <div class="col-12">
                                 <label>Subject</label>
-                                <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="text" name="text" #text="ngModel" [(ngModel)]="training.subject"></textarea>
+                                <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="text" name="subject" #text="ngModel" [(ngModel)]="training.subject"></textarea>
                             </div>
+                            
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit" (click)="add()" routerLink="/admin/listtrainingback" >retour </button>
-                            </div>
+                                <button class="btn btn-primary w-100 py-3" (click)="add()" type="submit" routerLink="/admin/listtrainingback">Send </button>
+</div>
                         </div>
                     </form>
                 </div>

@@ -1,3 +1,5 @@
+import { Interesse } from "./interesse";
+import { Participer } from "./participer";
 import { User } from "./user";
 
 export class Training {
@@ -10,5 +12,12 @@ export class Training {
     nbrOfPlace!:number;
     subject!:string;
     image!:string;
+    nombreInteresse!:number;
+    nombreParticiper!:number;
     userList!:User[];
+    participerList!:Participer;
+    interesseList!:Interesse;
+    
+
+
 }

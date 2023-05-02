@@ -16,18 +16,19 @@ export class ComplaintComponent implements OnInit {
   comp!:Complaint
 id!:number
 idComment!:number
-
+cond=false;
 userInfo: User=new User();
-  constructor(private compservice:ComplaintService, private active:ActivatedRoute,private route:Router,private userservice:UserService) { }
+  constructor(private compservice:ComplaintService, private active:ActivatedRoute,private route:Router) { }
 
   ngOnInit(): void {
-    this.userservice.getUserInfo().subscribe(
-      (data) => {
-        this.userInfo = data;
-      },
-      (error) => {
-        console.log(error);
-      });
+    this.compservice.getComplaint().subscribe(
+      data => {
+        this.list = data
+        
+      }
+    );
+   // this.compservice.getComplaintById(this.active.snapshot.params['id']).subscribe((data)=>this.comp=data)
+  
   }
 delete(i:number)
 {
@@ -35,10 +36,22 @@ delete(i:number)
     ()=>this.list=this.list.filter((p)=>p.idComplaint != i)
     )
 }
-sendPublication() 
-{ 
-this.compservice.addComplaint(this.complaint,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/complaint"))
-
+add() 
+  { 
+  this.compservice.addComplaint(this.complaint).subscribe(()=>this.route.navigateByUrl("/complaint"))    
+  }
+  edit( complaint:Complaint){
+    this.complaint=complaint;
+    this.cond=true;
+  }
+ update(){
+  this.compservice.update(this.complaint).subscribe(comp=>{
+    this.vider();
+    this.cond=false;
+  });
   
-}
+ }
+ vider(){
+  this.complaint=this.comp;
+ }
 }

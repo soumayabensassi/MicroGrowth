@@ -19,9 +19,13 @@ export class AddtrainingComponent implements OnInit {
   add() 
   { this.active.snapshot.params['id']!= null 
   ?
-  this.trainingservice.updateTraining(this.active.snapshot.params['id'],this.training).subscribe(()=>this.route.navigateByUrl("/listtrainingback"))
+  this.trainingservice.updateTraining(this.active.snapshot.params['id'],this.training).subscribe(()=>this.route.navigateByUrl("/admin/listtrainingback"))
   :
-  this.trainingservice.addTraining(this.training).subscribe(()=>this.route.navigateByUrl("/listtrainingback"))    
+  this.trainingservice.addTraining(this.training).subscribe((data)=>{
+  console.log("aaaaaaaaaaa")
+  console.log(data)
+   })    
   }
+  
  
 }

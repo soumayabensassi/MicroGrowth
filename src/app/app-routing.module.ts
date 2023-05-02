@@ -20,6 +20,9 @@ import { TrainingComponent } from './Component/training/training.component';
 import { ListTrainingBackComponent } from './Component/list-training-back/list-training-back.component';
 import { AddtrainingComponent } from './Component/addtraining/addtraining.component';
 import { ComplaintComponent } from './Component/complaint/complaint.component';
+import { ListComplaintBackComponent } from './Component/list-complaint-back/list-complaint-back.component';
+import { Complaint } from './Models/complaint';
+import { TrainingdetailComponent } from './Component/trainingdetail/trainingdetail.component';
 
 
 const routes: Routes = [  {
@@ -31,8 +34,8 @@ const routes: Routes = [  {
     {path:'listpublicationback',component:ListPublictaionBACKComponent},
     {path:'listtrainingback',component:ListTrainingBackComponent},
     {path:'addTraining',component:AddtrainingComponent},
-    {path:'updateTraining/:id',component:AddtrainingComponent}
-    //{path:'addTraining/admin/listtrainingback',component:AddtrainingComponent} 
+    {path:'updateTraining/:id',component:AddtrainingComponent},
+    {path:'listcomplaintback',component:ListComplaintBackComponent}
   ]
 
 },
@@ -54,7 +57,9 @@ const routes: Routes = [  {
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
 {path:'training',component:TrainingComponent},
-{path:'complaint',component:ComplaintComponent}
+{path:'complaint',component:ComplaintComponent},
+{path:'updatecomplaint/:id',component:ComplaintComponent} ,
+{path:'detail/:id',component:TrainingdetailComponent} 
 
 
   ]

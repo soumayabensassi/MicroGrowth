@@ -25,17 +25,17 @@ export class ComplaintService {
     return this.http.get<Complaint>(this.ComplaintURL+"/afficherAvecIdC/"+id);
    }
    
-   addComplaint(complaint:Complaint,email:string){
-    return this.http.post(this.ComplaintURL+"/user/ajouterComplaint"+email,complaint,this.httpOptions)
+   addComplaint(complaint:Complaint){
+    return this.http.post(this.ComplaintURL+"/user/ajouterComplaint",complaint,this.httpOptions)
    }
   
 
    deleteComplaint(id:number) 
    {
-     return this.http.delete(`${this.ComplaintURL}/deleteComplaint/${id}`);
+     return this.http.delete(`${this.ComplaintURL}/deleteComplaint/${id}`,this.httpOptions);
    }
-  //updateComplaint(id:number,complaint:Complaint)
-  //{
-    //return this.http.put(`${this.ComplaintURL}/user/editComplaint` , complaint);
- // }
+  update(complaint:Complaint)
+  {
+    return this.http.put(`${this.ComplaintURL}/user/editComplaint` , complaint,this.httpOptions);
+ }
 }

@@ -3,7 +3,7 @@
     <div class="row py-5">
         <div class="col-12 pt-lg-5 mt-lg-5 text-center">
             <h1 class="display-4 text-white animated zoomIn">Complaint </h1>
-            <a href="#" class="h5 text-white">Complaint</a>
+            <a href="#" class="h5 text-white">Home</a>
             <i class="far fa-circle text-white px-2"></i>
             <a routerLink="" class="h5 text-white">Complaint </a>
         </div>
@@ -53,15 +53,9 @@
         </div>
         <div class="row g-5">
             <div  data-wow-delay="0.3s">
-                <form #myForm="ngForm" (ngSubmit)="sendPublication()">
+                <form #myForm="ngForm" (ngSubmit)="add()">
                     <div class="row g-3">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control border-0 bg-light px-4" value={{userInfo.firstName}} disabled style="height: 55px;">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="email" class="form-control border-0 bg-light px-4" value={{userInfo.email}} disabled style="height: 55px;">
-                        </div>
-                        
+                       
                         
                         <div class="col-12">
                             <label>Objet</label>
@@ -72,23 +66,59 @@
                             <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="text" name="text" #text="ngModel" [(ngModel)]="complaint.text"></textarea>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary w-100 py-3" type="submit">Send </button>
+                            <button *ngIf="!cond" class="btn btn-primary w-100 py-3" (click)="add()" type="submit">Send </button>
+                            <button *ngIf="cond" class="btn btn-primary w-100 py-3" (click)="update()" type="submit">update </button>
+                            
                         </div>
                     </div>
                 </form>
+                <table class="table table-striped">
+                <ng-container *ngFor="let x of list">
+                    <th>
             <div class="testimonial-item bg-light my-4">
+                
                 <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                    
                    <div class="ps-4">
-                        <h4 class="text-primary mb-1">Client Name</h4>
-                        <small class="text-uppercase">Profession</small>
+                        <h4 class="text-primary mb-1">{{x.users.firstName}}</h4>
+                        <small class="text-uppercase">{{x.text}}</small>
                     </div>
+                   
                 </div>
                 <div class="pt-4 pb-5 px-5">
-                    Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    {{x.subject}}
+                    <style>
+                        .button {
+                            display: inline-block;
+                            padding: 9px 9px;
+                            font-size: 5px;
+                            font-weight: bold;
+                            text-align: right;
+                            text-decoration: none;
+                            border-radius: 5px;
+                            color: #fff;
+                        }
+                        
+                        .satisfied {
+                            background-color: #28a745;
+                            border: none;
+                        }
+                        
+                        .unsatisfied {
+                            background-color: #dc3545;
+                            border: none;
+                        }
+                    </style>
+                    <button class="button satisfied">Satisfied</button>
+                    <button class="button unsatisfied">Unsatisfied</button>
                 </div>
-            </div>
-           
+               
+                <td> <button  type= "button" class="btn btn-primary" (click)="delete(x.idComplaint)"   > Delete</button></td> 
+                <td> <button  type= "button" class="btn btn-primary" routerLink="/updatecomplaint/{{x.idComplaint}}" (click)="edit(x)"  > Update</button></td>    
+                       
+                      
+            </div></th></ng-container>
+        </table>
         </div>
     </div>
 </div>

@@ -14,30 +14,24 @@
                   
                   <thead>
                     <tr>
-                      <th>Affiche</th>
-                      <th>Title</th>
+                        <th>User's Name</th>
+                      <th>Date</th>
                       <th>Subject</th>
-                      <th>Price</th>
-                      <th>Nombre of place </th>
-                      <th>Start Date</th>
-                      <th>Finish Date</th>
+                      <th>Text</th>
+                      <th>State</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let x of list" class="table table-striped">
-                      <td>
-                        <img src="../../../assets/Back/images/faces/face1.jpg" alt="image" />
-                      </td>
-                      
-                      <td>{{x.title}} </td>
+                     
+                        <td>{{x.users.firstName}} </td>
+                      <td>{{x.date}} </td>
                       <td>{{x.subject}}</td>
-                      <td>{{x.price}}</td>
-                      <td>{{x.nbrOfPlace}}</td>
-                      <td>{{x.startDate}}</td>
-                      <td>{{x.finishdate}}</td>
-                      <td> <button  type= "button" class="btn btn-primary" (click)="deleteTraining(x.idTraining)"> Delete</button></td>    
-                      <td> <button  type= "button" class="btn btn-primary" routerLink="/admin/updateTraining/{{x.idTraining}}"  > Update</button></td>    
-                    </tr>
+                      <td>{{x.text}}</td>
+                      <td>{{x.state}}</td>
+                     
+                      </tr>
                     <!-- Search Form Start -->
                 <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                   <div class="input-group">

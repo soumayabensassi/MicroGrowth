@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Training } from 'src/app/Models/training';
 import { User } from 'src/app/Models/user';
 import { TrainingService } from 'src/app/service/training.service';
 import { UserService } from 'src/app/service/user.service';
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-training',
@@ -30,6 +31,12 @@ export class TrainingComponent implements OnInit {
       }
     );
   }
-  
+  searchText: string = '';
+
+  searchTextChanged(searchValue: string){
+    this.searchText = searchValue;
+   // console.log(this.searchText)
+
+  }
 
 }

@@ -31,12 +31,12 @@ export class ListTrainingBackComponent implements OnInit {
       error => console.error(error)
     );
   }
-  sendPublication() 
-  { 
-  this.trainingService.updateTraining(this.active.snapshot.params['id'],this.training).subscribe(()=>this.route.navigateByUrl("/publication"))
-  ;
+  //sendPublication() 
+  //{ 
+  //this.trainingService.updateTraining(this.active.snapshot.params['id'],this.training).subscribe(()=>this.route.navigateByUrl("/publication"))
+  //;
     
-  }
+  //}
  
   
 }

@@ -133,14 +133,25 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
         <i class="icon-grid-2 menu-icon"></i>
-        <span class="menu-title">Insurance</span>
+        <span class="menu-title">Training</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="tables">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/admin/addTraining">Add Training</a></li>
+        </ul>
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="/admin/listtrainingback">List Training</a></li>
         </ul>
       </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" routerLink="/admin/listcomplaintback" aria-expanded="false" aria-controls="charts">
+        <i class="icon-columns menu-icon"></i>
+        <span class="menu-title">List Complaint</span>
+        <i class="menu-arrow"></i>
+      </a>
+    
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
