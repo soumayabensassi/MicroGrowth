@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +8,7 @@ import { HomePageComponent } from './Component/home-page/home-page.component';
 import { SignupComponent } from './Component/signup/signup.component';
 import { SigninComponent } from './Component/signin/signin.component';
 import { PublicationComponent } from './Component/publication/publication.component';
-import {HttpClientModule} from  '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from  '@angular/common/http';
 import { CommentComponent } from './Component/comment/comment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmeCompteComponent } from './Component/confirme-compte/confirme-compte.component';
@@ -45,14 +45,13 @@ import { StartupAddUserComponent } from './Component/startup-add-user/startup-ad
 import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
 import { InvestorComponent } from './Component/investor/investor.component';
 import { BourseComponent } from './Component/bourse/bourse.component';
-
-
-
 import {NgxPaginationModule} from 'ngx-pagination';
-import { UserService } from './service/user.service';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { AuthInterceptor } from './Auth/auth.interceptor';
+import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
+import { UserService } from './service/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,10 +101,16 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
+    ],
+  providers: [AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  },UserService],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
-
+export class AppModule { }

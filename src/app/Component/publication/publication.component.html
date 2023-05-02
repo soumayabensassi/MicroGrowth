@@ -15,7 +15,7 @@
             <!-- Blog list Start -->
             <div class="col-lg-9">
                 <div class="row g-1">
-                    <ng-container *ngFor="let x of list ">
+                    <ng-container *ngFor="let x of list | paginate: { itemsPerPage: itemsPerPage, currentPage: p}">
                         <div class="col-md-6 wow slideInUp" data-wow-delay="0.1s">
 
                             <div class="blog-item bg-light rounded overflow-hidden">
@@ -86,8 +86,11 @@
             </div>
 
             <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
-              
-                    
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-lg m-0">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
