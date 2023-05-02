@@ -10,7 +10,7 @@
     </div>
 
 
-    <h1 class="card-title">Insurance Request Test</h1>
+    <h1 class="card-title text-center">Insurance Request Test</h1>
     <form class="forms-sample" #form1="ngForm" (ngSubmit)="onSubmitForm1()">
         <div class="form-group row">
             <label for="exampleInputMobile" class="col-sm-3 col-form-label">Name</label>
@@ -41,9 +41,9 @@
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-9 offset-sm-3">
-                <button type="submit" class="btn btn-primary mr-2">Test</button>
-                <button type="button" class="btn btn-light" (click)="onCancel()">Cancel</button>
+            <div class="col-sm-9 offset-sm-3 d-flex ">
+                <button type="submit" class="btn btn-primary mr-2 justify-content-center" >Test</button>
+                <button type="button" class="btn btn-light justify-content-center" (click)="onCancel()">Cancel</button>
             </div>
         </div>
         <h3  class="mt-3 text-center">{{ message }}</h3>
@@ -54,7 +54,7 @@
 
 
 
-    <h1 class="card-title">Simulate your Insurance</h1>
+    <h1 class="card-title text-center ">Simulate your Insurance</h1>
     <form class="forms-sample" #form2="ngForm" (ngSubmit)="onSubmitForm2()">
         <div class="form-group row">
             <label for="exampleInputMobile" class="col-sm-3 col-form-label">Number Of years</label>
@@ -72,8 +72,8 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-9 offset-sm-3">
-                <button (click)="onSubmitForm2()" class="btn btn-success mr-2">Simulate</button>
-                <button type="button" class="btn btn-light" (click)="onCancel()">Cancel</button>
+                <button (click)="onSubmitForm2()" class="btn btn-success mr-2 text-center">Simulate</button>
+                <button type="button" class="btn btn-light text-center" (click)="onCancel()">Cancel</button>
             </div>
         </div>
     </form>

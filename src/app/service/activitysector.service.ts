@@ -14,24 +14,30 @@ export class ActivitysectorService {
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+  private httpOptions1 = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer' + ' ' + localStorage.getItem('access_token')
+    })
 
+  };
   constructor(
     private http: HttpClient,
   ) { }
 
   // Get all activity sectors
   getActivitySectors(): Observable<ActivitySector[]> {
-    return this.http.get<ActivitySector[]>(`${this.baseUrl}admin/afficherActivitySectors`);
+    return this.http.get<ActivitySector[]>(`${this.baseUrl}afficherActivitySectors`,this.httpOptions1);
   }
 
   // Add new activity sector
   addActivitySector(activitySector: ActivitySector): Observable<ActivitySector> {
-    return this.http.post<ActivitySector>(`${this.baseUrl}admin/ajouterActivitySector`, activitySector);
+    return this.http.post<ActivitySector>(`${this.baseUrl}admin/ajouterActivitySector`, activitySector,this.httpOptions1);
   }
 
   // Update activity sector
   updateActivitySector(activitySector: ActivitySector): Observable<ActivitySector> {
-    return this.http.put<ActivitySector>(`${this.baseUrl}admin/updateActivitySector`, activitySector);
+    return this.http.put<ActivitySector>(`${this.baseUrl}admin/updateActivitySector`, activitySector,this.httpOptions1);
   }
 
   // Delete activity sector by id
@@ -41,7 +47,7 @@ export class ActivitysectorService {
 
   // Get activity sector by id
   getActivitySectorById(id: number): Observable<ActivitySector> {
-    return this.http.get<ActivitySector>(`${this.baseUrl}admin/AfficherActivitySectorbyID/${id}`);
+    return this.http.get<ActivitySector>(`${this.baseUrl}admin/AfficherActivitySectorbyID/${id}`,this.httpOptions1);
   }
 }
 

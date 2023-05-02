@@ -13,14 +13,14 @@ export class InsuranceServiceService {
   constructor(private http: HttpClient) { }
 
   getAllInsurances(): Observable<Insurance[]> {
-    return this.http.get<Insurance[]>(this.apiUrl + "/admin/afficher-insurance" );
+    return this.http.get<Insurance[]>(this.apiUrl + "/admin/afficher-insurance");
   }
   getInsuranceData(user: string): Observable<Insurance[]> {
     return this.http.get<Insurance[]>(`${this.apiUrl}/insurance?user=${user}`);
   }
 
   createInsurance(Insurance: Insurance): Observable<Insurance> {
-    return this.http.post<Insurance>(this.apiUrl, Insurance);
+    return this.http.post<Insurance>(this.apiUrl + "/ajouter-Insurance", Insurance);
   }
 
   getInsuranceById(id: number): Observable<Insurance> {
@@ -28,10 +28,11 @@ export class InsuranceServiceService {
     return this.http.get<Insurance>(url);
   }
 
-  updateInsurance(id: number, Insurance: Insurance): Observable<Insurance> {
-    const url = `${this.apiUrl}/admin/update-Insurance/${id}`;
-    return this.http.put<Insurance>(url, Insurance);
+  updateInsurance(insurance: Insurance): Observable<Insurance> {
+    const url = `${this.apiUrl}/admin/update-Insurance`;
+    return this.http.put<Insurance>(url, insurance);
   }
+
 
   deleteInsurance(id: number): Observable<any> {
     const url = `${this.apiUrl}/admin/deleteInsurance/${id}`;
@@ -63,6 +64,6 @@ export class InsuranceServiceService {
     return this.http.post<number>(url, {});
   }
 
-  
+
 
 }

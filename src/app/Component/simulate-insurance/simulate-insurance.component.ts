@@ -11,8 +11,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class SimulateInsuranceComponent implements OnInit {
   name: string = '';
   lastName: string = '';
-  income: number = 0;
-  debt: number = 0;
+  income!: number ;
+  debt! : number ;
   message: string = '';
   displayMessage1=false;
   displayMessage2= false;
@@ -25,7 +25,6 @@ export class SimulateInsuranceComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder) {
   }
-
   ngOnInit(): void {
   }
 

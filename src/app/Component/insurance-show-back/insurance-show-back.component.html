@@ -39,10 +39,13 @@
                                 <th>
                                     Total Amount
                                 </th>
+                                <th>
+                                    Progress
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let insurance of insurances">
+                            <tr *ngFor="let  insurance of insurances">
                                 <td class="py-1">
                                     {{ insurance.users.firstName + ' ' + insurance.users.lasttName }}
                                 </td>
@@ -54,10 +57,6 @@
                                 </td>
                                 <td class="py-1">
                                     {{ insurance.startDate }}
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
                                 </td>
                                 <td class="py-1">
                                     {{ insurance.endDate }}
@@ -66,26 +65,24 @@
                                     {{ insurance.activitySector.name }}
                                 </td>
                                 <td class="py-1">
-                                    <ng-container
-                                        *ngIf="insurance.activitySector.name === '' || insurance.activitySector.name === null; else displayInterestRate">
-                                        <input type="number" [(ngModel)]="insurance.activitySector.interestRate"
-                                            class="form-control" placeholder="Interest Rate">
-                                    </ng-container>
-                                    <ng-template #displayInterestRate>{{
-                                        insurance.activitySector.interestRate}}</ng-template>
+                                    0.12
                                 </td>
                                 <td class="py-1">
-                                    <button (click)="deleteInsurance(selectedInsurance)"
+                                    <button (click)="deleteInsurance(insurance)"
                                         class="btn btn-danger">Delete</button>
                                     <button (click)="goToModify(insurance)" class="btn btn-warning">Modify</button>
                                 </td>
                                 <td class="py-1">
-                                    {{ calculateMonthlyPayment(insurance.amount, insurance.activitySector.interestRate)
-                                    }}
+                                    {{  monthlyPayments.get(insurance.idInsurance) }}
                                 </td>
                                 <td class="py-1">
-                                    {{ calculateTotalAmount(insurance.idInsurance,
-                                    insurance.activitySector.interestRate) }}
+                                    {{ totalAmounts.get(insurance.idInsurance) }}
+                                </td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
+                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>

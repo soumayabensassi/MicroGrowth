@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Insurance } from 'src/app/Models/insurance';
 import { ActivitysectorService } from 'src/app/service/activitysector.service';
 import { InsuranceServiceService } from 'src/app/service/insurance.service';
 import { Location } from '@angular/common';
+import { ActivitySector } from 'src/app/Models/activity-sector';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-insurance-modify-back',
@@ -12,49 +14,41 @@ import { Location } from '@angular/common';
   styleUrls: ['./insurance-modify-back.component.css']
 })
 export class InsuranceModifyBackComponent implements OnInit {
-  insurance: Insurance = new Insurance();
-  idInsurance!: number;
-  insuranceForm!: FormGroup;
-
-  constructor( private location: Location , private formBuilder: FormBuilder ,private InsuranceServiceService: InsuranceServiceService, private activitySectorService: ActivitysectorService, private route: Router, private active: ActivatedRoute) { }
+  id!: number;
+  UpdatedInsurance: Insurance = new Insurance;
+  activitySectors!: ActivitySector[];
+  message!: string;
+  sector!: ActivitySector;
+  amount!: number
+  constructor(private route: ActivatedRoute, private router: Router,
+    private insuranceService: InsuranceServiceService, private activitySectorService: ActivitysectorService) { }
 
   ngOnInit(): void {
-    this.idInsurance = this.active.snapshot.params['id'];
-    this.InsuranceServiceService.getInsuranceById(this.idInsurance).subscribe((data: Insurance) => {
-      this.insuranceForm = this.formBuilder.group({
-        amount: [data.amount, Validators.required],
-        startDate: [data.startDate, Validators.required],
-        endDate: [data.endDate, Validators.required],
-        activitySector: [data.activitySector.idSecteur, Validators.required],
-        user: [data.users.id_user, Validators.required]
-      });
-    });
-  }
-  updateInsurance() {
-    this.InsuranceServiceService.updateInsurance(this.idInsurance, this.insurance)
-      .subscribe(data => {
-        console.log(data);
-        this.insurance = new Insurance();
-        this.gotoList();
-      }, error => console.log(error));
-  }
+    this.getActivitySectors();
+    this.UpdatedInsurance.amount = this.route.snapshot.params['amount'];
+    this.UpdatedInsurance.endDate = this.route.snapshot.params['endDate'];
+    this.UpdatedInsurance.startDate = this.route.snapshot.params['startDate'];
+    this.UpdatedInsurance.idInsurance = this.route.snapshot.params['idInsurance'];
+    this.UpdatedInsurance.activitySector = this.route.snapshot.params['activitySector'];
 
-  onSubmit() {
-    this.InsuranceServiceService.updateInsurance(this.idInsurance, this.insuranceForm.value)
-      .subscribe(() => {
-        this.route.navigate(['/list-insurances']);
-      });
-  }
-
-  gotoList() {
-    this.route.navigate(['/list-insurances']);
-  }
-
-  goBack() {
-    this.location.back();
   }
 
 
+
+  getActivitySectors(): void {
+    this.activitySectorService.getActivitySectors()
+      .subscribe(sectors => this.activitySectors = sectors);
+  }
+
+  onSubmit(): void {
+    this.UpdatedInsurance.activitySector = this.sector;
+    this.insuranceService.updateInsurance(this.UpdatedInsurance)
+      .subscribe(() => this.message = 'Insurance successfully updated');
+  }
 
 
 }
+
+
+
+

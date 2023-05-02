@@ -40,11 +40,8 @@
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="activitySector">Activity Sector</label>
                 <div class="col-sm-9">
-                    <select class="form-control">
-                        <option>Category1</option>
-                        <option>Category2</option>
-                        <option>Category3</option>
-                        <option>Category4</option>
+                    <select class="form-control" name="activitySector" [(ngModel)]="newInsurance.activitySector" required >
+                        <option *ngFor="let sector of activitySectors" [value]="sector">{{ sector.name }}</option>
                     </select>
                 </div>
             </div>
@@ -63,4 +60,5 @@
         <button type="submit" class="btn btn-primary mr-2">Submit</button>
         <button class="btn btn-light">Cancel</button>
     </div>
+    <h3 class="text-center text-success">{{message}}</h3>
 </form>

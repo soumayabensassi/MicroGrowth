@@ -12,30 +12,29 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./insurance-show-back.component.css']
 })
 export class InsuranceShowBackComponent implements OnInit {
-  newInsurance: Insurance = new Insurance();
-  insurances!: Insurance[];
-  selectedInsurance: Insurance = new Insurance();
-  result: any;
-  monthlyPayment: any;
-  monthlyPaymentS: any;
-  totalAmount : any;
-  message : string = '';
-  debt!: number ;
-  income!: number ;
 
-  constructor(private insuranceServiceService: InsuranceServiceService, private ActivitysectorService :ActivitysectorService , private route: Router, private active: ActivatedRoute) { }
+  insurances!: Insurance[];
+  result: any;
+  monthlyPayments: Map<number, number> = new Map();
+  totalAmounts: Map<number, number> = new Map();
+  message: string = '';
+  debt!: number;
+  income!: number;
+
+  constructor(private insuranceServiceService: InsuranceServiceService, private activitysectorService: ActivitysectorService, private route: Router, private active: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.insuranceServiceService.getAllInsurances;
-    this.ActivitysectorService.getActivitySectors;
+    this.insuranceServiceService.getAllInsurances().subscribe(insurances => {
+      this.insurances = insurances;
+      this.insurances.forEach(insurance => {
+        this.calculateMonthlyPayment(insurance.amount, insurance.activitySector.interestRate, insurance.idInsurance);
+        this.calculateTotalAmount(insurance.idInsurance, insurance.activitySector.interestRate);
+      });
+    });
+    this.activitysectorService.getActivitySectors;
+    this.calculateTotalAmount(this.insurances[0].idInsurance, 0.12);
   }
 
-  getInsurances(): void {
-    this.insuranceServiceService.getAllInsurances()
-      .subscribe(insurances => {
-        this.insurances = insurances;
-      });
-  }
 
   deleteInsurance(insurance: Insurance): void {
     this.insuranceServiceService.deleteInsurance(insurance.idInsurance)
@@ -45,57 +44,60 @@ export class InsuranceShowBackComponent implements OnInit {
   }
 
   goToModify(insurance: Insurance): void {
-    this.route.navigate(['/admin/Insurance-modify-back', insurance.idInsurance]);
+    console.log(insurance)
+    this.route.navigate(['/admin/Insurance-modify-back', insurance]);
   }
 
-  calculateMonthlyPayment(loanAmount: number, interestRate: number): void {
-    this.insuranceServiceService.calculateMonthlyPayment(loanAmount, interestRate)
-      .subscribe(monthlyPayment => {
-        this.monthlyPayment = monthlyPayment;
-        console.log(monthlyPayment);
-      });
-  }
+  /* calculateMonthlyPayment(loanAmount: number, interestRate: number): void {
+     this.insuranceServiceService.calculateMonthlyPayment(loanAmount, interestRate)
+       .subscribe(monthlyPayment => {
+         this.monthlyPayment = monthlyPayment;
+         
+       });
+   } */
 
-  calculateMonthlyPaymentS(idS: number, TotalInsuredValue: number, Deductible: number): void {
-    this.insuranceServiceService.calculateMonthlyPaymentS(idS, TotalInsuredValue, Deductible)
-      .subscribe(monthlyPaymentS => {
-        this.monthlyPaymentS = monthlyPaymentS;
-        console.log(monthlyPaymentS);
-      });
-  }
-
-  applyForInsuranceC(income: number, mail: string, Score: number): void {
-    this.insuranceServiceService.applyForInsuranceC(income, mail, Score)
-      .subscribe(result => {
-        this.result = result;
-        console.log(result);
-      })
-  }
 
   applyForInsurance(income: number, debt: number): void {
     this.insuranceServiceService.applyForInsurance(income, debt)
       .subscribe(result => console.log(result));
   }
 
-  calculateTotalAmount(id: number, interestRate: number): void {
+  /* calculateTotalAmount(id: number, interestRate: number): void {
     this.insuranceServiceService.calculateTotalAmount(id, interestRate)
       .subscribe(totalAmount => {
         this.totalAmount = totalAmount;
         console.log(totalAmount);
       });
+  } */
+
+  calculateMonthlyPayment(loanAmount: number, interestRate: number, id: number): void {
+    this.insuranceServiceService.calculateMonthlyPayment(loanAmount, interestRate)
+      .subscribe(monthlyPayment => {
+        this.monthlyPayments.set(id, monthlyPayment);
+      });
   }
 
-  onCancel() {
-    this.route.navigate(['/']);
+  calculateTotalAmount(id: number, interestRate: number): void {
+    this.insuranceServiceService.calculateTotalAmount(id, interestRate)
+      .subscribe(totalAmount => {
+        this.totalAmounts.set(id, totalAmount);
+      });
   }
+
+
 
   onSubmit() {
     console.log(`debt: ${this.debt}, income: ${this.income}`);
     if ((this.debt / this.income) >= 0.43) {
-      this.message = `The insurance request will be dismissed.` ;
+      this.message = `The insurance request will be dismissed.`;
     } else {
-      this.message = `The insurance request will be approved.` ;
+      this.message = `The insurance request will be approved.`;
     }
-}
+  }
+
+
+  onCancel() {
+    this.route.navigate(['/']);
+  }
 
 }
