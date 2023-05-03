@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Investment } from 'src/app/Models/investment';
 import { InvestmentService } from 'src/app/service/investment.service';
 
@@ -9,7 +10,7 @@ import { InvestmentService } from 'src/app/service/investment.service';
 })
 export class ListInvestmentBackComponent implements OnInit {
   list: Investment[] = [];
-  constructor(private invSErvice:InvestmentService) { }
+  constructor(private invSErvice:InvestmentService,private _router:Router) { }
 
   ngOnInit(): void {
     this.invSErvice.getInvestments().subscribe(
@@ -20,5 +21,9 @@ export class ListInvestmentBackComponent implements OnInit {
   deleteInvestment(id:number){
     this.invSErvice.deleteInvestment(id).subscribe()
   }
+  editInvestment(id: number, investment: Investment) {
+    this._router.navigate(['/edit-inv', id], { state: { investment: investment } });
+  }
+  
 
 }

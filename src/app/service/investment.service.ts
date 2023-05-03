@@ -20,7 +20,7 @@ export class InvestmentService {
   getInvestments(){
     return this.http.get<Investment[]>(this.URL+"admin/afficherInvestment",this.httpOptions);
    }
-   getProject(id:number){
+   getInvestment(id:number){
     return this.http.get<Investment>(this.URL+"afficherInvbyID/"+id);
    }
    addInvestment(investment:Investment){
