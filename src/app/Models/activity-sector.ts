@@ -1,7 +1,7 @@
 export class ActivitySector {
-    id_secteur!:number
+    idSecteur!: number;
+    name !: string;
+    correlationRatio!: number;
+    interestRate!: number;
     image_sector!:string;
-    name!:string;
-    correlation_ratio!:any;
-    inerest_rate!:any    
 }

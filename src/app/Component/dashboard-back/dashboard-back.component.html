@@ -1,6 +1,6 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-    <a  routerLink="/homepageBack"><img src="../../../assets/img/logo.png" style="width: 100px;" alt="logo"/></a>
+    <a  routerLink="/admin"><img src="../../../assets/img/logo.png" style="width: 100px;" alt="logo"/></a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -98,7 +98,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/homepageBack">
+      <a class="nav-link" routerLink="/admin">
         <i class="icon-grid menu-icon"></i>
         <span class="menu-title">Dashboard</span>
       </a>
@@ -109,6 +109,21 @@
         <span class="menu-title">Users</span>
         <i class="menu-arrow"></i>
       </a>
+      
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" routerLink="/admin/listproject" aria-expanded="false" aria-controls="ui-basic">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Projects</span>
+        <i class="menu-arrow"></i>
+      </a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" routerLink="/admin/listinvestissement" aria-expanded="false" aria-controls="ui-basic">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Investments</span>
+        <i class="menu-arrow"></i>
+      </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" routerLink="/admin/listpublicationback" aria-expanded="false" aria-controls="charts">
@@ -116,7 +131,15 @@
         <span class="menu-title">Publications</span>
         <i class="menu-arrow"></i>
       </a>
-    
+
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" routerLink="/admin/calculator" aria-expanded="false" aria-controls="charts">
+        <i class="icon-columns menu-icon"></i>
+        <span class="menu-title">interest calculator</span>
+        <i class="menu-arrow"></i>
+      </a>
+
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#charts"  aria-expanded="false" aria-controls="charts">
@@ -137,21 +160,46 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+      <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
         <i class="icon-grid-2 menu-icon"></i>
-        <span class="menu-title">Tables</span>
+        <span class="menu-title">Insurance</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse" id="tables">
+      <div class="collapse" id="icons">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/admin/Insurance-show-back">Assured Users</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/Insurance">Add User</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/admin/Insurance-kpi-back">Insurance Kpis</a></li>
         </ul>
       </div>
     </li>
     <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+        <i class="icon-grid-2 menu-icon"></i>
+        <span class="menu-title">Training</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="tables">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="/admin/addTraining">Add Training</a></li>
+        </ul>
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="/admin/listtrainingback">List Training</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" routerLink="/admin/listcomplaintback" aria-expanded="false" aria-controls="charts">
+        <i class="icon-columns menu-icon"></i>
+        <span class="menu-title">List Complaint</span>
+        <i class="menu-arrow"></i>
+      </a>
+    
+    </li>
+    <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
         <i class="icon-contract menu-icon"></i>
-        <span class="menu-title">Icons</span>
+        <span class="menu-title">Transaction</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="icons">
@@ -163,7 +211,7 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
         <i class="icon-head menu-icon"></i>
-        <span class="menu-title">User Pages</span>
+        <span class="menu-title">Event</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="auth">
@@ -176,7 +224,7 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
         <i class="icon-ban menu-icon"></i>
-        <span class="menu-title">Error pages</span>
+        <span class="menu-title">Investment</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="error">
@@ -189,7 +237,7 @@
     <li class="nav-item">
       <a class="nav-link" href="pages/documentation/documentation.html">
         <i class="icon-paper menu-icon"></i>
-        <span class="menu-title">Documentation</span>
+        <span class="menu-title">Training</span>
       </a>
     </li>
   </ul>

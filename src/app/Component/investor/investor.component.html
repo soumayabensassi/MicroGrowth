@@ -1,0 +1,93 @@
+<div class="container-fluid position-relative p-0">
+
+  <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+      <div class="row py-5">
+          <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+              <h1 class="display-4 text-white animated zoomIn"> </h1>
+
+          </div>
+      </div>
+  </div>
+
+
+    <!-- Quote Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="section-title position-relative pb-3 mb-5">
+                        <h5 class="fw-bold text-primary text-uppercase">Start Today</h5>
+                        <h1 class="mb-0">take the first step today and see how it can change your life for the better</h1>
+                    </div>
+
+                    <p class="mb-4">Investing is a powerful way to build wealth over time and achieve financial security for yourself and your loved ones. By investing, you have the opportunity to grow your money through the power of compounding returns.</p>
+                    <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
+                        
+                        <div class="ps-4">
+                            <h5 class="mb-2">update investment</h5>
+                            <button class="btn btn-primary w-100 py-3" type="submit">update</button>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
+                      <form (submit)="exportPDF()">
+                        <label for="iduser">your id:</label>
+                       
+                       <input type="number" class="form-control border-0 bg-light px-4" name="iduser" [(ngModel)]="iduser">
+                        <br>
+                        <button class="btn btn-primary w-100 py-3" type="submit">exportPDF</button>
+                      </form>
+                      
+                  </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
+                      <form (ngSubmit)="saveInvestment()">
+                        <div class="row g-3">
+                            <div class="col-md-6"> <label for="amountInves">amount</label>
+                                <input type="number" class="form-control border-0 bg-light px-4"  name="amountInves" #amountInves="ngModel" [(ngModel)]="Investment.amountInves" placeholder="the amount you want to invest"
+                                    style="height: 55px;">
+                            </div>
+
+
+                            <div class="col-6"><label for="amountInves">duration</label>
+                                <input type="number" class="form-control border-0 bg-light px-4" name="duree" #duree="ngModel" [(ngModel)]="Investment.duree"
+                                placeholder="the duration" style="height: 55px;">
+                            </div>
+
+                            <div class="col-6"><label for="MethodInvestissement">the method</label>
+                              <select class="form-control border-0 bg-light px-4" name="MethodInvestissement" placeholder="the method " #MethodInvestissement="ngModel" [(ngModel)]="Investment.methodInvestissement" style="height: 55px">
+                                <option >PONZI_PYRAMID</option>
+                                <option >PLACEMENT_PRECOMPTE</option>
+                                <option >PLACEMENT_POSCOMPTE</option>
+                                <option >OBLIGATION</option>
+                                <option >stocks</option>
+
+                              </select>
+                            </div>
+                           <!-- <div class="col-md-6">
+                                <input type="number" class="form-control border-0 bg-light px-4" name="quantity" #quantity="ngModel" [(ngModel)]="Investment.quantity"
+
+                                placeholder="quantity of option" style="height: 55px;">
+                            </div>
+                            <div class="col-md-6">
+                              <input type="number" class="form-control border-0 bg-light px-4" name="idProject" #idProject="ngModel" [(ngModel)]="Investment.idProject"
+
+                              placeholder="intrest rate "style="height: 55px;">
+                          </div>-->
+
+
+
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Add</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote End -->
+
+

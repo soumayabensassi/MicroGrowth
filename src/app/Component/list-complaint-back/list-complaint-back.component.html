@@ -1,0 +1,54 @@
+<br>
+<br>
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">TRAINING Table</h4>
+            <p class="card-description">
+                training <code>.tables</code>
+            </p>
+            <div class="table-responsive">
+              
+                <table class="table table-striped">
+                  
+                  <thead>
+                    <tr>
+                        <th>User's Name</th>
+                      <th>Date</th>
+                      <th>Subject</th>
+                      <th>Text</th>
+                      <th>State</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let x of list" class="table table-striped">
+                     
+                        <td>{{x.users.firstName}} </td>
+                      <td>{{x.date}} </td>
+                      <td>{{x.subject}}</td>
+                      <td>{{x.text}}</td>
+                      <td>{{x.state}}</td>
+                     
+                      </tr>
+                    <!-- Search Form Start -->
+                <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                  <div class="input-group">
+                      <div>
+                          
+                          <br>
+                          <button type="button" class="btn btn-primary" routerLink="/admin/addTraining">Add</button>
+                             
+                         
+                          
+                      </div>
+                  </div>
+              </div>
+                  </tbody>
+                </table>
+              </div>
+              
+        </div>
+    </div>
+</div>

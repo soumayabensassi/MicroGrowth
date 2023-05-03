@@ -50,16 +50,24 @@ token!:any
   }
   LikeFunction(idCome:number)
   {
-    this.commentServive.getCommentById(idCome).subscribe((data) => this.like.comments = data);
     this.commentServive.LikerComment(this.like, idCome,this.userInfo.email).subscribe(
-      () => this.route.navigateByUrl('/homePage')
+      ()=>{this.commentServive.getCommentById(idCome).subscribe((data) => {
+      const pubIndex = this.list.findIndex((pub) => pub.idComment === idCome);
+      this.list[pubIndex] = data;
+  });
+  }
+  )
+}
+  DisLikeFunction(idCome:number)
+  { 
+    this.commentServive.DislikerComment(this.dislike, idCome,this.userInfo.email).subscribe(
+      ()=>{this.commentServive.getCommentById(idCome).subscribe((data) => {
+        const pubIndex = this.list.findIndex((pub) => pub.idComment === idCome);
+        this.list[pubIndex] = data;
+    });
+    }
     )
   }
-  DisLikeFunction(idCome:number)
-  { this.commentServive.getCommentById(idCome).subscribe((data) => this.like.comments = data);
-    this.commentServive.DislikerComment(this.dislike, idCome,this.userInfo.email).subscribe(
-      () => this.route.navigateByUrl('/homePage')
-    )}
   sendComment()
   {
     this.commentServive.addComment(this.comment,this.id,this.userInfo.email).subscribe(
@@ -67,6 +75,7 @@ token!:any
         this.publicationServive.getPublicationById(this.id).subscribe((data)=>this.comment.publication=data)
         this.userservice.getUserbyemail(this.userInfo.email).subscribe((data)=>this.comment.users=data)
         this.list.push(this.comment)
+        window.location.reload()
       }
     )
     
@@ -74,4 +83,12 @@ token!:any
   isLoggedIn(): boolean {
     return this.token;
   }
+
+  deleteComment(id:number)
+  {
+    this.commentServive.delete(id).subscribe(
+      ()=>this.list=this.list.filter((p)=>p.idComment != id)
+      )
+  }
+ 
 }

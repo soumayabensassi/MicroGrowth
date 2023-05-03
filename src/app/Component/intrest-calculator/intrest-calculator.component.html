@@ -1,0 +1,121 @@
+
+<br>
+<br>
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Investment Table</h4>
+
+            <button type="button" class="btn btn-outline-primary">placement</button>
+
+            <button type="button"  class="btn btn-outline-primary">ponzi</button>
+            <button type="button" class="btn btn-outline-primary">obligation</button>
+            <button type="button"  class="btn btn-outline-primary">stocks</button>
+
+
+
+        </div>
+        <div>
+          <h2>intrest from placment</h2>
+          <form (submit)="calculerInteret()">
+            <label for="methodInvestissement">Méthode d'investissement :</label>
+            <select class="form-control border-0 bg-light px-4" name="methodInvestissement" [(ngModel)]="methodInvestissement">
+              <option value="PLACEMENT_PRECOMPTE">PLACEMENT_PRECOMPTE</option>
+              <option value="PLACEMENT_POSCOMPTE">PLACEMENT_POSCOMPTE</option>
+            </select>
+            <br>
+            <label for="amountInves">Montant investi :</label>
+            <input type="number" class="form-control border-0 bg-light px-4" name="amountInves" [(ngModel)]="amountInves">
+            <br>
+            <label for="duree">Durée :</label>
+            <input type="number" class="form-control border-0 bg-light px-4" name="duree" [(ngModel)]="duree">
+            <br>
+            <button class="btn btn-outline-primary" type="submit">Calculate</button>
+          </form>
+          <p *ngIf="interet !== null">Le montant d'intérêts est : {{interet | number:'1.2-2'}}</p>
+
+
+</div>
+<div>
+  <h2>intrest from stocks</h2>
+  <form (submit)="StockIntrest()">
+
+    <br>
+    <label for="purchasePrice">purchasePrice :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="purchasePrice" [(ngModel)]="purchasePrice">
+    <br>
+    <label for="currentPrice">currentPrice :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="currentPrice" [(ngModel)]="currentPrice">
+    <br>
+    <br>
+    <label for="numShares">numShares :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="numShares" [(ngModel)]="numShares">
+    <br>
+    <br>
+    <label for="dividendYield">dividendYield :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="dividendYield" [(ngModel)]="dividendYield">
+    <br>
+    <label for="dividendYield">holdingPeriod :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="holdingPeriod" [(ngModel)]="holdingPeriod">
+    <br>
+    <button class="btn btn-outline-primary" type="submit">Calculate</button>
+  </form>
+  <p *ngIf="interetstock !== null">Le montant d'intérêts est : {{interetstock | number:'1.2-2'}}</p>
+</div>
+<div>
+  <h2>intrest from obligation</h2>
+  <form (submit)="obligationIntrest()">
+
+    <br>
+    <label for="investissementId">investment id :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="investissementId" [(ngModel)]="investissementId">
+    <br>
+    <label for="projetId">Project id :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="projetId" [(ngModel)]="projetId">
+    <br>
+    <br>
+    <label for="investissementInitial">intial invest :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="investissementInitial" [(ngModel)]="investissementInitial">
+    <br>
+    <br>
+    <label for="tauxRendement">rate :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="tauxRendement" [(ngModel)]="tauxRendement">
+    <br>
+
+    <button class="btn btn-outline-primary" type="submit">Calculate</button>
+  </form>
+  <p *ngIf="interetObligation !== null">Le montant d'intérêts est : {{interetObligation | number:'1.2-2'}}</p>
+</div>
+<div>
+  <h2>intrest from ponzi</h2>
+  <form (submit)="PonziIntrest()">
+
+    <br>
+    <label for="userid">user  id :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="userid" [(ngModel)]="userid">
+    <br>
+
+    <button class="btn btn-outline-primary" type="submit">Calculate</button>
+  </form>
+  <tr *ngFor="let x of interestPonzii" class="table table-striped">Le montant d'intérêts est : {{x | number:'1.2-2'}}</tr>
+  <!--<p *ngIf="interetObligation !== null">Le montant d'intérêts est : {{x | number:'1.2-2'}}</p>-->
+</div>
+<div>
+  <h2>calculate session </h2>
+  <form (submit)="calculerSession()">
+
+    <br>
+    <label for="x">amount invested:</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="x" [(ngModel)]="x">
+    <br>
+    <br>
+    <label for="y">investors number :</label>
+    <input type="number" class="form-control border-0 bg-light px-4" name="y" [(ngModel)]="y">
+    <br>
+
+    <button class="btn btn-outline-primary" type="submit">Calculate</button>
+  </form>
+  <p *ngIf="session !== null">Le nombre de session  est : {{session | number:'1.2-2'}}</p>
+
+</div>

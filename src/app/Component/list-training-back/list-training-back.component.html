@@ -1,0 +1,60 @@
+<br>
+<br>
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">TRAINING Table</h4>
+            <p class="card-description">
+                training <code>.tables</code>
+            </p>
+            <div class="table-responsive">
+              
+                <table class="table table-striped">
+                  
+                  <thead>
+                    <tr>
+                      <th>Affiche</th>
+                      <th>Title</th>
+                      <th>Subject</th>
+                      <th>Price</th>
+                      <th>Nombre of place </th>
+                      <th>Start Date</th>
+                      <th>Finish Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let x of list" class="table table-striped">
+                      <td>
+                        <img src="../../../assets/Back/images/faces/face1.jpg" alt="image" />
+                      </td>
+                      
+                      <td>{{x.title}} </td>
+                      <td>{{x.subject}}</td>
+                      <td>{{x.price}}</td>
+                      <td>{{x.nbrOfPlace}}</td>
+                      <td>{{x.startDate}}</td>
+                      <td>{{x.finishdate}}</td>
+                      <td> <button  type= "button" class="btn btn-primary" (click)="deleteTraining(x.idTraining)"> Delete</button></td>    
+                      <td> <button  type= "button" class="btn btn-primary" routerLink="/admin/updateTraining/{{x.idTraining}}"  > Update</button></td>    
+                    </tr>
+                    <!-- Search Form Start -->
+                <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                  <div class="input-group">
+                      <div>
+                          
+                          <br>
+                          <button type="button" class="btn btn-primary" routerLink="/admin/addTraining">Add</button>
+                             
+                         
+                          
+                      </div>
+                  </div>
+              </div>
+                  </tbody>
+                </table>
+              </div>
+              
+        </div>
+    </div>
+</div>

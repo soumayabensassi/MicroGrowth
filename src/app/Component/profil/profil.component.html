@@ -11,18 +11,15 @@
 
     <div class="container bootstrap snippet">
         <div class="row">
-            <div class="col-sm-10">
-                <h1>Hello {{userInfo.lasttName}} {{userInfo.firstName}}</h1>
-            </div>
+           
         </div>
         <div class="row">
             <div class="col-sm-3"><!--left col-->
 
 
-                <div class="text-center" >
+                <div class="text-center">
                     <div *ngIf="u!=null">
-                    <img [src]="u.image.url"
-                    class="avatar img-circle img-thumbnail" alt="avatar">
+                        <img [src]="u.image.url" class="avatar img-circle img-thumbnail" alt="avatar">
                     </div>
 
                     <div>
@@ -31,94 +28,104 @@
                 </div>
                 <br>
                 <div *ngIf="userInfo.roles.name=='[ROLE_ADMIN]'">
-                <button class="btn btn-lg btn-primary" routerLink="/admin" type="submit"><i
-                    class="glyphicon glyphicon-ok-sign"></i> Back to Dachborad</button>
+                    <button class="btn btn-lg btn-primary" routerLink="/admin" type="submit"><i
+                            class="glyphicon glyphicon-ok-sign"></i> Back to Dachborad</button>
                 </div>
             </div><!--/col-3-->
 
 
             <div class="col-sm-9">
-
-
-
                 <div class="tab-content">
-                    <div class="tab-pane active" id="home">
+                    <div class="tab-pane active" id="home"> <div class="col-sm-10">
+                        <h1  class="section-title text-center position-relative pb-3 mb-5 mx-auto" >Hello {{userInfo.lasttName}} {{userInfo.firstName}}</h1>
+                    </div>
                         <hr>
                         <form class="form" action="##" method="post" id="registrationForm">
-                            <div class="form-group">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
 
-                                <div class="col-xs-6">
-                                    <label for="first_name">
-                                        <h4>First name</h4>
-                                    </label>
-                                    <input type="text" class="form-control" id="first_name"
-                                        value="{{userInfo.firstName}}" name="firstName" #firstName="ngModel"
-                                        [(ngModel)]="userInfo.firstName">
+                                        <div class="col-xs-6">
+                                            <label for="first_name">
+                                                <h4>First name</h4>
+                                            </label>
+                                            <input type="text" class="form-control" id="first_name"
+                                                value="{{userInfo.firstName}}" name="firstName" #firstName="ngModel"
+                                                [(ngModel)]="userInfo.firstName">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <div class="form-group">
 
-                                <div class="col-xs-6">
-                                    <label for="last_name">
-                                        <h4>Last name</h4>
-                                    </label>
-                                    <input type="text" class="form-control" name="lasttName" id="last_name"
-                                        value="{{userInfo.lasttName}}" #lasttName="ngModel"
-                                        [(ngModel)]="userInfo.lasttName">
+                                        <div class="col-xs-6">
+                                            <label for="last_name">
+                                                <h4>Last name</h4>
+                                            </label>
+                                            <input type="text" class="form-control" name="lasttName" id="last_name"
+                                                value="{{userInfo.lasttName}}" #lasttName="ngModel"
+                                                [(ngModel)]="userInfo.lasttName">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
 
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    <label for="phone">
-                                        <h4>Phone</h4>
-                                    </label>
-                                    <input type="text" class="form-control" id="phone" value="{{userInfo.phone}}"
-                                        name="phone" #phone="ngModel" [(ngModel)]="userInfo.phone">
+                                        <div class="col-xs-6">
+                                            <label for="phone">
+                                                <h4>Phone</h4>
+                                            </label>
+                                            <input type="text" class="form-control" id="phone"
+                                                value="{{userInfo.phone}}" name="phone" #phone="ngModel"
+                                                [(ngModel)]="userInfo.phone">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="mobile">
-                                        <h4>Cin</h4>
-                                    </label>
-                                    <input type="text" class="form-control" id="mobile" value="{{userInfo.cin}}"
-                                        name="cin" #cin="ngModel" [(ngModel)]="userInfo.cin">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label for="mobile">
+                                                <h4>Cin</h4>
+                                            </label>
+                                            <input type="text" class="form-control" id="mobile" value="{{userInfo.cin}}"
+                                                name="cin" #cin="ngModel" [(ngModel)]="userInfo.cin">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <div class="form-group">
 
-                                <div class="col-xs-6">
-                                    <label for="email">
-                                        <h4>Email</h4>
-                                    </label>
-                                    <input type="email" class="form-control" id="email" value="{{userInfo.email}}"
-                                        name="email" #email="ngModel" [(ngModel)]="userInfo.email">
+                                        <div class="col-xs-6">
+                                            <label for="email">
+                                                <h4>Email</h4>
+                                            </label>
+                                            <input type="email" class="form-control" id="email"
+                                                value="{{userInfo.email}}" name="email" #email="ngModel"
+                                                [(ngModel)]="userInfo.email">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <div class="form-group">
 
-                                <div class="col-xs-6">
-                                    <label for="email">
-                                        <h4>Profession</h4>
-                                    </label>
-                                    <input type="text" class="form-control" id="location"
-                                        value="{{userInfo.profession}}" name="profession" #profession="ngModel"
-                                        [(ngModel)]="userInfo.profession">
+                                        <div class="col-xs-6">
+                                            <label for="email">
+                                                <h4>Profession</h4>
+                                            </label>
+                                            <input type="text" class="form-control" id="location"
+                                                value="{{userInfo.profession}}" name="profession" #profession="ngModel"
+                                                [(ngModel)]="userInfo.profession">
+                                        </div>
+                                    </div>
+
+
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <br>
+                             </div>
+                                <div class="col-12">
                                     <button class="btn btn-lg btn-primary" (click)="update()" type="submit"><i
                                             class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
-                                        Reset</button>
                                 </div>
-                            </div>
+                           
                         </form>
 
                         <hr>
@@ -214,14 +221,10 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <br>
-                                    <button class="btn btn-lg btn-success" type="submit"><i
-                                            class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
-                                        Reset</button>
+                                    <button class="btn btn-lg btn-success" type="submit"> Save</button>
+                                    
                                 </div>
                             </div>
                         </form>
 
                     </div>
-                        
-            

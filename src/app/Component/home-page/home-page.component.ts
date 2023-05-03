@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../../assets/css/style.css']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor() { }
+  token!:any
+  constructor() {    this.token= localStorage.getItem('access_token');}
 
   ngOnInit(): void {
   }
-
+  ngOnChanges():void{
+ window.location.reload()
+}
 }
