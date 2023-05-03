@@ -18,7 +18,7 @@ export class CreditDetailsFrontComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.id=this.active.snapshot.params['idpack'];
+    this.id=this.active.snapshot.params['id'];
     this.creditService.GetCreditById(this.id).subscribe(
       (data)=>this.credit=data
     )

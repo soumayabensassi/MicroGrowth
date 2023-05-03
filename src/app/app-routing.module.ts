@@ -115,6 +115,7 @@ const routes: Routes = [{
     {path:'ListMyCreditsFrontComponent',component:ListMyCreditsFrontComponent},
     {path:'afficherTableauCredit/:id',component:TableauAmoCreditComponent},
     {path:'SimulationCreditFrontComponent',component:SimulationCreditFrontComponent},
+    {path:'creditpack/:id',component:CreditDetailsFrontComponent},
   ]
 },
 ];
