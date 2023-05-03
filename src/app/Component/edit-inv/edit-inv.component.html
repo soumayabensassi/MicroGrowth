@@ -1,0 +1,48 @@
+
+<div class="col-lg-5">
+  <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
+    <form (ngSubmit)="saveInvestment()">
+      <div class="row g-3">
+          <div class="col-md-6"> <label for="amountInves">amount</label>
+              <input type="number" class="form-control border-0 bg-light px-4"  name="amountInves" #amountInves="ngModel" [(ngModel)]="Investment.amountInves" placeholder="the amount you want to invest"
+                  style="height: 55px;">
+          </div>
+
+
+          <div class="col-6"><label for="amountInves">duration</label>
+              <input type="number" class="form-control border-0 bg-light px-4" name="duree" #duree="ngModel" [(ngModel)]="Investment.duree"
+              placeholder="the duration" style="height: 55px;">
+          </div>
+
+          <div class="col-6"><label for="MethodInvestissement">the method</label>
+            <select class="form-control border-0 bg-light px-4" name="MethodInvestissement" placeholder="the method " #MethodInvestissement="ngModel" [(ngModel)]="Investment.methodInvestissement" style="height: 55px">
+              <option >PONZI_PYRAMID</option>
+              <option >PLACEMENT_PRECOMPTE</option>
+              <option >PLACEMENT_POSCOMPTE</option>
+              <option >OBLIGATION</option>
+              <option >stocks</option>
+
+            </select>
+          </div>
+         <!-- <div class="col-md-6">
+              <input type="number" class="form-control border-0 bg-light px-4" name="quantity" #quantity="ngModel" [(ngModel)]="Investment.quantity"
+
+              placeholder="quantity of option" style="height: 55px;">
+          </div>
+          <div class="col-md-6">
+            <input type="number" class="form-control border-0 bg-light px-4" name="idProject" #idProject="ngModel" [(ngModel)]="Investment.idProject"
+
+            placeholder="intrest rate "style="height: 55px;">
+        </div>-->
+
+
+
+          <div class="col-12">
+              <button class="btn btn-primary w-100 py-3" type="submit">Add</button>
+          </div>
+
+      </div>
+  </form>
+  </div>
+</div>
+</div>
