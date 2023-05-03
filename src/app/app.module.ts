@@ -27,12 +27,10 @@ import { AllTemplateUserComponentComponent } from './Component/all-template-user
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 import { AccountComponent } from './Component/Banking/account/account.component';
 import { AdminaccountComponent } from './Component/Banking/account/admin/adminaccount/adminaccount.component';
-import { AdminTransactionComponent } from './Component/Banking/account/admin/admin-transaction/admin-transaction.component';
 import { UpdateBankAccountComponent } from './Component/Banking/account/admin/update-bank-account/update-bank-account.component';
 import { MakeTransactionComponent } from './Component/Banking/make-transaction/make-transaction.component';
 import { SuccesfultransferComponent } from './Component/Banking/make-transaction/succesfultransfer/succesfultransfer.component';
 import { TransfernotallowedComponent } from './Component/Banking/make-transaction/transfernotallowed/transfernotallowed.component';
- import {CommonModule} from "@angular/common";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { TransactionhistoryComponent } from './Component/Banking/account/transactionhistory/transactionhistory.component';
@@ -147,10 +145,8 @@ import { UserService } from './service/user.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
     FormsModule, ReactiveFormsModule,
     CalendarModule,
-
     BrowserAnimationsModule,
     FormsModule,
     MatFormFieldModule,
@@ -159,7 +155,8 @@ import { UserService } from './service/user.service';
     MatInputModule,
     MatDialogModule,
     MatButtonModule,
-    MatButtonToggleModule, MatIconModule,
+    MatButtonToggleModule,
+    MatIconModule,
     NgxPaginationModule,
   ],
   
