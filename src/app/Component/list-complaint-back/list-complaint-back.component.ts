@@ -20,4 +20,7 @@ export class ListComplaintBackComponent implements OnInit {
   getComplaints() {
     this.comservice.getComplaint().subscribe(complaint => this.list = complaint);
   }
+  avis(){
+    this.comservice.AvisUser().subscribe();
+   }
 }

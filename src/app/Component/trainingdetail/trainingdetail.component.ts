@@ -20,7 +20,12 @@ training: Training = new Training();
 
   ngOnInit(): void {
     this.traininnservice.getTrainingById(this.active.snapshot.params['id']).subscribe((data)=>this.training=data)
+    const savedRating = localStorage.getItem('currentRating');
+    if (savedRating) {
+      this.currentRating = parseInt(savedRating);
+    }
       }
+
 detail(){
   this.traininnservice.getTrainingById(this.active.snapshot.params['id']).subscribe((data)=>this.training=data)
 
@@ -57,6 +62,8 @@ userInfo: User = new User();
 
   rate(score: number) {
     this.currentRating = score;
+    localStorage.setItem('currentRating', score.toString()); // Enregistrement de la note dans le stockage local
+    
    // const trainingId = 1; // replace with the training ID
     //const url = `http://localhost:8082/MicroGrowth/user/ratings/${trainingId}/${score}`;
     this.traininnservice.rates(this.active.snapshot.params['id'],score).subscribe(

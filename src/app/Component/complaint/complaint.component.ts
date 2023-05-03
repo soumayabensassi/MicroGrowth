@@ -54,4 +54,7 @@ add()
  vider(){
   this.complaint=this.comp;
  }
+ avis(){
+  this.compservice.AvisUser().subscribe();
+ }
 }

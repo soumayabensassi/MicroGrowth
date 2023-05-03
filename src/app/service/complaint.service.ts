@@ -42,4 +42,9 @@ export class ComplaintService {
   {
     return this.http.get<Complaint[]>(this.ComplaintURL+"/afficherCwithuser" ,this.httpOptions);
  }
+ AvisUser()
+ {
+   return this.http.get(this.ComplaintURL+"/AvisTraitement" ,this.httpOptions);
+}
+
 }
