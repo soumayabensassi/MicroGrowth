@@ -5,6 +5,8 @@ import { User } from 'src/app/Models/user';
 import { TrainingService } from 'src/app/service/training.service';
 import { UserService } from 'src/app/service/user.service';
 import { DatePipe } from '@angular/common';
+import { Complaint } from 'src/app/Models/complaint';
+import { ComplaintService } from 'src/app/service/complaint.service';
 
 
 @Component({
@@ -15,11 +17,12 @@ import { DatePipe } from '@angular/common';
 })
 export class TrainingComponent implements OnInit {
   list: Training[]=[] ;
+  listr:Complaint[]=[];
   //selectedTraining: Training = new Training();
   //userInfo: User=new User();
   //isEdit: boolean = false;
   //token!: any
-  constructor(private trainingservice: TrainingService) { }
+  constructor(private trainingservice: TrainingService,private comp:ComplaintService) { }
 
   ngOnInit(): void {
     //this.token = localStorage.getItem('access_token');
@@ -27,6 +30,12 @@ export class TrainingComponent implements OnInit {
     this.trainingservice.getTraining().subscribe(
       data => {
         this.list = data
+        
+      }
+    );
+    this.comp.getComplaint().subscribe(
+      data => {
+        this.listr= data
         
       }
     );

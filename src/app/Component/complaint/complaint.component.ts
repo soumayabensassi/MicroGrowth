@@ -21,7 +21,7 @@ userInfo: User=new User();
   constructor(private compservice:ComplaintService, private active:ActivatedRoute,private route:Router) { }
 
   ngOnInit(): void {
-    this.compservice.getComplaint().subscribe(
+    this.compservice.getcomplaintwithuser().subscribe(
       data => {
         this.list = data
         

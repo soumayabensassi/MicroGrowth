@@ -38,4 +38,8 @@ export class ComplaintService {
   {
     return this.http.put(`${this.ComplaintURL}/user/editComplaint` , complaint,this.httpOptions);
  }
+ getcomplaintwithuser():Observable<Complaint[]>
+  {
+    return this.http.get<Complaint[]>(this.ComplaintURL+"/afficherCwithuser" ,this.httpOptions);
+ }
 }

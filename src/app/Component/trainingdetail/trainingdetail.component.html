@@ -38,12 +38,19 @@
                           </button>
                     </div>
                     <div>
-                        <button class="btn btn-primary" (click)="ParticiperFunction(training.idTraining)">
+                        <button class="btn btn-primary" (click)="ParticiperFunction(training.idTraining) " >
                             <i class="fa fa-hand-o-up">{{training.nombreParticiper}}</i> Particiter
                           </button>
                     </div>
                     
-                </div> </div>
+                </div> <div>
+                    <span class="star" *ngFor="let star of stars" (click)="rate(star)">
+                      <i class="fa fa-star" [class.filled]="star <= currentRating"></i>
+                    </span>
+                    
+                  </div>
+                </div>
+                
             
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
