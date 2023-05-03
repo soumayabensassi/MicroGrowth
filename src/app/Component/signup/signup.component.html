@@ -115,10 +115,17 @@
                                 <div *ngIf="cin.errors?.['pattern']">CIN must have 8 number </div>
                             </div>
                         </div>
-<div class="col-6">
-    <re-captcha (resolved)="resolved($event)" siteKey="6LeN69slAAAAADDfSAi7XohtMdggYnfpj4_jmmtg"></re-captcha>
+                        <form [formGroup]="formcaptcha">
+                           
+                            <div><re-captcha siteKey="6LeN69slAAAAADDfSAi7XohtMdggYnfpj4_jmmtg" id="recaptcha"
+                                   (resolved)="resolved($event)"
+                                    aria-required="true" ></re-captcha>
+                            </div>
+                            
+                            <div class="alert alert-danger" *ngIf="msg!=''"> {{msg}}</div>
 
-</div>
+                        </form>
+
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="form.invalid">Sign
                                 up</button>

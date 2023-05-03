@@ -159,7 +159,8 @@ import { RecaptchaModule } from "ng-recaptcha";
     MatButtonModule,
     MatButtonToggleModule,
     MatIconModule,
-    NgxPaginationModule, RecaptchaModule,
+    NgxPaginationModule,
+   RecaptchaModule,
   ],
   
   providers: [AuthGuard,{

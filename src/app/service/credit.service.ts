@@ -34,7 +34,7 @@ export class CreditService {
     return this.http.post<Credit>("http://localhost:8082/MicroGrowth/admin/ajouterCreditByadmin/"+email,credit,this.httpOptions)
   }
   AfficherCreditPack() :Observable<any>{
-    return this.http.get<Credit[]>("http://localhost:8082/MicroGrowth/user/afficherPacks",this.httpOptions);
+    return this.http.get<Credit[]>("http://localhost:8082/MicroGrowth/afficherPacks");
   }
 GetCreditById(id:number) :Observable<any>{
   return this.http.get<Credit[]>("http://localhost:8082/MicroGrowth/user/afficherCreditbyID/"+id,this.httpOptions);
