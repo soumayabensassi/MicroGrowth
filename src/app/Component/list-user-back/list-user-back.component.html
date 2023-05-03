@@ -8,6 +8,8 @@
             <p class="card-description">
                 userAcount <code>.tables</code>
             </p>
+            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" [(ngModel)]="searchTerm" (input)="filterList()" aria-describedby="search">
+
             <div class="table-responsive">
                 <table class="table table-striped">
                   <thead>
@@ -17,6 +19,7 @@
                       <th>Phone</th>
                       <th>Email</th>
                       <th>Profession</th>
+                      <th>Delete</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -28,6 +31,9 @@
                       <td>{{x.phone}}</td>
                       <td>{{x.email}}</td>
                       <td>{{x.profession}}</td>
+                      <li class="list-inline-item">
+                        <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" (click)="delete(x.idUser)" title="Delete"><i class="fa fa-trash"></i></button>
+                    </li>
                     </tr>
                   </tbody>
                 </table>

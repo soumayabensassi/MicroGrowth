@@ -9,7 +9,9 @@ import { LocalStorageService } from 'angular-web-storage';
 })
 export class HeaderComponent implements OnInit {
 token!:any
-  constructor(private route:Router) {}
+  constructor(private route:Router) {
+
+  }
 
   ngOnInit(): void {
    this.token= localStorage.getItem('access_token');

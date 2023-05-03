@@ -2,10 +2,9 @@
     <div class="row gx-0">
         <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
             <div class="d-inline-flex align-items-center" style="height: 45px;">
-                <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York,
-                    USA</small>
+                <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Tunis Ariana</small>
                 <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                <small class="text-light"><i class="fa fa-envelope-open me-2"></i>MicroGrowth@gmail.com</small>
             </div>
         </div>
         <div class="col-lg-4 text-center text-lg-end">
@@ -40,41 +39,44 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a routerLink="homePage" class="nav-item nav-link active">Home</a>
-                <a routerLink="user/bankingaccount" class="nav-item nav-link">Banking</a>
-                <a href="" class="nav-item nav-link">About</a>
+                <a href="complaint" class="nav-item nav-link">Contact Us</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Credit</a>
                     <div class="dropdown-menu m-0">
-                        <a href="" class="dropdown-item">Pricing Plan</a>
-                        <a href="" class="dropdown-item">Our features</a>
-                        <a href="" class="dropdown-item">Team Members</a>
-                        <a href="" class="dropdown-item">Testimonial</a>
-                        <a href="" class="dropdown-item">Free Quote</a>
+                        <a routerLink="addCreditUser" class="dropdown-item">Add a credit</a>
+                        <a routerLink="ListMyCreditsFrontComponent" class="dropdown-item">My Credits</a>
+                        <a routerLink="listPacksCredits" class="dropdown-item">Pack Credit</a>
+                        <a routerLink="SimulationCreditFrontComponent" class="dropdown-item">Credit Simulator</a>
+
+ 
                     </div>
                 </div>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance</a>
                     <div class="dropdown-menu m-0">
-                        <a href="" class="dropdown-item">Pricing Plan</a>
-                        <a href="" class="dropdown-item">Our features</a>
-                        <a href="" class="dropdown-item">Team Members</a>
-                        <a href="" class="dropdown-item">Testimonial</a>
-                        <a href="" class="dropdown-item">Free Quote</a>
+                        <a href="" class="dropdown-item" routerLink="/check-insurance/">Check</a>
+                        <a href="" class="dropdown-item" routerLink="/simulate-insurance/">Simulate</a>
+                        <a href="" class="dropdown-item" routerLink="/Insurance/">Request</a>
+                        <a href="" class="dropdown-item" routerLink="/Kpi-f/">Why us?</a>
+                        <a href="" class="dropdown-item" routerLink="/agent/">Our Agent</a>
                     </div>
                 </div>
-
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Investment</a>
                     <div class="dropdown-menu m-0">
-                        <a href="" class="dropdown-item">Pricing Plan</a>
-                        <a href="" class="dropdown-item">Our features</a>
-                        <a href="" class="dropdown-item">Team Members</a>
-                        <a href="" class="dropdown-item">Testimonial</a>
-                        <a href="" class="dropdown-item">Free Quote</a>
+                        <a href="" class="dropdown-item" routerLink="/investor">Investor</a>
+                        <a href="" class="dropdown-item" routerLink="/project">Entrepreneur</a>
+                        <a href="" class="dropdown-item" routerLink="/investinStock"> Stock</a>
                     </div>
                 </div>
+                <div class="nav-item dropdown">
+                    <a routerLink="user/bankingaccount" class="nav-item nav-link">Banking</a>
+                    
+               
+                    
+                </div>
                 <a routerLink="publication" class="nav-item nav-link">Blog</a>
-                <a routerLink="publication" class="nav-item nav-link">Event</a>
+                <a routerLink="training" class="nav-item nav-link">Event</a>
 
 
                 <div *ngIf="isLoggedIn()">
@@ -86,7 +88,7 @@
 
                 </div>
                 <div *ngIf="!isLoggedIn()">
-                    <a routerLink="signup" class="nav-item nav-link">Sign-up</a>
+                    <a routerLink="signin" class="nav-item nav-link">Sign-In</a>
                 </div>
 
             </div>
@@ -106,4 +108,3 @@
 
     <!-- Template Javascript -->
     <script src="../../assets/js/main.js"></script>
-</div>

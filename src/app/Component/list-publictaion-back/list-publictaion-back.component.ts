@@ -27,6 +27,12 @@ export class ListPublictaionBACKComponent implements OnInit {
     )
 
   }
+  searchTerm: string = '';
+  filterList() {
+    this.pubService.getPublication().subscribe(data => {
+      this.list = data.filter(pub => pub.users.email.toLowerCase().includes(this.searchTerm.toLowerCase()));
+    });
+  }
   delete(i:number)
   {
     this.pubService.delete(i).subscribe(

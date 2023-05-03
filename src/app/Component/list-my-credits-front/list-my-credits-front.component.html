@@ -1,0 +1,48 @@
+<br>
+<br>
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <br>
+            <br>
+            <div class="table-responsive" style="font-size: small; zoom: 0.8;">
+                <table class="table table-striped" >
+                  <thead>
+                    <tr>
+                      <th>Amount Credit</th>
+                      <th>Intrest Rate</th>
+                      <th>Monthly Amount</th>
+                      <th>Duration(years)</th>
+                      
+                      <th>montant penalité</th>
+                      <th>date d'accord</th>
+                      <th>tableau d'amortissement</th>
+
+                    
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                        <ng-container *ngFor="let c of credits">
+                            <tr  class="table table-striped">
+                      <td>{{c.amount_credit}}</td>
+                      <td>{{c.intrestRaiting}}</td>
+                      <td>{{c.monthlyAmount}}</td>
+                      
+                      <td>{{c.duree}}</td>
+                      <td>{{c.montant_penalites}}</td>
+                      <td>{{c.demandDate}}</td>
+                      <td><button  [routerLink]="['/afficherTableauCredit',c.idCredit]" type="button" class="btn btn-primary">amortissement</button></td>
+
+
+                      
+                    </tr>
+                </ng-container>
+                  </tbody>
+                </table>
+              </div>
+              
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<br>
+<br>
+<br>
+
+<!-- Blog Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- Blog list Start -->
+            <div class="col-lg-9">
+                <div class="row g-1">
+                    <div class="blog-item bg-light rounded overflow-hidden">
+                        <div class="blog-img position-relative overflow-hidden">
+                            <img class="img-fluid" src="../../assets/img/blog-1.jpg" alt="">
+                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
+                                href="">credit.type_credit</a>
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex mb-3">
+                                <small class="me-3"><i class="far fa-user text-primary me-2"></i>show</small>
+                                <small class="me-3"><i class="far fa-calendar-alt text-primary me-2"></i>{{credit.demande_date}}</small>
+                            </div>
+                            <p>Montant : {{credit.amount_credit}}</p>
+                            <p>Montant par mois : {{credit.monthlyAmount}}</p>
+                            <p>Taux d'intérêt : {{credit.intrestRaiting}}%</p>
+                            <p>Secteur d'activité : jfjf</p>
+                            <p>durée : {{credit.duree}}</p>
+                            <button class="btn btn-primary text-uppercase" (click)="accoder_pack()">Demander le crédit<i
+                                class="bi bi-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar Start -->
+            <div class="col-lg-3">
+                <!-- Search Form Start -->
+                <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                    <div class="input-group">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h4 class="mb-0">write your own story</h4>
+                            <br>
+                            <div >
+                                <button class="btn btn-primary px-4" routerLink="/addPublication">Click here</button>
+                            </div>
+                            <div >
+                                <button class="btn btn-primary px-4" routerLink="/signin">Click here</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Search Form End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog list End -->

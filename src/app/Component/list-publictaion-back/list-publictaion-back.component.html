@@ -8,6 +8,8 @@
             <p class="card-description">
                 Publication <code>.tables</code>
             </p>
+            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" [(ngModel)]="searchTerm" (input)="filterList()" aria-describedby="search">
+
             <div class="table-responsive">
                 <table class="table table-striped">
                   <thead>

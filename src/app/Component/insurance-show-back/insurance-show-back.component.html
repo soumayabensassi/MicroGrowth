@@ -1,0 +1,125 @@
+<div class="container-scroller mt-5">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">
+                    Add class <code>.table-striped</code>
+                <div class="table-responsive text-center">
+                    <h2>Insured Users</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    User
+                                </th>
+                                <th>
+                                    Insurance
+                                </th>
+                                <th>
+                                    Amount
+                                </th>
+                                <th>
+                                    Start Date
+                                </th>
+                                <th>
+                                    End Date
+                                </th>
+                                <th>
+                                    Activity Sector
+                                </th>
+                                <th>
+                                    Interest Rate
+                                </th>
+                                <th>
+                                    Actions
+                                </th>
+                                <th>
+                                    Monthly Amount
+                                </th>
+                                <th>
+                                    Total Amount
+                                </th>
+                                <th>
+                                    Progress
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let  insurance of insurances">
+                                <td class="py-1">
+                                    {{ insurance.users.firstName + ' ' + insurance.users.lasttName }}
+                                </td>
+                                <td class="py-1">
+                                    {{ insurance.idInsurance}}
+                                </td>
+                                <td class="py-1">
+                                    {{ insurance.amount }}
+                                </td>
+                                <td class="py-1">
+                                    {{ insurance.startDate }}
+                                </td>
+                                <td class="py-1">
+                                    {{ insurance.endDate }}
+                                </td>
+                                <td>
+                                    {{ insurance.activitySector.name }}
+                                </td>
+                                <td class="py-1">
+                                    0.12
+                                </td>
+                                <td class="py-1">
+                                    <button (click)="deleteInsurance(insurance)"
+                                        class="btn btn-danger">Delete</button>
+                                    <button (click)="goToModify(insurance)" class="btn btn-warning">Modify</button>
+                                </td>
+                                <td class="py-1">
+                                    {{  monthlyPayments.get(insurance.idInsurance) }}
+                                </td>
+                                <td class="py-1">
+                                    {{ totalAmounts.get(insurance.idInsurance) }}
+                                </td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
+                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-5">
+                        <button class="btn btn-primary mr-2" onclick="window.location.href='/Insurance'">Add another
+                            user</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<h4 class="card-title">DTI Calculator</h4>
+<form class="forms-sample" (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <div class="form-group row">
+        <label for="income" class="col-sm-3 col-form-label">Income</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="income" name="income" [(ngModel)]="income"
+                placeholder="please enter your Income" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="debt" class="col-sm-3 col-form-label">Amount Of Debt</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" id="debt" name="debt" [(ngModel)]="debt"
+                placeholder="please enter your Debt" required>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <div class="col-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mr-2 text-center">Test</button>
+            <button type="button" class="btn btn-light text-center" (click)="onCancel()">Cancel</button>
+        </div>
+    </div>
+    <h3 class="mt-3 text-center">{{ message }}</h3>
+</form>

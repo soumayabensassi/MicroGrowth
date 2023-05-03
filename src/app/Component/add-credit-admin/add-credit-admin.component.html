@@ -1,0 +1,59 @@
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container-fluid position-relative p-0">
+
+    
+  
+    <!-- Contact Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+          <h5 class="fw-bold text-primary text-uppercase">Add Credit</h5>
+          <h1 class="mb-0">Fill the following fields </h1>
+        </div>
+      </div>
+      <div style="margin-left: 350px;">
+        <div class="col-lg-8 wow slideInUp " data-wow-delay="0.3s">
+          <form #myForm="ngForm" (ngSubmit)="sendCreditAdminPack()">
+            <div class="row g-3">
+  
+              <div class="col-12">
+                <label for="type_credit" class="form-label">Type de crédit</label>
+                <select class="form-control border-0 bg-light px-4" name="type_credit" #type_credit="ngModel" [(ngModel)]="credit.type_credit" required style="height: 55px;">
+                  <option value="" disabled selected>Type de crédit</option>
+                  <option value="PRODUIT">PRODUIT</option>
+                  <option value="MONEY">MONEY</option>
+                </select>
+              </div>
+  
+              <div class="col-12">
+                <label for="amount_credit" class="form-label">Montant du crédit</label>
+                <input type="number" class="form-control border-0 bg-light px-4" placeholder="Montant du crédit" name="amount_credit" #amount_credit="ngModel" [(ngModel)]="credit.amount_credit" required style="height: 55px;">
+              </div>
+  
+              
+              <div class="col-12">
+                <label for="duree" class="form-label">Durée</label>
+                <input type="number" class="form-control border-0 bg-light px-4" placeholder="Durée" name="duree" #duree="ngModel" [(ngModel)]="credit.duree"   required style="height: 55px;">
+              </div>
+              
+              <div class="col-12">
+                <label for="intrestRaiting" class="form-label">Taux d'intérêt</label>
+                <input type="number" class="form-control border-0 bg-light px-4" placeholder="Taux d'intérêt" name="intrestRaiting" #intrestRaiting="ngModel" [(ngModel)]="credit.intrestRaiting"   required style="height: 55px;">
+              </div>
+              
+              <div class="col-12">
+                <label for="monthlyAmount" class="form-label">Montant mensuel</label>
+                <input type="number" class="form-control border-0 bg-light px-4" placeholder="Montant mensuel" name="monthlyAmount" #monthlyAmount="ngModel" [(ngModel)]="credit.monthlyAmount"   required style="height: 55px;">
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary w-100 py-3" type="submit">Send </button>
+              </div>
