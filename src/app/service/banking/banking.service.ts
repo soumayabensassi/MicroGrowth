@@ -10,30 +10,37 @@ export class BankingService {
   productURLUser = "http://localhost:8082/MicroGrowth/user/";
   constructor(private http:HttpClient) { }
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer' + ' ' + localStorage.getItem('access_token')
+    })
+
+  };
   getAccountsBanking() {
-    return this.http.get(this.productURLAdmin + "showBankAccount");
+    return this.http.get(this.productURLAdmin + "showBankAccount",this.httpOptions);
   }
   getAccountBankingbyIDBank(id:any) {
-    return this.http.get(this.productURLAdmin + "showBankAccount"+"/"+id);
+    return this.http.get(this.productURLAdmin + "showBankAccount"+"/"+id,this.httpOptions);
   }
   delete(id:number)
   {
-    return this.http.delete(this.productURLAdmin+"deleteBankAccount/"+id);
+    return this.http.delete(this.productURLAdmin+"deleteBankAccount/"+id,this.httpOptions);
   }
   update(data: any) {
     const url = `${this.productURLAdmin}updateBankAccount`;
-    return this.http.put(url, data);
+    return this.http.put(url, data,this.httpOptions);
 }
   getAccountByidUser(id:number)
   {
-    return this.http.get(this.productURLAdmin+"showBankAccountbyuser/"+id);
+    return this.http.get(this.productURLAdmin+"showBankAccountbyuser/"+id,this.httpOptions);
   }
   makeTransfer(data: any) {
     const url = `${this.productURLUser}makeTransfer`;
-    return this.http.post(url, data);
+    return this.http.post(url, data,this.httpOptions);
   }
   download(rib: string, startStr: string, endStr: string): Observable<Blob> {
-    const url = `${this.productURLUser}export/pdf?Rib=${rib}&Date1=${startStr}&Date2=${endStr}`;
+    const url = `http://localhost:8082/MicroGrowth/export/pdf?Rib=${rib}&Date1=${startStr}&Date2=${endStr}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     // @ts-ignore
     return this.http.get(url, { headers, responseType: 'blob', observe: 'response' }).pipe(
