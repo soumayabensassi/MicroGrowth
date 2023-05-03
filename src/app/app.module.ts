@@ -23,6 +23,26 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
+import { AccountComponent } from './Component/Banking/account/account.component';
+import { AdminaccountComponent } from './Component/Banking/account/admin/adminaccount/adminaccount.component';
+import { AdminTransactionComponent } from './Component/Banking/account/admin/admin-transaction/admin-transaction.component';
+import { UpdateBankAccountComponent } from './Component/Banking/account/admin/update-bank-account/update-bank-account.component';
+import { MakeTransactionComponent } from './Component/Banking/make-transaction/make-transaction.component';
+import { SuccesfultransferComponent } from './Component/Banking/make-transaction/succesfultransfer/succesfultransfer.component';
+import { TransfernotallowedComponent } from './Component/Banking/make-transaction/transfernotallowed/transfernotallowed.component';
+ import {CommonModule} from "@angular/common";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import { TransactionhistoryComponent } from './Component/Banking/account/transactionhistory/transactionhistory.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatInputModule} from "@angular/material/input";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatIconModule} from "@angular/material/icon";
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import { DownloadsuccesfullComponent } from './Component/Banking/account/downloadsuccesfull/downloadsuccesfull.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +65,34 @@ import { AllTemplateAdminComponentComponent } from './Component/all-template-adm
     ListUserBACKComponent,
     ListPublictaionBACKComponent,
     AllTemplateUserComponentComponent,
-    AllTemplateAdminComponentComponent
+    AllTemplateAdminComponentComponent,
+    AccountComponent,
+    AdminaccountComponent,
+    UpdateBankAccountComponent,
+    MakeTransactionComponent,
+    SuccesfultransferComponent,
+    TransfernotallowedComponent,
+    TransactionhistoryComponent,
+    DownloadsuccesfullComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    CalendarModule,
+
+    BrowserAnimationsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatButtonToggleModule, MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

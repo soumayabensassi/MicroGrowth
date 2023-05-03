@@ -1,0 +1,24 @@
+
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<div>
+  <h1 class="text-center">Update Account</h1>
+  <form [formGroup]="TransactionForm">
+    <div class="form-group">
+      <label >RIB</label>
+      <input type="text" class="form-control" formControlName="ribNumber" [ngClass]="{'is-invalid': submitted && TransactionForm.get('rib')?.errors}" />
+      <div *ngIf="submitted && TransactionForm.get('rib')?.errors" class="invalid-feedback">
+        <div *ngIf="TransactionForm.get('rib')?.hasError('required')">RIB is required.</div>
+        <div *ngIf="TransactionForm.get('rib')?.hasError('minlength')">RIB must be at least 20 characters long.</div>
+        <div *ngIf="TransactionForm.get('rib')?.hasError('maxlength')">RIB cannot be more than 20 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label >Amount</label>
+      <input type="number" class="form-control" formControlName="amount"  />
+    </div>
+      <button class="btn btn-primary" (click)="makePayment()">Make Payment</button>
+
+</form>
+</div>

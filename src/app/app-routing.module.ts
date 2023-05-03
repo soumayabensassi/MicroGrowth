@@ -1,3 +1,6 @@
+
+
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddPublicationComponent } from './Component/add-publication/add-publication.component';
@@ -16,6 +19,17 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
+import { AccountComponent } from './Component/Banking/account/account.component';
+import { AdminaccountComponent } from './Component/Banking/account/admin/adminaccount/adminaccount.component';
+import { AdminTransactionComponent } from './Component/Banking/account/admin/admin-transaction/admin-transaction.component';
+import { UpdateBankAccountComponent } from './Component/Banking/account/admin/update-bank-account/update-bank-account.component';
+import {MakeTransactionComponent} from "./Component/Banking/make-transaction/make-transaction.component";
+import {SuccesfultransferComponent} from "./Component/Banking/make-transaction/succesfultransfer/succesfultransfer.component";
+import {
+  TransfernotallowedComponent
+} from "./Component/Banking/make-transaction/transfernotallowed/transfernotallowed.component";
+import {TransactionhistoryComponent} from "./Component/Banking/account/transactionhistory/transactionhistory.component";
+import {DownloadsuccesfullComponent} from "./Component/Banking/account/downloadsuccesfull/downloadsuccesfull.component";
 
 const routes: Routes = [  {
   path:'admin',
@@ -23,8 +37,10 @@ const routes: Routes = [  {
   children:[
     {path:'',component:HomepageBACKComponent},
     {path:'listuser',component:ListUserBACKComponent},
+    {path:'listbank',component:AdminaccountComponent},
     {path:'listpublicationback',component:ListPublictaionBACKComponent},
-    
+    {path:'listtransaction',component:AdminTransactionComponent},
+    { path: 'updatebankaccount/:id', component: UpdateBankAccountComponent }
   ]
 
 },
@@ -45,9 +61,13 @@ const routes: Routes = [  {
 {path:'updatePublication/:id',component:AddPublicationComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
-
-
-  ]
+{path:'user/bankingaccount',component:AccountComponent},
+    {path:'user/bankingaccount/makeTransaction/:id',component:MakeTransactionComponent},
+    {path:'succesfultransfer',component:SuccesfultransferComponent},
+    {path:'transfernotallowed',component:TransfernotallowedComponent},
+    {path:'transactionhistory/:id',component:TransactionhistoryComponent},
+    {path:'downloadsuccesfull',component:DownloadsuccesfullComponent}
+   ]
 }
 ];
 

@@ -1,0 +1,54 @@
+
+<div>
+    <h1 class="text-center">Update Account</h1>
+    <form [formGroup]="bankAccountForm">
+      <div class="form-group">
+        <label >RIB</label>
+        <input type="text" class="form-control" formControlName="rib" [ngClass]="{'is-invalid': submitted && bankAccountForm.get('rib')?.errors}" />
+        <div *ngIf="submitted && bankAccountForm.get('rib')?.errors" class="invalid-feedback">
+          <div *ngIf="bankAccountForm.get('rib')?.hasError('required')">RIB is required.</div>
+          <div *ngIf="bankAccountForm.get('rib')?.hasError('minlength')">RIB must be at least 20 characters long.</div>
+          <div *ngIf="bankAccountForm.get('rib')?.hasError('maxlength')">RIB cannot be more than 20 characters long.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Amount</label>
+        <input type="number" class="form-control" formControlName="amount"  />
+      </div>
+      <div class="form-group">
+        <label >Cover</label>
+        <input type="number" class="form-control" formControlName="cover" />
+      </div>
+      <div class="form-group">
+        <label >Current Withdrawal/day</label>
+        <input type="number" class="form-control" formControlName="current_WITHDRAWAL_PER_DAY" />
+      </div>
+      <div class="form-group">
+        <label >Current Card Payment/day</label>
+        <input type="number" class="form-control" formControlName="current_CARDPAYMENT_PER_DAY" />
+      </div>
+      <div class="form-group">
+        <label >Current Bank Transfer/day</label>
+        <input type="number" class="form-control" formControlName="current_BANKTRANSFER_PER_DAY" />
+      </div>
+      <div class="form-group">
+        <label >Max Withdrawal/day</label>
+        <input type="number" class="form-control" formControlName="max_WITHDRAWL_PER_DAY" />
+      </div>
+      <div class="form-group">
+        <label >Max Card Payment/day</label>
+        <input type="number" class="form-control" formControlName="max_CARDPAYMENT_PER_DAY" />
+      </div>
+      <div class="form-group">
+        <label >Max Bank Transfer/day</label>
+        <input type="number" class="form-control" formControlName="max_BANKTRANSFER_PER_DAY" />
+      </div>
+
+      <div class="text-center">
+        <button (click)="updateBankAccount()" type="submit" class="btn btn-primary mx-2">
+          <i class="fa-solid fa-pen-nib pe-2"></i>Edit
+        </button>
+
+      </div>
+    </form>
+  </div>

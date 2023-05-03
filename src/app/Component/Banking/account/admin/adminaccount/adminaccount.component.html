@@ -1,0 +1,53 @@
+<br>
+<br>
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Bank Table</h4>
+            <p class="card-description">
+                Bank Account <code>.tables</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>RIB</th>
+                      <th>Ammount</th>
+                      <th>Cover</th>
+                      <th>WITHDRAWALCurrent</th>
+                      <th>CARDPAYMENTCurrent</th>
+                      <th>BANKTRANSFERCurrent</th>
+                      <th>WITHDRAWL</th>
+                      <th>CARDPAYMENTCurrent</th>
+                      <th>BANKTRANSFER</th>
+                      <th>Update</th>
+                      <th>Delete</th>
+
+
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let x of list" class="table table-striped">
+
+                      <td>{{x.rib}}</td>
+                      <td>{{x.amount}}</td>
+                      <td>{{x.cover}}</td>
+                      <td>{{x.current_WITHDRAWAL_PER_DAY}}</td>
+                      <td>{{x.current_CARDPAYMENT_PER_DAY}}</td>
+                      <td>{{x.current_BANKTRANSFER_PER_DAY}}</td>
+                      <td>{{x.max_WITHDRAWL_PER_DAY}}</td>
+                      <td>{{x.max_CARDPAYMENT_PER_DAY}}</td>
+                      <td>{{x.max_BANKTRANSFER_PER_DAY}}</td>
+                      <td><button (click)="goToUpdateForm(x.idBank)" type="button" class="btn btn-primary">Update</button></td>
+                      <td><button type="button" class="btn btn-danger" (click)="deleteAccount(x.idBank)">Delete</button></td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+        </div>
+    </div>
+</div>
