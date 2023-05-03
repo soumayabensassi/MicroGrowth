@@ -22,6 +22,12 @@ export class ListMyCreditsFrontComponent implements OnInit {
     this.userservice.getUserInfo().subscribe(
       (data) => {
         this.userInfo = data;
+        this.creditservice.AfficherMesCredits(this.userInfo.email).subscribe(data=>{
+          this.credits=data;
+          console.log(data)
+          console.log(this.credits)
+          
+        })
       },
       (error) => {
         console.log(error);
@@ -29,12 +35,8 @@ export class ListMyCreditsFrontComponent implements OnInit {
       }
 
     );
-    this.creditservice.AfficherMesCredits("aziz@espti.com").subscribe(data=>{
-      this.credits=data;
-      console.log(data)
-      console.log(this.credits)
-      console.log(this.userInfo.email)
-    })
+   
+    
 
   }
   AfficherMesCredit(){
