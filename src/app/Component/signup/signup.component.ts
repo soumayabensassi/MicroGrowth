@@ -37,5 +37,7 @@ export class SignupComponent implements OnInit {
     )
     this.route.navigateByUrl('/signin')
   }
-  
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
 }

@@ -77,6 +77,8 @@ import { AuthGuard } from './Auth/auth.guard';
 import { AuthInterceptor } from './Auth/auth.interceptor';
 import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
 import { UserService } from './service/user.service';
+import { RecaptchaModule } from "ng-recaptcha";
+
 
 @NgModule({
   declarations: [
@@ -157,7 +159,7 @@ import { UserService } from './service/user.service';
     MatButtonModule,
     MatButtonToggleModule,
     MatIconModule,
-    NgxPaginationModule,
+    NgxPaginationModule, RecaptchaModule,
   ],
   
   providers: [AuthGuard,{
