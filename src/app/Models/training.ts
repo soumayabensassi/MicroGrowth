@@ -19,6 +19,9 @@ export class Training {
     participerList!:Participer;
     interesseList!:Interesse;
     rating!:Rating ;
+    longitude!:number;
+    latitude!:number;
+    Local!:String;
     
 
 

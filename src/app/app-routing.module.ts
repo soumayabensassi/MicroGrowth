@@ -46,7 +46,6 @@ import { ChatComponent } from './Component/chat/chat.component';
 
 
 
-
 const routes: Routes = [{
   path: 'admin',
   component: AllTemplateAdminComponentComponent,
@@ -102,7 +101,8 @@ const routes: Routes = [{
     { path: 'complaint', component: ComplaintComponent },
     { path: 'updatecomplaint/:id', component: ComplaintComponent },
     { path: 'detail/:id', component: TrainingdetailComponent },
-    { path: 'chat', component: ChatComponent }
+    { path: 'chat', component: ChatComponent },
+   
   ]
 },
 ];

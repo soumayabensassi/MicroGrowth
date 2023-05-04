@@ -16,6 +16,7 @@ import { TrainingService } from 'src/app/service/training.service';
 export class TrainingdetailComponent implements OnInit {
   list: Training[]=[] ;
 training: Training = new Training();
+public myLngLat: [number, number] = [16.62662018, 49.2125578];
 
   constructor(private traininnservice:TrainingService,private active:ActivatedRoute,private http: HttpClient,private route:Router, private toastr:ToastrService) { }
 

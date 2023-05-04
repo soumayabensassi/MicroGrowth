@@ -53,6 +53,7 @@ import { UserService } from './service/user.service';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { AuthInterceptor } from './Auth/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +98,8 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
     BourseComponent,
     IntrestCalculatorComponent,
     PageNotFoundComponent,
-    ChatComponent,
+    ChatComponent
+    
    
   ],
   imports: [
@@ -106,7 +108,8 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    
+    NgxMapLibreGLModule,
+    ScheduleModule,
     FormsModule,ReactiveFormsModule
   ],
   providers: [],
@@ -116,4 +119,7 @@ export class AppModule { }import { IntrestCalculatorComponent } from './Componen
 
 import { ToastrModule } from 'ngx-toastr';
 import { ChatComponent } from './Component/chat/chat.component';
+import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
+import { ScheduleComponent, ScheduleModule, DayService,WeekService,MonthService,MonthAgendaService,WorkWeekService } from '@syncfusion/ej2-angular-schedule';
+
 
