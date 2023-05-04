@@ -39,9 +39,9 @@
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="activitySector">Activity Sector</label>
                 <div class="col-sm-9">
-                    <select class="form-control" name="activitySector" [(ngModel)]="UpdatedInsurance.activitySector"
+                    <select class="form-control" name="activitySector" 
                         required>
-                        <option *ngFor="let sector of activitySectors" [value]="sector">{{ sector.name }}</option>
+                        <option *ngFor="let sector of activitySectors" [value]="sector" [(ngModel)]="UpdatedInsurance.activitySector">{{ sector.name }}</option>
                     </select>
                 </div>
             </div>

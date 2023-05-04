@@ -79,8 +79,8 @@
     </form>
 
     <div *ngIf="displayMessage2">
-        <h3 class="text-center">Your Total amount would be : {{totalAmount}}</h3>
-        <h3 class="text-center">The Monthly payment would be : {{monthlyPayment}}</h3>
+        <h3 class="text-center">Your Total amount would be : {{totalAmount |number: '1.0-0'}}</h3>
+        <h3 class="text-center">The Monthly payment would be : {{monthlyPayment |number: '1.0-0'}}</h3>
     </div>
 
     <button class="chatbot-btn" (click)="toggleChatbot()">
