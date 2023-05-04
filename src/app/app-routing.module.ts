@@ -68,6 +68,7 @@ import { AccordeIntreviewBackComponent } from './Component/accorde-intreview-bac
 import { ListIntreviewBackComponent } from './Component/list-intreview-back/list-intreview-back.component';
 import { ListPenalitiesBackComponent } from './Component/list-penalities-back/list-penalities-back.component';
 import { ListCreditPackDemandeComponent } from './Component/list-credit-pack-demande/list-credit-pack-demande.component';
+import { StatComponent } from './Component/stat/stat.component';
 
 
 
@@ -106,6 +107,7 @@ const routes: Routes = [{
     {path:'ListPenalitiesBackComponent',component:ListPenalitiesBackComponent},
     {path:'ListCreditPackDemandeComponent',component:ListCreditPackDemandeComponent},
   {path:'addCreditByAdmin',component:AddCreditAdminComponent},
+    { path: 'stat', component: StatComponent }
   ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
 },
 {

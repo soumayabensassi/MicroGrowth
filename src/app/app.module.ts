@@ -89,6 +89,8 @@ import { AccordeIntreviewBackComponent } from './Component/accorde-intreview-bac
 import { ListIntreviewBackComponent } from './Component/list-intreview-back/list-intreview-back.component';
 import { ListPenalitiesBackComponent } from './Component/list-penalities-back/list-penalities-back.component';
 import { ListCreditPackDemandeComponent } from './Component/list-credit-pack-demande/list-credit-pack-demande.component';
+import { StatComponent } from './Component/stat/stat.component';
+
 
 @NgModule({
   declarations: [
@@ -163,6 +165,9 @@ import { ListCreditPackDemandeComponent } from './Component/list-credit-pack-dem
     ListIntreviewBackComponent,
     ListPenalitiesBackComponent,
     ListCreditPackDemandeComponent
+    StatComponent
+    
+   
   ],
   imports: [
     BrowserModule,
@@ -197,3 +202,4 @@ import { ListCreditPackDemandeComponent } from './Component/list-credit-pack-dem
 
 })
 export class AppModule { }
+
