@@ -46,7 +46,7 @@ import { ListInvestmentBackComponent } from './Component/list-investment-back/li
 import { InvestorComponent } from './Component/investor/investor.component';
 import { BourseComponent } from './Component/bourse/bourse.component';
 
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { UserService } from './service/user.service';
@@ -97,17 +97,23 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
     BourseComponent,
     IntrestCalculatorComponent,
     PageNotFoundComponent,
-    StatistiqueComponent
+    ChatComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    
     FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
-import { StatistiqueComponent } from './Component/statistique/statistique.component';
+
+import { ToastrModule } from 'ngx-toastr';
+import { ChatComponent } from './Component/chat/chat.component';
 

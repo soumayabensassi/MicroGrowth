@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Complaint } from 'src/app/Models/complaint';
 import { ComplaintService } from 'src/app/service/complaint.service';
 
@@ -10,7 +11,7 @@ import { ComplaintService } from 'src/app/service/complaint.service';
 export class ListComplaintBackComponent implements OnInit {
   list: Complaint[] = [];
   complaint:Complaint=new Complaint();
-  constructor(private comservice:ComplaintService) { }
+  constructor(private comservice:ComplaintService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.comservice.getComplaint().subscribe(
@@ -22,5 +23,7 @@ export class ListComplaintBackComponent implements OnInit {
   }
   avis(){
     this.comservice.AvisUser().subscribe();
-   }
+    this.toastr.success("satisfaction survey sent succesfully")
+  
+  }
 }

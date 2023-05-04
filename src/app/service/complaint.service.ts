@@ -46,5 +46,8 @@ export class ComplaintService {
  {
    return this.http.get(this.ComplaintURL+"/AvisTraitement" ,this.httpOptions);
 }
+chat(){
+  return this.http.post(this.ComplaintURL ,this.httpOptions);
+}
 
 }

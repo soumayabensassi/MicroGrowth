@@ -41,7 +41,8 @@ import { BourseComponent } from './Component/bourse/bourse.component';
 
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
-import { StatistiqueComponent } from './Component/statistique/statistique.component';
+import { ChatComponent } from './Component/chat/chat.component';
+
 
 
 
@@ -63,7 +64,7 @@ const routes: Routes = [{
     { path: 'addTraining', component: AddtrainingComponent },
     { path: 'updateTraining/:id', component: AddtrainingComponent },
     { path: 'listcomplaintback', component: ListComplaintBackComponent },
-    { path: 'stat', component: StatistiqueComponent }
+   
   ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
 
 },
@@ -100,7 +101,8 @@ const routes: Routes = [{
     { path: 'training', component: TrainingComponent },
     { path: 'complaint', component: ComplaintComponent },
     { path: 'updatecomplaint/:id', component: ComplaintComponent },
-    { path: 'detail/:id', component: TrainingdetailComponent }
+    { path: 'detail/:id', component: TrainingdetailComponent },
+    { path: 'chat', component: ChatComponent }
   ]
 },
 ];

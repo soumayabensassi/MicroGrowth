@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Complaint } from 'src/app/Models/complaint';
 import { User } from 'src/app/Models/user';
 import { ComplaintService } from 'src/app/service/complaint.service';
@@ -18,7 +19,7 @@ id!:number
 idComment!:number
 cond=false;
 userInfo: User=new User();
-  constructor(private compservice:ComplaintService, private active:ActivatedRoute,private route:Router) { }
+  constructor(private compservice:ComplaintService, private active:ActivatedRoute,private route:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.compservice.getcomplaintwithuser().subscribe(
@@ -38,7 +39,8 @@ delete(i:number)
 }
 add() 
   { 
-  this.compservice.addComplaint(this.complaint).subscribe(()=>this.route.navigateByUrl("/complaint"))    
+  this.compservice.addComplaint(this.complaint).subscribe(()=>this.route.navigateByUrl("/complaint"))  
+  this.toastr.success("Complaint added succesfully")  
   }
   edit( complaint:Complaint){
     this.complaint=complaint;
@@ -48,6 +50,7 @@ add()
   this.compservice.update(this.complaint).subscribe(comp=>{
     this.vider();
     this.cond=false;
+    this.toastr.success("Complaint updated succesfully")
   });
   
  }
@@ -56,5 +59,10 @@ add()
  }
  avis(){
   this.compservice.AvisUser().subscribe();
+
+ }
+ chatt(){
+  this.compservice.chat().subscribe();
+
  }
 }
