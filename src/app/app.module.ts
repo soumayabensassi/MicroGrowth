@@ -81,9 +81,7 @@ import { EditProjectComponent } from './Component/edit-project/edit-project.comp
 import { ToastrModule } from 'ngx-toastr';
 import { ChatComponent } from './Component/chat/chat.component';
 import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
-import {
-  AdminTransactionComponent
-} from "./Component/Banking/account/admin/admin-transaction/admin-transaction.component";
+import {AdminTransactionComponent} from "./Component/Banking/account/admin/admin-transaction/admin-transaction.component";
 import { ListCreditPackBackComponent } from './Component/list-credit-pack-back/list-credit-pack-back.component';
 import { AccordeIntreviewBackComponent } from './Component/accorde-intreview-back/accorde-intreview-back.component';
 import { ListIntreviewBackComponent } from './Component/list-intreview-back/list-intreview-back.component';
@@ -164,7 +162,7 @@ import { StatComponent } from './Component/stat/stat.component';
     AccordeIntreviewBackComponent,
     ListIntreviewBackComponent,
     ListPenalitiesBackComponent,
-    ListCreditPackDemandeComponent
+    ListCreditPackDemandeComponent,
     StatComponent
     
    
