@@ -100,11 +100,12 @@ Transaction: any;
     console.log(givenTransaction.typeTransaction);
 
       this.apiService.makeTransfer(givenTransaction).subscribe(
-        data => {
+        () => {
           this.router.navigate(['succesfultransfer'])
           // Refresh the account list
         },
-        error => {
+        (error) => {
+          console.log(error)
           this.router.navigate(['transfernotallowed'])
         }
       );

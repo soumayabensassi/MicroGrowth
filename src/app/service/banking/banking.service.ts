@@ -37,7 +37,7 @@ export class BankingService {
   }
   makeTransfer(data: any) {
     const url = `${this.productURLUser}makeTransfer`;
-    return this.http.post(url, data,this.httpOptions);
+    return this.http.post(url,data,this.httpOptions);
   }
   download(rib: string, startStr: string, endStr: string): Observable<Blob> {
     const url = `http://localhost:8082/MicroGrowth/export/pdf?Rib=${rib}&Date1=${startStr}&Date2=${endStr}`;
