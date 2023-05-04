@@ -84,7 +84,11 @@ import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
 import {
   AdminTransactionComponent
 } from "./Component/Banking/account/admin/admin-transaction/admin-transaction.component";
-
+import { ListCreditPackBackComponent } from './Component/list-credit-pack-back/list-credit-pack-back.component';
+import { AccordeIntreviewBackComponent } from './Component/accorde-intreview-back/accorde-intreview-back.component';
+import { ListIntreviewBackComponent } from './Component/list-intreview-back/list-intreview-back.component';
+import { ListPenalitiesBackComponent } from './Component/list-penalities-back/list-penalities-back.component';
+import { ListCreditPackDemandeComponent } from './Component/list-credit-pack-demande/list-credit-pack-demande.component';
 
 @NgModule({
   declarations: [
@@ -153,7 +157,12 @@ import {
     EditProjectComponent,
     ChatComponent,
     PageNotFoundComponent,
-    AdminTransactionComponent
+    AdminTransactionComponent,
+     ListCreditPackBackComponent,
+    AccordeIntreviewBackComponent,
+    ListIntreviewBackComponent,
+    ListPenalitiesBackComponent,
+    ListCreditPackDemandeComponent
   ],
   imports: [
     BrowserModule,

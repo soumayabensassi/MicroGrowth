@@ -4,6 +4,7 @@ import { Credit } from 'src/app/Models/credit';
 import { CreditService } from 'src/app/service/credit.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/Models/user';
+import { ActivitySector } from 'src/app/Models/activity-sector';
 
 @Component({
   selector: 'app-credit-details-front',
@@ -14,6 +15,7 @@ export class CreditDetailsFrontComponent implements OnInit {
  id!:number
  credit!:Credit
  userInfo: User=new User();
+ activiteSecteurs!:ActivitySector
   constructor(private creditService:CreditService,private userservice:UserService, private active:ActivatedRoute,private route:Router) { }
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class CreditDetailsFrontComponent implements OnInit {
         
       }
     );
+
   }
   accoder_pack()
   {
