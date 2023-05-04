@@ -20,7 +20,6 @@ export class CheckInsuranceComponent implements OnInit {
   monthlyPayment!: number;
   userInfo!: User;
   insurance0!: Insurance;
-  showChatbot = false;
 
   constructor(private http: HttpClient, private userService: UserService, private insuranceService: InsuranceServiceService, private ActivitySector: ActivitysectorService) {
   }
@@ -44,6 +43,7 @@ export class CheckInsuranceComponent implements OnInit {
   
 
   
+  showChatbot = false;
   toggleChatbot() {
     this.showChatbot = !this.showChatbot;
   }
