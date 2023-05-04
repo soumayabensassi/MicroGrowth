@@ -1,18 +1,29 @@
-body{
+body {
     margin: 30px;
 }
 
 
-#salem
-{
+#salem {
     margin: 70px;
 }
-form
-{
+
+form {
     margin: 50px;
-    
+
 }
-h2
-{
+
+h2 {
     margin: 50px;
+}
+
+button {
+    padding: 15px 32px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+button:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transform: translateY(-5px);
 }

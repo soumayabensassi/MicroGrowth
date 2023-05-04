@@ -82,3 +82,14 @@
         <h3 class="text-center">Your Total amount would be : {{totalAmount}}</h3>
         <h3 class="text-center">The Monthly payment would be : {{monthlyPayment}}</h3>
     </div>
+
+    <button class="chatbot-btn" (click)="toggleChatbot()">
+        <i class="fa fa-comment"></i>
+    </button>
+    
+    
+    <div class="agent chatbot-container" class="" *ngIf="showChatbot">
+        <iframe allow="microphone;" width="350" height="430"
+            src="https://console.dialogflow.com/api-client/demo/embedded/cee7afee-88b3-4e34-b066-18da7f42abeb">
+        </iframe>
+    </div>

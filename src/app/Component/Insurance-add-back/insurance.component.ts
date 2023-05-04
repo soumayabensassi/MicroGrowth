@@ -63,6 +63,11 @@ export class InsuranceComponent implements OnInit {
       });
     }
   }
+  showChatbot = false;
+  toggleChatbot() {
+    this.showChatbot = !this.showChatbot;
+  }
+
 
 
 

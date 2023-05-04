@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agent.component.css']
 })
 export class AgentComponent implements OnInit {
+  showChatbot = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+  
+  toggleChatbot() {
+    this.showChatbot = !this.showChatbot;
   }
 
 }

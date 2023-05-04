@@ -1,7 +1,72 @@
 body {
     margin: 50px;
 }
-h2
-{
+
+h2 {
     margin-bottom: 100px;
+}
+
+button {
+    padding: 15px 32px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+button:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transform: translateY(-5px);
+}
+
+#fox {
+    display: none;
+
+}
+
+.testimonial-item {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+
+.section-title {
+    margin-bottom: 100px;
+}
+
+h3 {
+    margin-top: 25px;
+}
+
+.chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 9998;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 350px;
+    height: 500px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
 }
