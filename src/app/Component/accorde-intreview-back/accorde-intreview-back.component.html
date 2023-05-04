@@ -1,0 +1,15 @@
+<br><br><br><br>
+<br><br><br><br>
+
+
+<div class="col-md-6">
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="startDate">Interview Date</label>
+        <div class="col-sm-9">
+            <input type="date" class="form-control" id="startDate" name="dateIntreview"  #dateIntreview="ngModel"
+                [(ngModel)]="intreview.dateIntreview" required />
+                <button (click)="accorderInterview()">Accorder l'interview</button>
+
+        </div>
+    </div>
+</div>

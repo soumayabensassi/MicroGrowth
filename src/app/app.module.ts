@@ -59,6 +59,11 @@ import { AuthGuard } from './Auth/auth.guard';
 import { AuthInterceptor } from './Auth/auth.interceptor';
 import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
 import { UserService } from './service/user.service';
+import { ListCreditPackBackComponent } from './Component/list-credit-pack-back/list-credit-pack-back.component';
+import { AccordeIntreviewBackComponent } from './Component/accorde-intreview-back/accorde-intreview-back.component';
+import { ListIntreviewBackComponent } from './Component/list-intreview-back/list-intreview-back.component';
+import { ListPenalitiesBackComponent } from './Component/list-penalities-back/list-penalities-back.component';
+import { ListCreditPackDemandeComponent } from './Component/list-credit-pack-demande/list-credit-pack-demande.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +116,12 @@ import { UserService } from './service/user.service';
     InvestorComponent,
     BourseComponent,
     IntrestCalculatorComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ListCreditPackBackComponent,
+    AccordeIntreviewBackComponent,
+    ListIntreviewBackComponent,
+    ListPenalitiesBackComponent,
+    ListCreditPackDemandeComponent
   ],
   imports: [
     BrowserModule,

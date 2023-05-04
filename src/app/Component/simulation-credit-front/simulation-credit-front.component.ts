@@ -13,6 +13,7 @@ export class SimulationCreditFrontComponent implements OnInit {
   userInfo: User=new User();
   montant:any;
   nbmois:any;
+  propmois!:any
   constructor(private creditservice:CreditService,private userservice:UserService,private route:Router,private active:ActivatedRoute) { }
   ngOnInit(): void {
     this.userservice.getUserInfo().subscribe(
@@ -29,5 +30,7 @@ export class SimulationCreditFrontComponent implements OnInit {
     this.creditservice.Simulation_credit(event.target.montant.value,event.target.nbmois.value).subscribe((res=>{console.log(res);
       this.list=res}));
   }
-
+EnvoyerProposition(){
+  this.creditservice.EnvoyerMaxMontant(12).subscribe();
+}
 }

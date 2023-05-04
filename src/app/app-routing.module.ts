@@ -49,6 +49,11 @@ import { BourseComponent } from './Component/bourse/bourse.component';
 
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
+import { ListCreditPackBackComponent } from './Component/list-credit-pack-back/list-credit-pack-back.component';
+import { AccordeIntreviewBackComponent } from './Component/accorde-intreview-back/accorde-intreview-back.component';
+import { ListIntreviewBackComponent } from './Component/list-intreview-back/list-intreview-back.component';
+import { ListPenalitiesBackComponent } from './Component/list-penalities-back/list-penalities-back.component';
+import { ListCreditPackDemandeComponent } from './Component/list-credit-pack-demande/list-credit-pack-demande.component';
 
 
 
@@ -72,6 +77,12 @@ const routes: Routes = [{
     { path: 'listcomplaintback', component: ListComplaintBackComponent },
     { path: 'homepageBack', component: HomepageBACKComponent },
       {path:'listcreditback',component:ListCreditBackComponent},
+      {path:'ListCreditBackPack',component:ListCreditPackBackComponent},
+      {path:'AccorderInterview/:id',component:AccordeIntreviewBackComponent},
+      {path:'ListIntreviewBackComponent',component:ListIntreviewBackComponent},
+      {path:'ListPenalitiesBackComponent',component:ListPenalitiesBackComponent},
+      {path:'ListCreditPackDemandeComponent',component:ListCreditPackDemandeComponent},
+
     {path:'addCreditByAdmin',component:AddCreditAdminComponent},
   ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
 

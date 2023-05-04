@@ -31,9 +31,9 @@ export class AddCreditAdminComponent implements OnInit {
   sendCreditAdminPack() 
     { this.active.snapshot.params['id']!= null 
     ?
-    this.creditservice.addCreditByAdmin(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/listcreditback"))
+    this.creditservice.addCreditByAdmin(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/ListCreditBackPack"))
     :
-    this.creditservice.addCreditByAdmin(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/listcreditback"))
+    this.creditservice.addCreditByAdmin(this.credit,this.userInfo.email).subscribe(()=>this.route.navigateByUrl("/ListCreditBackPack"))
   console.log(this.credit)
       
     }

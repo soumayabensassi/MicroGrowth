@@ -2,7 +2,7 @@ import { Credit } from "./credit"
 
 export class Intreview {
     idIntreview!:number
-    dateIntreview!:any
+    dateIntreview!:Date
     credit!:Credit
 }
 

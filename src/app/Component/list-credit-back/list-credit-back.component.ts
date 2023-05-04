@@ -14,13 +14,18 @@ export class ListCreditBackComponent implements OnInit {
 credits:any[]=[];
 score:any;
 intreview!:Intreview;
+penalite:any[]=[];
   constructor(private cs:CreditService,private userservice:UserService,private route:Router,private active:ActivatedRoute) { 
      
   }
 
   ngOnInit(): void {
-    this.cs.AfficherCredit().subscribe(data=>{
+    this.cs.AfficherCreditPersoBack().subscribe(data=>{
       this.credits=data;
+      console.log(data)
+    })
+    this.cs.accorderPenalite().subscribe(data=>{
+      this.penalite=data;
       console.log(data)
     })
   }
@@ -28,7 +33,7 @@ intreview!:Intreview;
   {
     this.cs.deleteCreditByAdmin(i).subscribe(
       ()=>this.credits=this.credits.filter((c)=>c.id != i))
-      this.cs.AfficherCredit().subscribe(data=>{
+      this.cs.AfficherCreditPersoBack().subscribe(data=>{
         this.credits=data;}
       )
   }
@@ -45,4 +50,20 @@ intreview!:Intreview;
   this.cs.accorderInterview(idcredit,this.intreview).subscribe(()=>this.route.navigateByUrl("homePage"))
 console.log(this.intreview)
 }  
+AccepterCredit(i:number)
+  {
+    this.cs.AccepterCredit(i).subscribe(
+      ()=>this.credits=this.credits.filter((c)=>c.id != i))
+      this.cs.AfficherCreditPersoBack().subscribe(data=>{
+        this.credits=data;}
+      )
+  }
+  RefuserCredit(i:number)
+  {
+    this.cs.RefuserCredit(i).subscribe(
+      ()=>this.credits=this.credits.filter((c)=>c.id != i))
+      this.cs.AfficherCreditPersoBack().subscribe(data=>{
+        this.credits=data;}
+      )
+  }
 }
