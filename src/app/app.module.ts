@@ -81,6 +81,8 @@ import { EditProjectComponent } from './Component/edit-project/edit-project.comp
 import { ToastrModule } from 'ngx-toastr';
 import { ChatComponent } from './Component/chat/chat.component';
 import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
+import { StatComponent } from './Component/stat/stat.component';
+
 
 @NgModule({
   declarations: [
@@ -144,7 +146,8 @@ import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
     EditInbComponent,
     PageNotFoundComponent,
     EditProjectComponent,
-    ChatComponent
+    ChatComponent,
+    StatComponent
     
    
   ],
@@ -167,7 +170,9 @@ import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
     NgxPaginationModule,
    RecaptchaModule,
    NgxMapLibreGLModule,
-   ToastrModule.forRoot()
+   
+   ToastrModule.forRoot(),
+ 
  
   ],
   
@@ -181,3 +186,4 @@ import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
 
 })
 export class AppModule { }
+

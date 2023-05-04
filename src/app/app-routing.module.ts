@@ -63,6 +63,7 @@ import { EditProjectComponent } from './Component/edit-project/edit-project.comp
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ChatComponent } from './Component/chat/chat.component';
+import { StatComponent } from './Component/stat/stat.component';
 
 
 
@@ -89,7 +90,8 @@ const routes: Routes = [{
     { path: 'addCreditByAdmin', component: AddCreditAdminComponent },
     { path: 'listbank', component: AdminaccountComponent },
     { path: 'listtransaction', component: AdminTransactionComponent },
-    { path: 'updatebankaccount/:id', component: UpdateBankAccountComponent }
+    { path: 'updatebankaccount/:id', component: UpdateBankAccountComponent },
+    { path: 'stat', component: StatComponent }
   ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
 },
 {
