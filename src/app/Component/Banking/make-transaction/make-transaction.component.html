@@ -1,24 +1,42 @@
+<div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+  <div class="row py-5">
+    <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+      <h1 class="display-4 text-white animated zoomIn"></h1>
+      <a href="#" class="h5 text-white"></a>
 
-<br><br><br><br><br><br>
-<br><br><br><br><br><br>
-<br><br><br><br><br><br>
-<div>
-  <h1 class="text-center">Update Account</h1>
-  <form [formGroup]="TransactionForm">
-    <div class="form-group">
-      <label >RIB</label>
-      <input type="text" class="form-control" formControlName="ribNumber" [ngClass]="{'is-invalid': submitted && TransactionForm.get('rib')?.errors}" />
-      <div *ngIf="submitted && TransactionForm.get('rib')?.errors" class="invalid-feedback">
-        <div *ngIf="TransactionForm.get('rib')?.hasError('required')">RIB is required.</div>
-        <div *ngIf="TransactionForm.get('rib')?.hasError('minlength')">RIB must be at least 20 characters long.</div>
-        <div *ngIf="TransactionForm.get('rib')?.hasError('maxlength')">RIB cannot be more than 20 characters long.</div>
+      <a routerLink="" class="h5 text-white"></a>
+    </div>
+  </div>
+</div>
+
+<!-- Update Account Form Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container py-5">
+    <div class="row g-5 mb-5">
+      <div class="col-lg-6 mx-auto">
+        <div class="card border-0 shadow">
+          <div class="card-body">
+            <h3 class="card-title text-primary">Make Transaction</h3>
+            <form [formGroup]="TransactionForm">
+              <div class="form-group mt-4">
+                <label class="form-label">RIB</label>
+                <input type="text" class="form-control border-0 bg-light px-4 py-3" formControlName="ribNumber" [ngClass]="{'is-invalid': submitted && TransactionForm.get('rib')?.errors}" />
+                <div *ngIf="submitted && TransactionForm.get('rib')?.errors" class="invalid-feedback">
+                  <div *ngIf="TransactionForm.get('rib')?.hasError('required')">RIB is required.</div>
+                  <div *ngIf="TransactionForm.get('rib')?.hasError('minlength')">RIB must be at least 20 characters long.</div>
+                  <div *ngIf="TransactionForm.get('rib')?.hasError('maxlength')">RIB cannot be more than 20 characters long.</div>
+                </div>
+              </div>
+              <div class="form-group mt-4">
+                <label class="form-label">Amount</label>
+                <input type="number" class="form-control border-0 bg-light px-4 py-3" formControlName="amount" />
+              </div>
+              <button class="btn btn-primary mt-4" (click)="makePayment()">Make Payment</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="form-group">
-      <label >Amount</label>
-      <input type="number" class="form-control" formControlName="amount"  />
-    </div>
-      <button class="btn btn-primary" (click)="makePayment()">Make Payment</button>
-
-</form>
+  </div>
 </div>
+<!-- Update Account Form End -->

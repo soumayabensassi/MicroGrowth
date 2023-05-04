@@ -78,6 +78,9 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
 import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
 import { UserService } from './service/user.service';
 import { RecaptchaModule } from "ng-recaptcha";
+import {
+  AdminTransactionComponent
+} from "./Component/Banking/account/admin/admin-transaction/admin-transaction.component";
 
 
 @NgModule({
@@ -141,7 +144,8 @@ import { RecaptchaModule } from "ng-recaptcha";
     InvestorComponent,
     BourseComponent,
     IntrestCalculatorComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AdminTransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -160,8 +164,9 @@ import { RecaptchaModule } from "ng-recaptcha";
     MatButtonToggleModule,
     MatIconModule,
     NgxPaginationModule, RecaptchaModule,
+
   ],
-  
+
   providers: [AuthGuard,{
     provide:HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,

@@ -1,5 +1,13 @@
-<br><br><br><br>
-<br><br><br><br>
+<div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+  <div class="row py-5">
+    <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+      <h1 class="display-4 text-white animated zoomIn"></h1>
+      <a href="#" class="h5 text-white"></a>
+
+      <a routerLink="" class="h5 text-white"></a>
+    </div>
+  </div>
+</div>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.syncfusion.com/ej2/ej2-base/styles/material.css" rel="stylesheet" />
@@ -7,14 +15,15 @@
 <link href="https://cdn.syncfusion.com/ej2/ej2-popups/styles/material.css" rel="stylesheet" />
 <link href="https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css" rel="stylesheet" />
 
-<div>
-  <span>Please select the starting date: </span>
-  <ejs-calendar id="calendar1" [value]="value" [min]="minDate" [max]="maxDate" (change)="onDateSelect1($event)"></ejs-calendar>
+<div style="margin-bottom: 10px;">
+  <label style="font-size: 16px;">Please select the starting date:</label>
+  <ejs-calendar id="calendar1" [value]="value" [min]="minDate" [max]="maxDate" (change)="onDateSelect1($event)" style="margin-left: 10px;"></ejs-calendar>
 </div>
 
-<div>
-  <span>Please select the end date: </span>
-  <ejs-calendar id="calendar2" [value]="value2" [min]="minDate2" [max]="maxDate2" (change)="onDateSelect2($event)"></ejs-calendar>
+<div style="margin-bottom: 20px;">
+  <label style="font-size: 16px;">Please select the end date:</label>
+  <ejs-calendar id="calendar2" [value]="value2" [min]="minDate2" [max]="maxDate2" (change)="onDateSelect2($event)" style="margin-left: 10px;"></ejs-calendar>
 </div>
 
-<button (click)="downloadTransactionHistory()" type="submit"  class="btn btn-primary d-inline-block ml-2">Download Transaction History</button>
+<button (click)="downloadTransactionHistory()" type="submit" class="btn btn-primary" style="font-size: 16px;">Download Transaction History</button>
+

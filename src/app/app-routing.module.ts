@@ -19,16 +19,14 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
- 
+
 import { AccountComponent } from './Component/Banking/account/account.component';
 import { AdminaccountComponent } from './Component/Banking/account/admin/adminaccount/adminaccount.component';
 import { AdminTransactionComponent } from './Component/Banking/account/admin/admin-transaction/admin-transaction.component';
 import { UpdateBankAccountComponent } from './Component/Banking/account/admin/update-bank-account/update-bank-account.component';
 import {MakeTransactionComponent} from "./Component/Banking/make-transaction/make-transaction.component";
 import {SuccesfultransferComponent} from "./Component/Banking/make-transaction/succesfultransfer/succesfultransfer.component";
-import {
-  TransfernotallowedComponent
-} from "./Component/Banking/make-transaction/transfernotallowed/transfernotallowed.component";
+import {TransfernotallowedComponent} from "./Component/Banking/make-transaction/transfernotallowed/transfernotallowed.component";
 import {TransactionhistoryComponent} from "./Component/Banking/account/transactionhistory/transactionhistory.component";
 import {DownloadsuccesfullComponent} from "./Component/Banking/account/downloadsuccesfull/downloadsuccesfull.component";
 import{ListCreditBackComponent} from './Component/list-credit-back/list-credit-back.component';
@@ -79,16 +77,18 @@ const routes: Routes = [{
     { path: 'addTraining', component: AddtrainingComponent },
     { path: 'updateTraining/:id', component: AddtrainingComponent },
     { path: 'listcomplaintback', component: ListComplaintBackComponent },
+    { path: 'listcomplaintback', component: ListComplaintBackComponent },
     { path: 'homepageBack', component: HomepageBACKComponent },
       {path:'listcreditback',component:ListCreditBackComponent},
     {path:'addCreditByAdmin',component:AddCreditAdminComponent},
     {path:'listbank',component:AdminaccountComponent},
-    
+
+
     {path:'listtransaction',component:AdminTransactionComponent},
     { path: 'updatebankaccount/:id', component: UpdateBankAccountComponent }
   ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
 
-   
+
 
 },
 
