@@ -1,1 +1,42 @@
-<p>admin-transaction works!</p>
+
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Transaction Table</h4>
+      <p class="card-description">
+        Bank Account <code>.tables</code>
+      </p>
+
+      <!-- Search bar -->
+      <div class="form-group">
+        <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" [(ngModel)]="searchTerm" (input)="filterList()" aria-describedby="search">
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Ammount Transaction</th>
+            <th>RIB Source</th>
+            <th>RIB receiver</th>
+            <th>Date Transaction</th>
+            <th>Type Transaction</th>
+            <th>Delete Transaction</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let x of filteredList" class="table table-striped">
+            <td>{{x.amountTransaction}}</td>
+            <td>{{x.ribSource}}</td>
+            <td>{{x.ribReceiver}}</td>
+            <td>{{x.dateTransaction}}</td>
+            <td>{{x.typeTransaction}}</td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteTransaction(x.idTransaction)">Delete</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -84,11 +84,15 @@ const routes: Routes = [{
     { path: 'addTraining', component: AddtrainingComponent },
     { path: 'updateTraining/:id', component: AddtrainingComponent },
     { path: 'listcomplaintback', component: ListComplaintBackComponent },
+    { path: 'listcomplaintback', component: ListComplaintBackComponent },
     { path: 'homepageBack', component: HomepageBACKComponent },
     { path: 'listcreditback', component: ListCreditBackComponent },
     { path: 'addCreditByAdmin', component: AddCreditAdminComponent },
     { path: 'listbank', component: AdminaccountComponent },
     { path: 'listtransaction', component: AdminTransactionComponent },
+    { path: 'updatebankaccount/:id', component: UpdateBankAccountComponent },
+    {path:'listbank',component:AdminaccountComponent},
+    {path:'listtransaction',component:AdminTransactionComponent},
     { path: 'updatebankaccount/:id', component: UpdateBankAccountComponent }
   ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
 },

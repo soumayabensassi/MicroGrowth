@@ -81,6 +81,10 @@ import { EditProjectComponent } from './Component/edit-project/edit-project.comp
 import { ToastrModule } from 'ngx-toastr';
 import { ChatComponent } from './Component/chat/chat.component';
 import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
+import {
+  AdminTransactionComponent
+} from "./Component/Banking/account/admin/admin-transaction/admin-transaction.component";
+
 
 @NgModule({
   declarations: [
@@ -144,9 +148,9 @@ import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
     EditInbComponent,
     PageNotFoundComponent,
     EditProjectComponent,
-    ChatComponent
-    
-   
+    ChatComponent,
+    PageNotFoundComponent,
+    AdminTransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -168,9 +172,9 @@ import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
    RecaptchaModule,
    NgxMapLibreGLModule,
    ToastrModule.forRoot()
- 
+
   ],
-  
+
   providers: [AuthGuard,{
     provide:HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,
