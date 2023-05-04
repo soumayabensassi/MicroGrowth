@@ -87,37 +87,41 @@
                 </div>
                 <div class="pt-4 pb-5 px-5">
                     {{x.subject}}
-                    <style>
-                        .button {
-                            display: inline-block;
-                            padding: 9px 9px;
-                            font-size: 5px;
-                            font-weight: bold;
-                            text-align: right;
-                            text-decoration: none;
-                            border-radius: 5px;
-                            color: #fff;
-                        }
-                        
-                        .satisfied {
-                            background-color: #28a745;
-                            border: none;
-                        }
-                        
-                        .unsatisfied {
-                            background-color: #dc3545;
-                            border: none;
-                        }
-                    </style>
-                    <button class="button satisfied">Satisfied</button>
-                    <button class="button unsatisfied">Unsatisfied</button>
+                    
+                   
                 </div>
+                
                
                 <td> <button  type= "button" class="btn btn-primary" (click)="delete(x.idComplaint)"   > Delete</button></td> 
                 <td> <button  type= "button" class="btn btn-primary" routerLink="/updatecomplaint/{{x.idComplaint}}" (click)="edit(x)"  > Update</button></td>    
-                       
-                      
-            </div></th></ng-container>
+                <td><style>
+                    .button {
+                        display: inline-block;
+                        padding: 25px 25px;
+                        font-size: 10px;
+                        font-weight: bold;
+                        text-align: right;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        color: #fff;
+                    }
+                    
+                    .satisfied {
+                        background-color: #28a745;
+                        border: none;
+                    }
+                    
+                    .unsatisfied {
+                        background-color: #dc3545;
+                        border: none;
+                    }
+                </style>
+                <button *ngIf="x.state==true" class="button satisfied">Treated</button> 
+                <button *ngIf="x.state==false" class="button satisfied">In prgress</button>     
+                      </td>
+            </div>   </th>
+        </ng-container>
+       
         </table>
         </div>
     </div>

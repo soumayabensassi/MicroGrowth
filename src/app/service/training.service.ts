@@ -48,4 +48,7 @@ export class TrainingService {
   {
     return this.http.put(`${this.TrainingURL}/admin/editTraining` , training);
   }
+  rates(id:number,score:number){
+    return this.http.post(`http://localhost:8082/MicroGrowth/user/ratings/${id}/${score}`,score,this.httpOptions)
+  }
 }

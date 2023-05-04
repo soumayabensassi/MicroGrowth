@@ -9,9 +9,7 @@
                 training <code>.tables</code>
             </p>
             <div class="table-responsive">
-              
                 <table class="table table-striped">
-                  
                   <thead>
                     <tr>
                         <th>User's Name</th>
@@ -19,7 +17,6 @@
                       <th>Subject</th>
                       <th>Text</th>
                       <th>State</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -30,25 +27,18 @@
                       <td>{{x.subject}}</td>
                       <td>{{x.text}}</td>
                       <td>{{x.state}}</td>
-                     
                       </tr>
                     <!-- Search Form Start -->
                 <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                   <div class="input-group">
                       <div>
-                          
                           <br>
-                          <button type="button" class="btn btn-primary" routerLink="/admin/addTraining">Add</button>
-                             
-                         
-                          
+                          <button type="button" class="btn btn-primary" (click)="avis()">Feed Back Client</button>
                       </div>
                   </div>
+              </div> </tbody>
+                </table>  
               </div>
-                  </tbody>
-                </table>
-              </div>
-              
         </div>
     </div>
 </div>

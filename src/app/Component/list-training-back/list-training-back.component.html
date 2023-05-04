@@ -21,6 +21,9 @@
                       <th>Nombre of place </th>
                       <th>Start Date</th>
                       <th>Finish Date</th>
+                      <th>Longitude</th>
+                      <th>Latitude</th>
+                      <th>Local</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -35,6 +38,9 @@
                       <td>{{x.nbrOfPlace}}</td>
                       <td>{{x.startDate}}</td>
                       <td>{{x.finishdate}}</td>
+                      <td>{{x.longitude}}</td>
+                      <td>{{x.latitude}}</td>
+                      <td>{{x.Local}}</td>
                       <td> <button  type= "button" class="btn btn-primary" (click)="deleteTraining(x.idTraining)"> Delete</button></td>    
                       <td> <button  type= "button" class="btn btn-primary" routerLink="/admin/updateTraining/{{x.idTraining}}"  > Update</button></td>    
                     </tr>
@@ -50,6 +56,7 @@
                           
                       </div>
                   </div>
+                  
               </div>
                   </tbody>
                 </table>

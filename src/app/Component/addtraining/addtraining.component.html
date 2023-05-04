@@ -36,7 +36,18 @@
                                 <label>Subject</label>
                                 <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="text" name="subject" #text="ngModel" [(ngModel)]="training.subject"></textarea>
                             </div>
-                            
+                            <div class="col-12">
+                                <label>Longitude</label>
+                                <input type="number" class="form-control border-0 bg-light px-4"  placeholder="longitude" name="longitude" #longitude="ngModel" [(ngModel)]="training.longitude"   >
+                            </div>
+                            <div class="col-12">
+                                <label>Latitude</label>
+                                <input type="number" class="form-control border-0 bg-light px-4"  placeholder="latitude" name="latitude" #latitude="ngModel" [(ngModel)]="training.latitude"   >
+                            </div>
+                            <div class="col-md-6">
+                                <label>Local</label>
+                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Local" name="Local" #Local="ngModel" [(ngModel)]="training.Local" >
+                            </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" (click)="add()" type="submit" routerLink="/admin/listtrainingback">Send </button>
 </div>

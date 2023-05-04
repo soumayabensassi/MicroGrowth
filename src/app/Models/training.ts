@@ -1,5 +1,6 @@
 import { Interesse } from "./interesse";
 import { Participer } from "./participer";
+import { Rating } from "./rating";
 import { User } from "./user";
 
 export class Training {
@@ -17,6 +18,10 @@ export class Training {
     userList!:User[];
     participerList!:Participer;
     interesseList!:Interesse;
+    rating!:Rating ;
+    longitude!:number;
+    latitude!:number;
+    Local!:String;
     
 
 

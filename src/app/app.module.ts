@@ -35,7 +35,6 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { TransactionhistoryComponent } from './Component/Banking/account/transactionhistory/transactionhistory.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
@@ -69,6 +68,7 @@ import { StartupAddUserComponent } from './Component/startup-add-user/startup-ad
 import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
 import { InvestorComponent } from './Component/investor/investor.component';
 import { BourseComponent } from './Component/bourse/bourse.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
@@ -78,6 +78,9 @@ import { UserService } from './service/user.service';
 import { RecaptchaModule } from "ng-recaptcha";
 import { EditInbComponent } from './Component/editInb/editInb.component';
 import { EditProjectComponent } from './Component/edit-project/edit-project.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ChatComponent } from './Component/chat/chat.component';
+import { NgxMapLibreGLModule } from '@maplibre/ngx-maplibre-gl';
 
 @NgModule({
   declarations: [
@@ -111,8 +114,6 @@ import { EditProjectComponent } from './Component/edit-project/edit-project.comp
     TransfernotallowedComponent,
     TransactionhistoryComponent,
     DownloadsuccesfullComponent,
-
-
     ListCreditBackComponent,
     AddCreditUserComponent,
     ListPacksCreditsComponent,
@@ -142,7 +143,10 @@ import { EditProjectComponent } from './Component/edit-project/edit-project.comp
     IntrestCalculatorComponent,
     EditInbComponent,
     PageNotFoundComponent,
-    EditProjectComponent
+    EditProjectComponent,
+    ChatComponent
+    
+   
   ],
   imports: [
     BrowserModule,
@@ -162,6 +166,9 @@ import { EditProjectComponent } from './Component/edit-project/edit-project.comp
     MatIconModule,
     NgxPaginationModule,
    RecaptchaModule,
+   NgxMapLibreGLModule,
+   ToastrModule.forRoot()
+ 
   ],
   
   providers: [AuthGuard,{

@@ -62,6 +62,11 @@ import { EditInbComponent } from './Component/editInb/editInb.component';
 import { EditProjectComponent } from './Component/edit-project/edit-project.component';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
+import { ChatComponent } from './Component/chat/chat.component';
+
+
+
+
 const routes: Routes = [{
   path: 'admin',
   component: AllTemplateAdminComponentComponent,
@@ -132,9 +137,8 @@ const routes: Routes = [{
     { path: 'editinv/:id', component: EditInbComponent },
     { path: 'editP/:id', component: EditProjectComponent },
     { path: 'notfound', component: PageNotFoundComponent },
-
-
-
+    { path: 'chat', component: ChatComponent },
+   
   ]
 },
 ];
