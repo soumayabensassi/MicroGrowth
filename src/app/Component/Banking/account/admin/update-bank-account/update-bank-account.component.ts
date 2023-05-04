@@ -88,8 +88,8 @@ bankaccount:any;
       user: {
         idUser: this.bankaccount.user.idUser
       },
-      rib: this.bankAccountForm.value.rib,
-      amount: this.bankAccountForm.value.amount,
+      rib: this.bankaccount.rib,
+      amount: this.bankaccount.amount,
       cover: this.bankAccountForm.value.cover,
       current_WITHDRAWAL_PER_DAY: this.bankAccountForm.value.current_WITHDRAWAL_PER_DAY,
       current_CARDPAYMENT_PER_DAY: this.bankAccountForm.value.current_CARDPAYMENT_PER_DAY,
