@@ -12,8 +12,116 @@
 
 
 
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+            <h5 class="fw-bold text-primary text-uppercase"></h5>
+            <h1 class="mb-0">Your Insurance Details</h1>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="testimonial-item bg-light my-4 col-md-5 " style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="../../../assets/img/insurance.jpg"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Insurance</h3>
+                        <small class="text-uppercase">The ID</small>
+                    </div>
+                </div>
+                <h3 class="text-center">{{ insurances[0].idInsurance}}</h3>
+            </div>
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded"
+                        src="../../../assets/img/pngtree-coin-money-icon-png-image_5278199.jpg"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Amount</h3>
+                        <small class="text-uppercase">The Insured amount</small>
+                    </div>
+                </div>
+                <h3 class="text-center">{{ insurances[0].amount }}</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="../../../assets/img/calendrier.jpg"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Start Date</h3>
+                        <small class="text-uppercase">First Deposit Date</small>
+                    </div>
+                </div>
+                <h3 class="text-center">{{ insurances[0].startDate }}</h3>
+            </div>
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="../../../assets/img/calendrier.jpg"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">End Date</h3>
+                        <small class="text-uppercase">Last Deposit Date</small>
+                    </div>
+                </div>
+                <h3 class="text-center">{{ insurances[0].endDate }}</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="../../../assets/img/activity1.png"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Activity Sector</h3>
+                        <small class="text-uppercase">The Insurance Field</small>
+                    </div>
+                </div>
+                <h3 class="text-center">{{ insurances[0].activitySector.name }}</h3>
+            </div>
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="../../../assets/img/percentage.png"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Interest Rate</h3>
+                        <small class="text-uppercase">The Field's Interest Rate</small>
+                    </div>
+                </div>
+                <h3 class="text-center">12%</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center ">
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded"
+                        src="../../../assets/img/pngtree-coin-money-icon-png-image_5278199.jpg"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Monthly Amount</h3>
+                        <small class="text-uppercase">The Amount To Pay Per Month</small>
+                    </div>
+                </div>
+                <h3 class="text-center">{{ calculateMonthlyPayment(this.insurances[0].amount) |number: '1.0-0' }}</h3>
+            </div>
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded"
+                        src="../../../assets/img/pngtree-coin-money-icon-png-image_5278199.jpg"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Total Amount</h3>
+                        <small class="text-uppercase">The Total Amount Paid For The Contract</small>
+                    </div>
+                </div>
+                <h3 class="text-center">{{ calculateTotalAmount(this.insurances[0].amount) |number: '1.0-0' }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div class="container-scroller mt-5">
+
+<div class="container-scroller mt-5" id="fox">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -53,7 +161,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let insurance of insurances" >
+                                <tr *ngFor="let insurance of insurances">
                                     <td class="py-1">
                                         {{ insurance.idInsurance}}
                                     </td>
@@ -77,7 +185,7 @@
                                     </td>
                                     <td class="py-1">
                                         {{ calculateTotalAmount(this.insurance.amount) }}
-                                        
+
                                     </td>
                                     <td>
                                         <div class="progress">
@@ -93,4 +201,15 @@
             </div>
         </div>
     </div>
+</div>
+
+<button class="chatbot-btn" (click)="toggleChatbot()">
+    <i class="fa fa-comment"></i>
+</button>
+
+
+<div class="agent chatbot-container"  *ngIf="showChatbot">
+    <iframe allow="microphone;" width="350" height="430"
+        src="https://console.dialogflow.com/api-client/demo/embedded/cee7afee-88b3-4e34-b066-18da7f42abeb">
+    </iframe>
 </div>

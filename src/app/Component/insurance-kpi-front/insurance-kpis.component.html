@@ -10,133 +10,99 @@
     </div>
 </div>
 
-<div class="row" id="salem">
+
+
+<div class="container-fluid facts py-5 pt-lg-0" id="bob">
+    <div class="container py-5 pt-lg-0">
+        <div class="row gx-0">
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+                <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                    <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                        <i class="fa fa-users text-primary"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h5 class="text-white mb-0">Positive Feedbacks</h5>
+                        <h1 class="text-white mb-0" data-toggle="counter-up">164</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
+                <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                    <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                        <i class="fa fa-check text-white"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h5 class="text-primary mb-0">Insured Users</h5>
+                        <h1 class="mb-0" data-toggle="counter-up">2308</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
+                <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                    <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                        <i class="fa fa-award text-primary"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h5 class="text-white mb-0">Insurance Strategic Partners</h5>
+                        <h1 class="text-white mb-0" data-toggle="counter-up">213</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
     <div class="col-md-6 grid-margin stretch-card">
-        <div class="card tale-bg">
-            <div class="card-people mt-auto">
-                <img src="../../../assets/Back/images/dashboard/people.svg" alt="people">
-                <div class="weather-info">
-                    <div class="d-flex">
-                        <div>
-                            <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>25<sup>C</sup></h2>
-                        </div>
-                        <div class="ml-2">
-                            <h4 class="location font-weight-normal">Tunisia</h4>
-                            <h6 class="font-weight-normal">Tunis</h6>
-                        </div>
-                    </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <p class="card-title">Customers'KPI</p>
+                </div>
+                <p class="font-weight-500"> Satisfaction Rate </p>
+                <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
+                <div style="position: relative; height: 300px;">
+                    <canvas #pieChart style="position: absolute;  left: 500; width: 100%; height: 100%;"></canvas>
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6 grid-margin transparent">
-        <div class="row">
-            <div class="col-md-6 mb-4 stretch-card transparent">
-                <div class="card card-tale">
-                    <div class="card-body">
-                        <p class="mb-4">Customer KPI Sales</p>
-                        <p *ngIf="financialKPI1Result" class="fs-30 mb-2"> {{financialKPI1Result}}</p>
-                        <p> (1year)</p>
-                    </div>
+
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <p class="card-title">Policy Retention Rate</p>
                 </div>
-            </div>
-            <div class="col-md-6 mb-4 stretch-card transparent">
-                <div class="card card-dark-blue">
-                    <div class="card-body">
-                        <p class="mb-4">Cash Flow</p>
-                        <p *ngIf="financialKPI2Result" class="fs-30 mb-2">{{financialKPI2Result}}</p>
-                        <p>22.00% (30 days)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                <div class="card card-light-blue">
-                    <div class="card-body">
-                        <p class="mb-4">Earnings Per Share</p>
-                        <p *ngIf="financialKPI3Result" class="fs-30 mb-2">{{financialKPI3Result}}</p>
-                        <p>2.00% (30 days)</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 stretch-card transparent">
-                <div class="card card-light-danger">
-                    <div class="card-body">
-                        <p class="mb-4">Profit Margin</p>
-                        <p *ngIf="financialKPI4Result" class="fs-30 mb-2">{{financialKPI4Result}}</p>
-                        <p>0.22% (30 days)</p>
-                    </div>
+                <p class="font-weight-500"> PPR KPI </p>
+                <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
+                <div style="position: relative; height: 300px;">
+                    <canvas #doughnutChart style="position: absolute;  left: 500; width: 100%; height: 100%;"></canvas>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<button class="chatbot-btn" (click)="toggleChatbot()">
+    <i class="fa fa-comment"></i>
+</button>
 
 
-
-
-<div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>User</th>
-                <th>Product</th>
-                <th>Sale</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Jacob</td>
-                <td>Photoshop</td>
-                <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                <td><label class="badge badge-danger">Pending</label></td>
-            </tr>
-            <tr>
-                <td>Messsy</td>
-                <td>Flash</td>
-                <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                <td><label class="badge badge-warning">In progress</label></td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>Premier</td>
-                <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                <td><label class="badge badge-info">Fixed</label></td>
-            </tr>
-            <tr>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                <td><label class="badge badge-success">Completed</label></td>
-            </tr>
-            <tr>
-                <td>Dave</td>
-                <td>53275535</td>
-                <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                <td><label class="badge badge-warning">In progress</label></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-
-
-
-<div class="col-lg-6 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Doughnut chart</h4>
-            <canvas #pieChart1></canvas>
-        </div>
-    </div>
-</div>
-<div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Pie chart</h4>
-            <canvas #doghnutChart1></canvas>
-        </div>
-    </div>
+<div class="agent chatbot-container" class="" *ngIf="showChatbot">
+    <iframe allow="microphone;" width="350" height="430"
+        src="https://console.dialogflow.com/api-client/demo/embedded/cee7afee-88b3-4e34-b066-18da7f42abeb">
+    </iframe>
 </div>

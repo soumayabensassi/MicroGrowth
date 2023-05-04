@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { User } from 'src/app/Models/user';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-check-insurance',
@@ -18,8 +19,10 @@ export class CheckInsuranceComponent implements OnInit {
   totalAmount!: number;
   monthlyPayment!: number;
   userInfo!: User;
+  insurance0!: Insurance;
+  showChatbot = false;
 
-  constructor(private http: HttpClient,private userService : UserService , private insuranceService: InsuranceServiceService, private ActivitySector: ActivitysectorService) {
+  constructor(private http: HttpClient, private userService: UserService, private insuranceService: InsuranceServiceService, private ActivitySector: ActivitysectorService) {
   }
 
   ngOnInit() {
@@ -36,16 +39,22 @@ export class CheckInsuranceComponent implements OnInit {
     );
     
   }
-
+  
+  
+  
 
   
+  toggleChatbot() {
+    this.showChatbot = !this.showChatbot;
+  }
+
 
   calculateTotalAmount(amount: number): number {
     return amount * (1 + 0.12);
   }
 
   calculateMonthlyPayment(totalAmount: number): number {
-    return (totalAmount * (1+0.12)) / 12;
+    return (totalAmount * (1 + 0.12)) / 12;
   }
 
 

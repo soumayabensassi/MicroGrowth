@@ -8,10 +8,39 @@ iframe {
 }
 
 .agent {
-    background-image: url( 'src/assets/Back/images/chatbot-1.png' );
+    background-image: url('src/assets/Back/images/chatbot-1.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    
 
+
+}
+
+.chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 9998;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 350px;
+    height: 500px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
 }
