@@ -58,8 +58,6 @@ import { ComplaintComponent } from './Component/complaint/complaint.component';
 import { ListComplaintBackComponent } from './Component/list-complaint-back/list-complaint-back.component';
 import { SearchComponent } from './Component/search/search.component';
 import { TrainingdetailComponent } from './Component/trainingdetail/trainingdetail.component';
-
-
 import { InsuranceKpiBackComponent } from './Component/insurance-kpi-back/insurance-kpi-back.component';
 import { AgentComponent } from './Component/agent/agent.component';
 import { InsuranceShowBackComponent } from './Component/insurance-show-back/insurance-show-back.component';
@@ -78,7 +76,8 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
 import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
 import { UserService } from './service/user.service';
 import { RecaptchaModule } from "ng-recaptcha";
-
+import { EditInbComponent } from './Component/editInb/editInb.component';
+import { EditProjectComponent } from './Component/edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -141,7 +140,9 @@ import { RecaptchaModule } from "ng-recaptcha";
     InvestorComponent,
     BourseComponent,
     IntrestCalculatorComponent,
-    PageNotFoundComponent
+    EditInbComponent,
+    PageNotFoundComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,

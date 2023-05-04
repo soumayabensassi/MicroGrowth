@@ -19,7 +19,7 @@ export class BourseComponent implements OnInit {
     );
   }
   navigate(){
-    this.Route.navigateByUrl('/modal')
+    this.Route.navigateByUrl('/investor')
   }
 
 }

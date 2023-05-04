@@ -35,11 +35,9 @@
                       <td>
                         <!-- Call to action buttons -->
                         <ul class="list-inline m-0">
+                            
                             <li class="list-inline-item">
-                                <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>
-                            </li>
-                            <li class="list-inline-item">
-                                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" (click)="editInvestment(x.idInvestment, x)" title="Edit"><i class="fa fa-edit"></i></button>
                             </li>
                             <li class="list-inline-item">
                                 <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" (click)="deleteInvestment(x.idInvestment)" title="Delete"><i class="fa fa-trash"></i></button>
@@ -53,4 +51,3 @@
 
         </div>
     </div>
-</div>

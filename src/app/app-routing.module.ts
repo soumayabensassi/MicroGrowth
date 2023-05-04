@@ -19,21 +19,21 @@ import { ListUserBACKComponent } from './Component/list-user-back/list-user-back
 import { ListPublictaionBACKComponent } from './Component/list-publictaion-back/list-publictaion-back.component';
 import { AllTemplateAdminComponentComponent } from './Component/all-template-admin-component/all-template-admin-component.component';
 import { AllTemplateUserComponentComponent } from './Component/all-template-user-component/all-template-user-component.component';
- 
+
 import { AccountComponent } from './Component/Banking/account/account.component';
 import { AdminaccountComponent } from './Component/Banking/account/admin/adminaccount/adminaccount.component';
 import { AdminTransactionComponent } from './Component/Banking/account/admin/admin-transaction/admin-transaction.component';
 import { UpdateBankAccountComponent } from './Component/Banking/account/admin/update-bank-account/update-bank-account.component';
-import {MakeTransactionComponent} from "./Component/Banking/make-transaction/make-transaction.component";
-import {SuccesfultransferComponent} from "./Component/Banking/make-transaction/succesfultransfer/succesfultransfer.component";
+import { MakeTransactionComponent } from "./Component/Banking/make-transaction/make-transaction.component";
+import { SuccesfultransferComponent } from "./Component/Banking/make-transaction/succesfultransfer/succesfultransfer.component";
 import {
   TransfernotallowedComponent
 } from "./Component/Banking/make-transaction/transfernotallowed/transfernotallowed.component";
-import {TransactionhistoryComponent} from "./Component/Banking/account/transactionhistory/transactionhistory.component";
-import {DownloadsuccesfullComponent} from "./Component/Banking/account/downloadsuccesfull/downloadsuccesfull.component";
-import{ListCreditBackComponent} from './Component/list-credit-back/list-credit-back.component';
-import{AddCreditUserComponent} from './Component/add-credit-user/add-credit-user.component';
-import{ListPacksCreditsComponent} from './Component/list-packs-credits/list-packs-credits.component';
+import { TransactionhistoryComponent } from "./Component/Banking/account/transactionhistory/transactionhistory.component";
+import { DownloadsuccesfullComponent } from "./Component/Banking/account/downloadsuccesfull/downloadsuccesfull.component";
+import { ListCreditBackComponent } from './Component/list-credit-back/list-credit-back.component';
+import { AddCreditUserComponent } from './Component/add-credit-user/add-credit-user.component';
+import { ListPacksCreditsComponent } from './Component/list-packs-credits/list-packs-credits.component';
 import { CreditDetailsFrontComponent } from './Component/credit-details-front/credit-details-front.component';
 import { ListMyCreditsFrontComponent } from './Component/list-my-credits-front/list-my-credits-front.component';
 import { TableauAmoCreditComponent } from './Component/tableau-amo-credit/tableau-amo-credit.component';
@@ -58,10 +58,10 @@ import { ListProjetsBackComponent } from './Component/list-projets-back/list-pro
 import { StartupAddUserComponent } from './Component/startup-add-user/startup-add-user.component';
 import { ListInvestmentBackComponent } from './Component/list-investment-back/list-investment-back.component';
 import { BourseComponent } from './Component/bourse/bourse.component';
-
+import { EditInbComponent } from './Component/editInb/editInb.component';
+import { EditProjectComponent } from './Component/edit-project/edit-project.component';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AuthGuard } from './Auth/auth.guard';
-
 const routes: Routes = [{
   path: 'admin',
   component: AllTemplateAdminComponentComponent,
@@ -80,19 +80,13 @@ const routes: Routes = [{
     { path: 'updateTraining/:id', component: AddtrainingComponent },
     { path: 'listcomplaintback', component: ListComplaintBackComponent },
     { path: 'homepageBack', component: HomepageBACKComponent },
-      {path:'listcreditback',component:ListCreditBackComponent},
-    {path:'addCreditByAdmin',component:AddCreditAdminComponent},
-    {path:'listbank',component:AdminaccountComponent},
-    
-    {path:'listtransaction',component:AdminTransactionComponent},
+    { path: 'listcreditback', component: ListCreditBackComponent },
+    { path: 'addCreditByAdmin', component: AddCreditAdminComponent },
+    { path: 'listbank', component: AdminaccountComponent },
+    { path: 'listtransaction', component: AdminTransactionComponent },
     { path: 'updatebankaccount/:id', component: UpdateBankAccountComponent }
   ], canActivate: [AuthGuard], data: { roles: ['[ROLE_ADMIN]'] }
-
-   
-
 },
-
-
 {
   path: '',
   component: AllTemplateUserComponentComponent,
@@ -116,7 +110,6 @@ const routes: Routes = [{
     { path: 'Insurance', component: InsuranceComponent },
     { path: 'check-insurance', component: CheckInsuranceComponent },
     { path: 'simulate-insurance', component: SimulateInsuranceComponent },
-    { path: 'notfound', component: PageNotFoundComponent },
     { path: 'project', component: StartupAddUserComponent },
     { path: 'investor', component: InvestorComponent },
     { path: 'investinStock', component: BourseComponent },
@@ -124,18 +117,24 @@ const routes: Routes = [{
     { path: 'complaint', component: ComplaintComponent },
     { path: 'updatecomplaint/:id', component: ComplaintComponent },
     { path: 'detail/:id', component: TrainingdetailComponent },
-    {path:'addCreditUser',component:AddCreditUserComponent},
-    {path:'listPacksCredits',component:ListPacksCreditsComponent},
-    {path:'ListMyCreditsFrontComponent',component:ListMyCreditsFrontComponent},
-    {path:'afficherTableauCredit/:id',component:TableauAmoCreditComponent},
-    {path:'SimulationCreditFrontComponent',component:SimulationCreditFrontComponent},
-    {path:'creditpack/:id',component:CreditDetailsFrontComponent},
-    {path:'user/bankingaccount',component:AccountComponent},
-    {path:'user/bankingaccount/makeTransaction/:id',component:MakeTransactionComponent},
-    {path:'succesfultransfer',component:SuccesfultransferComponent},
-    {path:'transfernotallowed',component:TransfernotallowedComponent},
-    {path:'transactionhistory/:id',component:TransactionhistoryComponent},
-    {path:'downloadsuccesfull',component:DownloadsuccesfullComponent}
+    { path: 'addCreditUser', component: AddCreditUserComponent },
+    { path: 'listPacksCredits', component: ListPacksCreditsComponent },
+    { path: 'ListMyCreditsFrontComponent', component: ListMyCreditsFrontComponent },
+    { path: 'afficherTableauCredit/:id', component: TableauAmoCreditComponent },
+    { path: 'SimulationCreditFrontComponent', component: SimulationCreditFrontComponent },
+    { path: 'creditpack/:id', component: CreditDetailsFrontComponent },
+    { path: 'user/bankingaccount', component: AccountComponent },
+    { path: 'user/bankingaccount/makeTransaction/:id', component: MakeTransactionComponent },
+    { path: 'succesfultransfer', component: SuccesfultransferComponent },
+    { path: 'transfernotallowed', component: TransfernotallowedComponent },
+    { path: 'transactionhistory/:id', component: TransactionhistoryComponent },
+    { path: 'downloadsuccesfull', component: DownloadsuccesfullComponent },
+    { path: 'editinv/:id', component: EditInbComponent },
+    { path: 'editP/:id', component: EditProjectComponent },
+    { path: 'notfound', component: PageNotFoundComponent },
+
+
+
   ]
 },
 ];

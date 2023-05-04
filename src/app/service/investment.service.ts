@@ -20,15 +20,15 @@ export class InvestmentService {
   getInvestments(){
     return this.http.get<Investment[]>(this.URL+"admin/afficherInvestment",this.httpOptions);
    }
-  /* getProject(id:number){
-    return this.http.get<Project>(this.URL+"/"+id);
-   }*/
+   getInvestment(id:number){
+    return this.http.get<Investment>(this.URL+"afficherInvbyID/"+id);
+   }
    addInvestment(investment:Investment){
     console.log("hello")
 
     return this.http.post(this.URL+"user/ajouterInvestment",investment,this.httpOptions)}
    updateInvestment(id:number,Investment:Investment){
-    return this.http.put(this.URL+"admin/modifierInvestment",Investment,this.httpOptions)
+    return this.http.put(this.URL+"modifierInvestment/"+id,Investment)
    }
    deleteInvestment(id:number){
     return this.http.delete(this.URL+"admin/deleteInvestmentbyID/"+id,this.httpOptions)
