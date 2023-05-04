@@ -33,7 +33,7 @@ export class BankingService {
 }
   getAccountByidUser(id:number)
   {
-    return this.http.get(this.productURLAdmin+"showBankAccountbyuser/"+id,this.httpOptions);
+    return this.http.get(this.productURLUser+"showBankAccountbyuser/"+id,this.httpOptions);
   }
   makeTransfer(data: any) {
     const url = `${this.productURLUser}makeTransfer`;

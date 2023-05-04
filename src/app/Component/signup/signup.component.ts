@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     
   
-    
+    localStorage.removeItem('_grecaptcha')
 
   }
   captchaResponse!: string;
@@ -54,7 +54,9 @@ export class SignupComponent implements OnInit {
     this.userService.addUser(this.user).subscribe(
     
     )
-    this.route.navigateByUrl('/signin')}
+    this.route.navigateByUrl('/signin')
+ 
+}
     else 
     {
 this.msg="check the captcha "
