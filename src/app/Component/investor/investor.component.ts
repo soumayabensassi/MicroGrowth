@@ -3,6 +3,7 @@ import { Investment } from './../../Models/investment';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { saveAs } from 'file-saver';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -20,7 +21,14 @@ export class InvestorComponent implements OnInit {
   saveInvestment(){
     this.invest.addInvestment(this.Investment).subscribe(
 
-    )
+    );
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your investment has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
 
   }
   exportPDF(){

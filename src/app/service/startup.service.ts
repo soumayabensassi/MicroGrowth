@@ -18,13 +18,13 @@ export class StartupService {
   getProjects(){
     return this.http.get<Project[]>(this.URL+"afficherProjet",this.httpOptions);
    }
-  /* getProject(id:number){
-    return this.http.get<Project>(this.URL+"/"+id);
-   }*/
+   getProject(id:number){
+    return this.http.get<Project>(this.URL+"afficherProjectbyID/"+id);
+   }
    addProject(Project:Project){
     return this.http.post(this.URL+"ajouterProjet",Project,this.httpOptions)}
    updateProject(id:number,Project:Project){
-    return this.http.put(this.URL+"admin/modifierProjet",Project,this.httpOptions)
+    return this.http.put(this.URL+"admin/modifierProjet/"+id,Project,this.httpOptions)
    }
    deleteProject(id:number){
     return this.http.delete(this.URL+"admin/deleteProjetbyID/"+id,this.httpOptions)
@@ -35,5 +35,6 @@ export class StartupService {
 obligationIntrest(investissementId:number,projetId:number,investissementInitial:number,tauxRendement:number): Observable<number> {
   return this.http.post<number>(this.URL+"admin/calculerRendementAnnuel/"+investissementId+"/"+projetId+"?investissementInitial="+investissementInitial+"&tauxRendement="+tauxRendement,null,this.httpOptions)
 }
+
 
 }

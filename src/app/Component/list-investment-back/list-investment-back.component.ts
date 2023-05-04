@@ -22,8 +22,8 @@ export class ListInvestmentBackComponent implements OnInit {
     this.invSErvice.deleteInvestment(id).subscribe()
   }
   editInvestment(id: number, investment: Investment) {
-    this._router.navigate(['/edit-inv', id], { state: { investment: investment } });
+    this._router.navigate(['/editinv', id], { state: { investment: investment } });
   }
-  
+
 
 }

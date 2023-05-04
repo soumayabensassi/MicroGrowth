@@ -64,7 +64,9 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
     InvestorComponent,
     BourseComponent,
     IntrestCalculatorComponent,
-    PageNotFoundComponent
+    EditInbComponent,
+    PageNotFoundComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -82,5 +84,7 @@ import { AuthInterceptor } from './Auth/auth.interceptor';
   bootstrap: [AppComponent]
 })
 export class AppModule { }import { IntrestCalculatorComponent } from './Component/intrest-calculator/intrest-calculator.component';
+import { EditInbComponent } from './Component/editInb/editInb.component';
+import { EditProjectComponent } from './Component/edit-project/edit-project.component';
 
 

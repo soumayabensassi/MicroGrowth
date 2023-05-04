@@ -21,22 +21,16 @@
                     </div>
 
                     <p class="mb-4">Investing is a powerful way to build wealth over time and achieve financial security for yourself and your loved ones. By investing, you have the opportunity to grow your money through the power of compounding returns.</p>
-                    <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
-                        
-                        <div class="ps-4">
-                            <h5 class="mb-2">update investment</h5>
-                            <button class="btn btn-primary w-100 py-3" type="submit">update</button>
-                        </div>
-                    </div>
+                    
                     <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
                       <form (submit)="exportPDF()">
                         <label for="iduser">your id:</label>
-                       
+
                        <input type="number" class="form-control border-0 bg-light px-4" name="iduser" [(ngModel)]="iduser">
                         <br>
                         <button class="btn btn-primary w-100 py-3" type="submit">exportPDF</button>
                       </form>
-                      
+
                   </div>
                 </div>
                 <div class="col-lg-5">

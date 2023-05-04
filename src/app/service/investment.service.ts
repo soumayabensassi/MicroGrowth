@@ -28,7 +28,7 @@ export class InvestmentService {
 
     return this.http.post(this.URL+"user/ajouterInvestment",investment,this.httpOptions)}
    updateInvestment(id:number,Investment:Investment){
-    return this.http.put(this.URL+"modifierInvestment",Investment)
+    return this.http.put(this.URL+"modifierInvestment/"+id,Investment)
    }
    deleteInvestment(id:number){
     return this.http.delete(this.URL+"admin/deleteInvestmentbyID/"+id,this.httpOptions)

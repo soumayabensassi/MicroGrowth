@@ -25,6 +25,8 @@ import { BourseComponent } from './Component/bourse/bourse.component';
 
 import { AuthGuard } from './Auth/auth.guard';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
+import { EditInbComponent } from './Component/editInb/editInb.component';
+import { EditProjectComponent } from './Component/edit-project/edit-project.component';
 
 const routes: Routes = [  {
   path:'admin',
@@ -62,7 +64,10 @@ const routes: Routes = [  {
 {path:'updatePublication/:id',component:AddPublicationComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
+{path:'editinv/:id',component:EditInbComponent},
+{path:'editP/:id',component:EditProjectComponent},
 {path:'notfound',component:PageNotFoundComponent},
+
 
 
   ]
