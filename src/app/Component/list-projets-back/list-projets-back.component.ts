@@ -18,7 +18,7 @@ export class ListProjetsBackComponent implements OnInit {
     );
   }
   deleteProject(id:number){
-    this.startupService.deleteProject(id).subscribe()
+    this.startupService.deleteProject(id).subscribe(()=>this.list=this.list.filter((p)=>p.idprojet != id))
   }
   editInvestment(id: number, project: Project) {
     this._router.navigate(['/editP', id], { state: { project: project } });

@@ -3,7 +3,7 @@ export class Project {
   nom!:String ;
   description!:String;
   obligation!:number;
-  OptionValue!:number;
+  optionValue!:number;
   quantity!:number;
   duree!:number;
   tauxRendement!:number;

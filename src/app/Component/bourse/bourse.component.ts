@@ -15,7 +15,9 @@ export class BourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.startupService.getProjects().subscribe(
-      data => this.list = data
+      data => {this.list = data
+      console.log(this.list)}
+
     );
   }
   navigate(){
