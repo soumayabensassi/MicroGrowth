@@ -23,7 +23,7 @@
             <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Last Name</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" id="exampleInputPassword2"
-                    placeholder="please enter your L.Name" [(ngModel)]="lastName" name="lastName"  required>
+                    placeholder="please enter your L.Name" [(ngModel)]="lastName" name="lastName" required>
             </div>
         </div>
         <div class="form-group row">
@@ -42,54 +42,56 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-9 offset-sm-3 d-flex ">
-                <button type="submit" class="btn btn-primary mr-2 justify-content-center" >Test</button>
+                <button type="submit" class="btn btn-primary mr-2 justify-content-center">Test</button>
                 <button type="button" class="btn btn-light justify-content-center" (click)="onCancel()">Cancel</button>
             </div>
         </div>
-        <h3  class="mt-3 text-center">{{ message }}</h3>
-    </form>
-    
-
-
-
-
-
-    <h1 class="card-title text-center ">Simulate your Insurance</h1>
-    <form class="forms-sample" #form2="ngForm" (ngSubmit)="onSubmitForm2()">
-        <div class="form-group row">
-            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Number Of years</label>
-            <div class="col-sm-9">
-                <input type="number" class="form-control" id="exampleInputMobile"
-                    placeholder="please enter the number of years" [(ngModel)]="numberOfYears" name="numberOfYears" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Amount</label>
-            <div class="col-sm-9">
-                <input type="number" class="form-control" id="exampleInputUsername2"
-                    placeholder="please enter the want-to-insure amount" [(ngModel)]="amountt" name="amountt" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-9 offset-sm-3">
-                <button (click)="onSubmitForm2()" class="btn btn-success mr-2 text-center">Simulate</button>
-                <button type="button" class="btn btn-light text-center" (click)="onCancel()">Cancel</button>
-            </div>
-        </div>
+        <h3 class="mt-3 text-center">{{ message }}</h3>
     </form>
 
-    <div *ngIf="displayMessage2">
-        <h3 class="text-center">Your Total amount would be : {{totalAmount}}</h3>
-        <h3 class="text-center">The Monthly payment would be : {{monthlyPayment}}</h3>
-    </div>
 
-    <button class="chatbot-btn" (click)="toggleChatbot()">
-        <i class="fa fa-comment"></i>
-    </button>
-    
-    
-    <div class="agent chatbot-container" class="" *ngIf="showChatbot">
-        <iframe allow="microphone;" width="350" height="430"
-            src="https://console.dialogflow.com/api-client/demo/embedded/cee7afee-88b3-4e34-b066-18da7f42abeb">
-        </iframe>
+
+
+    <div *ngIf=" test ">
+        <h1 class="card-title text-center ">Simulate your Insurance</h1>
+        <form class="forms-sample" #form2="ngForm" (ngSubmit)="onSubmitForm2()">
+            <div class="form-group row">
+                <label for="exampleInputMobile" class="col-sm-3 col-form-label">Number Of years</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="exampleInputMobile"
+                        placeholder="please enter the number of years" [(ngModel)]="numberOfYears" name="numberOfYears"
+                        required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Amount</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="exampleInputUsername2"
+                        placeholder="please enter the want-to-insure amount" [(ngModel)]="amountt" name="amountt"
+                        required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-3">
+                    <button (click)="onSubmitForm2()" class="btn btn-success mr-2 text-center">Simulate</button>
+                    <button type="button" class="btn btn-light text-center" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+        </form>
+
+        <div *ngIf="displayMessage2">
+            <h3 class="text-center">Your Total amount would be : {{totalAmount}}</h3>
+            <h3 class="text-center">The Monthly payment would be : {{monthlyPayment}}</h3>
+        </div>
+
+        <button class="chatbot-btn" (click)="toggleChatbot()">
+            <i class="fa fa-comment"></i>
+        </button>
+
+
+        <div class="agent chatbot-container" class="" *ngIf="showChatbot">
+            <iframe allow="microphone;" width="350" height="430"
+                src="https://console.dialogflow.com/api-client/demo/embedded/cee7afee-88b3-4e34-b066-18da7f42abeb">
+            </iframe>
+        </div>
     </div>
