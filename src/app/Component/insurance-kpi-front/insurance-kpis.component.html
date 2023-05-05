@@ -146,23 +146,24 @@
                 <div class="d-flex justify-content-center">
                     <h3 class="card-title">Policy Retention Rate</h3>
                 </div>
-                <p  class="font-weight-500 text-center"> PPR KPI </p>
+                <p class="font-weight-500 text-center"> PPR KPI </p>
                 <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
                 <div class="d-flex justify-content-center" style="height: 300px;">
-                    <canvas #doughnutChart  style="position: absolute;  left: 500; width: 100%; height: 100%;"></canvas>
+                    <canvas #doughnutChart style="position: absolute;  left: 500; width: 100%; height: 100%;"></canvas>
 
                 </div>
             </div>
         </div>
     </div>
 </div>
-<button class="chatbot-btn"  (click)="toggleChatbot()">
+<button class="chatbot-btn" (click)="toggleChatbot()">
     <i class="fa fa-comment"></i>
 </button>
 
 
-<div class="agent chatbot-container "   class="" *ngIf="showChatbot">
+<div class="agent chatbot-container " class="" *ngIf="showChatbot">
     <iframe allow="microphone;" width="350" height="430"
-        src="https://console.dialogflow.com/api-client/demo/embedded/cee7afee-88b3-4e34-b066-18da7f42abeb">
+        src="https://console.dialogflow.com/api-client/demo/embedded/cd5d6653-f2d9-4973-ab82-c6b4c4b664c6">
     </iframe>
+
 </div>
