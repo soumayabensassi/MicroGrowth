@@ -40,7 +40,8 @@
                                     <div *ngIf="password.errors?.['pattern']">Password invalid </div>
                                 </div>
                             </div>
-                            
+                            <div class="alert alert-danger" *ngIf="msg!=''"> {{msg}}</div>
+
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="myForm.invalid" >Sign in</button>
                                

@@ -32,12 +32,26 @@
 
             <div class="col-12">
               <label for="amount_credit" class="form-label">Montant du crédit</label>
-              <input type="number" class="form-control border-0 bg-light px-4" placeholder="Montant du crédit" name="amount_credit" #amount_credit="ngModel" [(ngModel)]="credit.amount_credit" required style="height: 55px;">
+              <input type="number" class="form-control border-0 bg-light px-4" placeholder="Montant du crédit" name="amount_credit" #amount_credit="ngModel" [(ngModel)]="credit.amount_credit" required min="0" style="height: 55px;">
+              <div class="alert alert-danger" *ngIf="amount_credit.touched && amount_credit.invalid">
+                <div *ngIf="amount_credit.errors?.['required']">Amount is required</div>
+                <div *ngIf="amount_credit.errors?.['min']">Amount must be positive </div>
             </div>
+            </div>
+
+           
+
+
 
             <div class="col-12">
               <label for="amount_garant" class="form-label">Montant du garant</label>
               <input type="number" class="form-control border-0 bg-light px-4" placeholder="Montant du garant" name="amount_garant" #amount_garant="ngModel" [(ngModel)]="credit.amount_garant"   required style="height: 55px;">
+              <div class="alert alert-danger" *ngIf="amount_garant.touched && amount_garant.invalid">
+                <div *ngIf="amount_garant.errors?.['required']">Amount is required</div>
+          
+            </div>
+              
+
             </div>
             <div class="col-12">
               <label for="duree" class="form-label">Durée</label>

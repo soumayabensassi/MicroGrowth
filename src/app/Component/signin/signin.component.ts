@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms/forms';
 export class SigninComponent implements OnInit {
   user: User = new User();
   userInfo: User = new User();
+  msg:string=''
   constructor(private userService: UserService, private route: Router) { }
   role: string = ''
   ngOnInit(): void {
@@ -46,14 +47,14 @@ export class SigninComponent implements OnInit {
             }
           },
           (error) => {
-            console.log(error);
+            this.msg='Password Incorrect'
           }
         );
         
       },
       (error) => {
         // Login failed, display error message to user
-        console.error(error);
+        this.msg='Password Incorrect'
       })
 
 

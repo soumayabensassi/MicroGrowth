@@ -1,66 +1,78 @@
 <div class="container-fluid position-relative p-0">
 
   <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
-      <div class="row py-5">
-          <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-              <h1 class="display-4 text-white animated zoomIn">Simulation_credit</h1>
+    <div class="row py-5">
+      <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+        <h1 class="display-4 text-white animated zoomIn">Simulation_credit</h1>
+
+      </div>
+    </div>
+  </div>
+
+        <!-- Blog Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container py-5">
+      <div class="row g-5">
+          <!-- Blog list Start -->
+          <div class="col-lg-9">
+              <div class="row g-1">
+                <form class="credit-form" (ngSubmit)="Simulation_credit($event)" #creditForm="ngForm">
+                  <h2 class="text-center mb-4">Credit Simulator</h2>
+                  <div class="form-group">
+                    <label for="credit">Credit Amount :</label>
+                    <input type="number" id="credit" min="0" step="100" name="montant" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="months">Months :</label>
+                    <input type="number" id="months" min="1" name="nbmois" [(ngModel)]="nbmois" class="form-control"
+                      required>
+                  </div>
+                  <div class="text-center">
+                    <button class="btn btn-primary" type="submit" [disabled]="!creditForm.form.valid">Simulate</button>
+                  </div>
+                </form>
+              </div>
+              <br>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Amount</th>
+                    <th>Intrest</th>
+                    <th>monthly payment</th>
+                    <th>Cost without insurance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ list[0] }}</td>
+                    <td>{{ list[1]}}</td>
+                    <td>{{ list[2]}}</td>
+                    <td>{{ list[3]}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          
+             
+          <!-- Sidebar Start -->
+          <div class="col-lg-3">
+              <!-- Search Form Start -->
+              <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                  <div class="input-group">
+                        <form class="credit-form" (ngSubmit)="EnvoyerProposition()" #creditForm="ngForm">
+                          <h3 class="text-center mb-4">Get your Maximum credit amount via Email</h3>
+                          <div class="text-center">
+                            <button class="btn btn-primary" type="submit">Send</button>
+                          </div>
+                        </form>
+                          
+                  </div>
+              </div>
+              <!-- Search Form End -->
 
           </div>
+
+        
       </div>
   </div>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <form class="credit-form" (ngSubmit)="Simulation_credit($event)" #creditForm="ngForm">
-        <h2 class="text-center mb-4">Simulation de crédit</h2>
-        <div class="form-group">
-          <label for="credit">Montant de crédit :</label>
-          <input type="number" id="credit" min="0" step="100" name="montant" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="months">Nombre de mois :</label>
-          <input type="number" id="months" min="1" name="nbmois" [(ngModel)]="nbmois" class="form-control" required>
-        </div>
-        <div class="text-center">
-          <button class="btn btn-primary" type="submit" [disabled]="!creditForm.form.valid">Calculer</button>
-        </div>
-      </form>
-    </div>
-  </div>
-<br><br><br>
-
-<div class="row justify-content-center mt-5">
-  <div class="col-md-8">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Montant</th>
-            <th>Intérêt</th>
-            <th>Mensualité</th>
-            <th>Coût sans assurance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr >
-            <td>{{ list[0] }}</td>
-            <td>{{ list[1]}}</td>
-            <td>{{ list[2]}}</td>
-            <td>{{ list[3]}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-</div>
-<br>
-<br>
-<form class="credit-form" (ngSubmit)="EnvoyerProposition()" #creditForm="ngForm">
-  <h2 class="text-center mb-4">Simulation de crédit</h2>
-
-  <div class="text-center">
-    <button class="btn btn-primary" type="submit" [disabled]="!creditForm.form.valid">Calculer</button>
-  </div>
-</form>
-
+  <!-- Blog list End -->

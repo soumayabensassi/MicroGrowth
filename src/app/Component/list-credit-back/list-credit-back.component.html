@@ -37,9 +37,8 @@
                       <td>{{c.monthlyAmount}}</td>
                       
                       <td>{{c.duree}}</td>
-                      <td>0</td>
+                      <td>{{c.score_credit}}</td>
                       <td>{{c.montant_penalites}}</td>
-<td></td>
                         
                           <td *ngIf="c.state==1"> <button  class="btn btn-primary" [routerLink]="['/admin/AccorderInterview',c.idCredit]" > Accordé</button></td>  
                         
