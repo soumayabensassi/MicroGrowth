@@ -16,9 +16,9 @@ import { User } from 'src/app/Models/user';
 export class InsuranceComponent implements OnInit {
   activitySectors!: ActivitySector[];
   newInsurance: Insurance = new Insurance();
-  sector!: ActivitySector;
   message!: string;
   userInfo!: User;
+  sector!: ActivitySector;
 
   constructor(private insuranceService: InsuranceServiceService,private userservice : UserService ,private activitySectorService: ActivitysectorService , private route: Router, private active: ActivatedRoute) {
   }
@@ -50,7 +50,7 @@ export class InsuranceComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.valid) {
       this.message = "Your Insurance has been added";
-      this.newInsurance.activitySector = this.sector;
+      this.newInsurance.activitySector= this.sector;
       this.newInsurance.users= this.userInfo;
       this.insuranceService.createInsurance(this.newInsurance).subscribe(insurance => {
         // handle success
