@@ -65,7 +65,10 @@ export class UserService {
   }
  
   
-
+verifUSer(email:string)
+{
+  return this.http.get<boolean>("http://localhost:8082/MicroGrowth/verifUser/"+email)
+}
   getUsers() {
     return this.http.get<User[]>(this.productURL + "admin/afficheruser", this.httpOptions);
   }
