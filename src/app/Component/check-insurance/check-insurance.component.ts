@@ -28,14 +28,15 @@ export class CheckInsuranceComponent implements OnInit {
     this.userService.getUserInfo().subscribe(
       (data) => {
         this.userInfo = data;
-        console.log(data)
+        this.insuranceService.getAllInsurances().subscribe(
+          data => {
+            this.insurances = data.filter(insurance => insurance.users.email === this.userInfo.email);
+          },
+          error => console.log(error)
+        );
       });
-    this.insuranceService.getAllInsurances().subscribe(
-      data => {
-        this.insurances = data.filter(insurance => insurance.users.email === this.userInfo.email);
-      },
-      error => console.log(error)
-    );
+      
+    
     
   }
   
