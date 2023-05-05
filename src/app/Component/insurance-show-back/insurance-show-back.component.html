@@ -31,13 +31,13 @@
                                     Interest Rate
                                 </th>
                                 <th>
-                                    Actions
-                                </th>
-                                <th>
                                     Monthly Amount
                                 </th>
                                 <th>
                                     Total Amount
+                                </th>
+                                <th>
+                                    Actions
                                 </th>
                                 <th>
                                     Progress
@@ -68,15 +68,14 @@
                                     0.12
                                 </td>
                                 <td class="py-1">
-                                    <button (click)="deleteInsurance(insurance)"
-                                        class="btn btn-danger">Delete</button>
-                                    <button (click)="goToModify(insurance)" class="btn btn-warning">Modify</button>
-                                </td>
-                                <td class="py-1">
-                                    {{  monthlyPayments.get(insurance.idInsurance) }}
+                                    {{ monthlyPayments.get(insurance.idInsurance) }}
                                 </td>
                                 <td class="py-1">
                                     {{ totalAmounts.get(insurance.idInsurance) }}
+                                </td>
+                                <td class="py-1">
+                                    <button (click)="deleteInsurance(insurance)" class="btn btn-danger">Delete</button>
+                                    <button (click)="goToModify(insurance)" class="btn btn-warning">Modify</button>
                                 </td>
                                 <td>
                                     <div class="progress">

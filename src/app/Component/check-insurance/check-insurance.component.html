@@ -67,30 +67,6 @@
                 <h3 class="text-center">{{ insurances[0].endDate }}</h3>
             </div>
         </div>
-        <div class="row d-flex justify-content-center">
-            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
-                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                    <img class="img-fluid rounded" src="../../../assets/img/activity1.png"
-                        style="width: 60px; height: 60px;">
-                    <div class="ps-4">
-                        <h3 class="text-primary mb-1">Activity Sector</h3>
-                        <small class="text-uppercase">The Insurance Field</small>
-                    </div>
-                </div>
-                <h3 class="text-center">{{ insurances[0].activitySector.name }}</h3>
-            </div>
-            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
-                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                    <img class="img-fluid rounded" src="../../../assets/img/percentage.png"
-                        style="width: 60px; height: 60px;">
-                    <div class="ps-4">
-                        <h3 class="text-primary mb-1">Interest Rate</h3>
-                        <small class="text-uppercase">The Field's Interest Rate</small>
-                    </div>
-                </div>
-                <h3 class="text-center">12%</h3>
-            </div>
-        </div>
         <div class="row d-flex justify-content-center ">
             <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
                 <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
@@ -115,6 +91,30 @@
                     </div>
                 </div>
                 <h3 class="text-center">{{ calculateTotalAmount(this.insurances[0].amount) |number: '1.0-0' }}</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="../../../assets/img/activity1.png"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Activity Sector</h3>
+                        <small class="text-uppercase">The Insurance Field</small>
+                    </div>
+                </div>
+                <h3 class="text-center">{{ insurances[0].activitySector.name }}</h3>
+            </div>
+            <div class="testimonial-item bg-light my-4 col-md-5" style="position: relative;">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="../../../assets/img/percentage.png"
+                        style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h3 class="text-primary mb-1">Interest Rate</h3>
+                        <small class="text-uppercase">The Field's Interest Rate</small>
+                    </div>
+                </div>
+                <h3 class="text-center">12%</h3>
             </div>
         </div>
     </div>
@@ -143,9 +143,7 @@
                                     <th>
                                         End Date
                                     </th>
-                                    <th>
-                                        Activity Sector
-                                    </th>
+                                    
                                     <th>
                                         Interest Rate
                                     </th>
@@ -154,6 +152,9 @@
                                     </th>
                                     <th>
                                         Total Amount
+                                    </th>
+                                    <th>
+                                        Activity Sector
                                     </th>
                                     <th>
                                         Progress
@@ -174,9 +175,7 @@
                                     <td class="py-1">
                                         {{ insurance.endDate }}
                                     </td>
-                                    <td>
-                                        {{ insurance.activitySector.name }}
-                                    </td>
+                                    
                                     <td class="py-1">
                                         0.12
                                     </td>
@@ -186,6 +185,9 @@
                                     <td class="py-1">
                                         {{ calculateTotalAmount(this.insurance.amount) }}
 
+                                    </td>
+                                    <td>
+                                        {{ insurance.activitySector.name }}
                                     </td>
                                     <td>
                                         <div class="progress">
