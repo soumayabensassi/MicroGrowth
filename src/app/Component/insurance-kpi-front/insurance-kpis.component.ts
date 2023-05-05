@@ -10,8 +10,8 @@ import { Chart } from 'chart.js/auto';
   styleUrls: ['./insurance-kpis.component.css']
 })
 export class InsuranceKpisComponent implements OnInit {
-  @ViewChild('pieChart1') pieChart1 !: ElementRef;
-  @ViewChild('doughnutChart1') doughnutChart1 !: ElementRef;
+  @ViewChild('pieChart', { static: true }) pieChart!: ElementRef;
+  @ViewChild('doughnutChart', { static: true }) doughnutChart!: ElementRef;
 
 
 
@@ -30,31 +30,26 @@ export class InsuranceKpisComponent implements OnInit {
 
   ngOnInit(): void {
     // make the HTTP request to getSatisfactionKPI() and subscribe to the Observable
-    this.insuranceKpiService.getSatisfactionKPI().subscribe(satisfactionData => {
-      const satisfactionKPI = satisfactionData;
-
-      // make the HTTP request to getPRRKPI() and subscribe to the Observable
-      this.insuranceKpiService.getPRRKPI(10, 20).subscribe(prrrData => {
-        const prrKPI = prrrData;
+    
 
         // set up the data for the pie chart
         const satisfactionData = {
           labels: ['Satisfied', 'Non-satisfied'],
           datasets: [
             {
-              data: [satisfactionKPI, 1 - satisfactionKPI], // use satisfactionKPI for the 'Satisfied' slice
-              backgroundColor: ['#007bff', '#dc3545'] // blue for 'Satisfied', red for 'Non-satisfied'
+              data: [1, 0], // use satisfactionKPI for the 'Satisfied' slice
+              backgroundColor: ['#358ac3', '#77c1de'] // blue for 'Satisfied', red for 'Non-satisfied'
             }
           ]
         };
 
         // set up the data for the doughnut chart
         const prrData = {
-          labels: ['In compliance', 'Not in compliance'],
+          labels: ['Policies you like', 'Policies you chose'],
           datasets: [
             {
-              data: [prrKPI, 1 - prrKPI], // use prrKPI for the 'In compliance' slice
-              backgroundColor: ['#28a745', '#dc3545'] // green for 'In compliance', red for 'Not in compliance'
+              data: [80, 20], // use prrKPI for the 'In compliance' slice
+              backgroundColor: ['#1e5e79', '#358ac3'] // green for 'In compliance', red for 'Not in compliance'
             }
           ]
         };
@@ -69,26 +64,26 @@ export class InsuranceKpisComponent implements OnInit {
         };
 
         // create the pie chart using the pieChartRef
-        new Chart(this.pieChart1.nativeElement, {
+        new Chart(this.pieChart.nativeElement, {
           type: 'pie',
           data: satisfactionData,
           options: options
         });
 
         // create the doughnut chart using the doughnutChartRef
-        new Chart(this.doughnutChart1.nativeElement, {
+        new Chart(this.doughnutChart.nativeElement, {
           type: 'doughnut',
           data: prrData,
           options: options
         });
-      });
-    });
   }
 
   showChatbot = false;
   toggleChatbot() {
     this.showChatbot = !this.showChatbot;
   }
+
+  
 
 
 

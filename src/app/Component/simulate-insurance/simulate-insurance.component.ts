@@ -11,28 +11,29 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class SimulateInsuranceComponent implements OnInit {
   name: string = '';
   lastName: string = '';
-  income!: number ;
-  debt! : number ;
+  income!: number;
+  debt!: number;
   message: string = '';
-  displayMessage1=false;
-  displayMessage2= false;
+  displayMessage1 = false;
+  displayMessage2 = false;
   totalAmount!: number;
   monthlyPayment!: number;
-  amount! : number;
-  amountt! : number;
-  numberOfYears! : number;
+  amount!: number;
+  amountt!: number;
+  numberOfYears!: number;
 
 
   constructor(private router: Router, private fb: FormBuilder) {
   }
   ngOnInit(): void {
   }
-
+  test: boolean = false;
 
   onSubmitForm1() {
-    this.displayMessage1=true;
+    this.displayMessage1 = true;
     if ((this.debt / this.income) < 0.43) {
       this.message = `Dear ${this.name} ${this.lastName}, Your insurance request will be approved.`;
+      this.test = true;
     } else {
       this.message = `Dear ${this.name} ${this.lastName}, Your insurance request will be dismissed.`;
     }
