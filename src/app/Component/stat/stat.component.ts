@@ -21,40 +21,32 @@ export class StatComponent implements OnInit {
 
   ngOnInit(): void {
     this.stat.Calcultauxsatifait().subscribe(resultat => {
-      this.Profitability = resultat; 
-      console.log(resultat) 
-      console.log(this.Profitability) }
-       );
-      
-      this.stat.Calcultauxsatifait().subscribe(resultat => {
-        this.Profitability1 = resultat; 
-        console.log(resultat) 
-        console.log(this.Profitability1)});
-       this.chartData.push(50);
-        this.chartData.push(50);
-        this.chartDatalabels.push('Satisfied');
-        this.chartDatalabels.push('Unsatified');
-      
-    
-        this.ctx = document.getElementById('myChart');
-        this.config = {
-          type : 'pie',
-          options : {
-          },
-          data : {
-            labels : this.chartDatalabels,
-            datasets : [{ 
-              label: 'Chart Data',
-              data: this.chartData,
-              borderWidth: 5,
-              borderColor: 'grey',
-              backgroundColor: ['pink', 'yellow']
+      this.chartData.push(resultat);this.chartData.push(1-resultat);
+      console.log(resultat);
+      console.log(this.chartData);
+    this.chartDatalabels.push("satisfied");
+    this.chartDatalabels.push("unsatisfied");
+      // Créer le graphique en utilisant les données mises à jour
+      this.ctx = document.getElementById('myChart');
+      this.config = {
+        type : 'pie',
+        options : {
+        },
+        data : {
+          labels : this.chartDatalabels,
+          datasets : [{ 
+            label: 'Chart Data',
+            data: this.chartData,
+            borderWidth: 5,
+            borderColor: 'grey',
+            backgroundColor: ['pink', 'yellow']
           }],
-          }
         }
-        const myChart = new Chart(this.ctx, this.config);
       }
+      const myChart = new Chart(this.ctx, this.config);
+    });
+    
     
   }
 
-
+}

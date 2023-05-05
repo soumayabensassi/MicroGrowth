@@ -31,6 +31,6 @@ export class SimulationCreditFrontComponent implements OnInit {
       this.list=res}));
   }
 EnvoyerProposition(){
-  this.creditservice.EnvoyerMaxMontant(12).subscribe();
+  this.creditservice.EnvoyerMaxMontant(24).subscribe();
 }
 }
