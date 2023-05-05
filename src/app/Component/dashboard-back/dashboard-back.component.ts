@@ -20,5 +20,7 @@ export class DashboardBACKComponent implements OnInit {
     this.route.navigate(['/signin']); // navigate the user to the login page
     this.token=false
   }
-  
+  ouvrirChat() {
+    window.open('http://localhost:8082/MicroGrowth', '_blank');
+  }
 }
