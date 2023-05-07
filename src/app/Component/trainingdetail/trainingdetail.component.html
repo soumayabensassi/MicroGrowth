@@ -56,12 +56,12 @@
                     <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="../../assets/img/blog-1.jpg" style="object-fit: cover;">
                 </div>
             </div>
-
+            <mgl-map [style]="'https://api.maptiler.com/maps/streets-v2/style.json?key=84kfL28mMOzGzBIPdZUY'"  [zoom]="[14]" [center]="[16.62662018, 49.2125578]">
+                <mgl-marker [lngLat]="[training.longitude,training.latitude]"></mgl-marker>
+             <mgl-control mglNavigation position="top-left"></mgl-control>
+      </mgl-map>
         </div>
-        <mgl-map [style]="'https://api.maptiler.com/maps/streets-v2/style.json?key=84kfL28mMOzGzBIPdZUY'"  [zoom]="[14]" [center]="[16.62662018, 49.2125578]">
-          <mgl-marker [lngLat]="myLngLat"></mgl-marker>
-       <mgl-control mglNavigation position="top-left"></mgl-control>
-</mgl-map>
+       
 
 
     </div>
